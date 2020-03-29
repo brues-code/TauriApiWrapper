@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tauri_SDK_Tests
+namespace TauriApiWrapper_Tests
 {
     [TestClass]
     public class ClientTests
