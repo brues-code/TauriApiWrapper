@@ -19,9 +19,9 @@ namespace TauriApiWrapper
         private HttpClient Client => _client.Value;
 
         private readonly string _apiKey;
-        private readonly string _secret;
+        protected readonly string Secret;
 
-        private string _endpoint
+        private string Endpoint
         {
             get
             {
@@ -36,24 +36,24 @@ namespace TauriApiWrapper
         public TauriClient(string apiKey, string secretKey)
         {
             _apiKey = apiKey;
-            _secret = secretKey;
+            Secret = secretKey;
         }
 
         #endregion Ctor
 
         #region Methods
 
-        public T Communicate<T>(ApiParams data) where T : ApiResponse<T>, new()
+        protected ApiResponse<T> Communicate<T>(ApiParams data)
         {
             return CommunicateAsync<T>(data).GetAwaiter().GetResult();
         }
 
-        public async Task<T> CommunicateAsync<T>(ApiParams data) where T : ApiResponse<T>, new()
+        protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data)
         {
-            T apiObject = new T();
+            ApiResponse<T> apiObject = new ApiResponse<T>();
             var response = await CallAPI(data);
             var result = await response.Content.ReadAsStringAsync();
-            return (T)apiObject.ToApiResponse(result);
+            return apiObject.ToApiResponse(result);
         }
 
         #endregion Methods
@@ -63,7 +63,7 @@ namespace TauriApiWrapper
         private async Task<HttpResponseMessage> CallAPI(ApiParams data)
         {
             StringContent json = new StringContent(data.ToJSON(), Encoding.UTF8, "application/json");
-            return await Client.PostAsync(_endpoint, json);
+            return await Client.PostAsync(Endpoint, json);
         }
 
         #endregion Privates

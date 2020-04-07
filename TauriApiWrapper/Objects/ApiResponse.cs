@@ -2,7 +2,7 @@
 
 namespace TauriApiWrapper.Objects
 {
-    public abstract class ApiResponse<T>
+    public class ApiResponse<T>
     {
         [JsonProperty(PropertyName = "success")]
         public bool IsSuccess { get; set; }
@@ -14,14 +14,14 @@ namespace TauriApiWrapper.Objects
         public string ErrorMessage { get; set; }
 
         [JsonProperty(PropertyName = "response")]
-        public virtual T Response { get; set; }
+        public T Response { get; set; }
 
-        public virtual string ToJSON()
+        public string ToJSON()
         {
             return JsonConvert.SerializeObject(this);
         }
 
-        public virtual ApiResponse<T> ToApiResponse(string response)
+        public ApiResponse<T> ToApiResponse(string response)
         {
             return JsonConvert.DeserializeObject<ApiResponse<T>>(response);
         }

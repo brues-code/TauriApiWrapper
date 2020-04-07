@@ -8,6 +8,6 @@ namespace TauriApiWrapper.Objects
 {
     public interface IApiParam
     {
-        string Realm { get; }
+        string RealmName { get; }
     }
 }

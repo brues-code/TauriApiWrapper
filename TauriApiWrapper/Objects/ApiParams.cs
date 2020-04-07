@@ -10,17 +10,36 @@ namespace TauriApiWrapper.Objects
     public class ApiParams
     {
         [JsonProperty(PropertyName = "secret")]
-        public virtual string Secret { get; set; }
+        public string Secret { get; private set; }
 
         [JsonProperty(PropertyName = "params")]
-        public virtual IApiParam Params { get; set; }
+        public IApiParam Params { get; private set; }
 
         [JsonProperty(PropertyName = "url")]
-        public virtual string Url { get; }
+        public string Url { get; }
 
-        public virtual string ToJSON()
+        #region Ctor
+
+        public ApiParams()
+        {
+        }
+
+        public ApiParams(string url, string secret, IApiParam apiParams)
+        {
+            Url = url;
+            Secret = secret;
+            Params = apiParams;
+        }
+
+        #endregion Ctor
+
+        #region Public Methods
+
+        public string ToJSON()
         {
             return JsonConvert.SerializeObject(this);
         }
+
+        #endregion Public Methods
     }
 }
