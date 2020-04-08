@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Requests;
+using TauriApiWrapper.Objects.Responses;
 
 namespace TauriApiWrapper
 {
@@ -20,17 +21,19 @@ namespace TauriApiWrapper
         /// <summary>
         /// TODO: Change return type later
         /// </summary>
-        public ApiResponse<object> GetItemById(int id, Realm realm = Realm.Evermoon)
+        public ApiResponse<ItemResponse> GetItemById(int id, Realm realm = Realm.Evermoon)
         {
-            var param = new ApiParams(_url, Secret, new ItemRequest(id, realm));
-            return Communicate<object>(param);
+            ApiParams param = new ApiParams(_url, Secret, new ItemRequest(id, realm));
+            return Communicate<ItemResponse>(param);
         }
 
         /// <summary>
         /// TODO: Change return type later
         /// </summary>
-        public void GetItemsByIds(params int[] ids)
+        public ApiResponse<ItemResponseList> GetItemsByIds(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon)
         {
+            ApiParams param = new ApiParams(_url, Secret, new ItemRequest(itemIds, realm));
+            return Communicate<ItemResponseList>(param);
         }
     }
 }

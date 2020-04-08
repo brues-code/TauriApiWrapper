@@ -13,10 +13,15 @@ namespace TauriApiWrapper.Objects.Requests
     {
         public ItemRequest(int itemID, Realm realm = Realm.Evermoon) : base(realm)
         {
-            ItemID = itemID;
+            ItemIDs = new int[] { itemID };
+        }
+
+        public ItemRequest(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon) : base(realm)
+        {
+            ItemIDs = itemIds.ToArray();
         }
 
         [JsonProperty("e")]
-        public int ItemID { get; }
+        public int[] ItemIDs { get; }
     }
 }

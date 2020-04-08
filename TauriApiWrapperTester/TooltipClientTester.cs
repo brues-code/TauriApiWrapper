@@ -1,5 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Diagnostics;
 using TauriApiWrapper;
+using TauriApiWrapper.Objects;
+using TauriApiWrapper.Objects.Responses;
 
 namespace TauriApiWrapperTester
 {
@@ -9,9 +13,16 @@ namespace TauriApiWrapperTester
         [TestMethod]
         public void GetItemById()
         {
-            using TooltipClient client = new TooltipClient("e26c8d840d406f0004badcf70f207a23", "fcf1b92f000c99d61685f9629a4645218e746083");
-            var returnData = client.GetItemById(104633);
+            using TooltipClient client = new TooltipClient(TestingCredentials.ApiKey, TestingCredentials.Secret);
+            ApiResponse<ItemResponse> returnData = client.GetItemById(104633);
+            Assert.IsNotNull(returnData.Response);
+        }
 
+        [TestMethod]
+        public void GetItemByIds()
+        {
+            using TooltipClient client = new TooltipClient(TestingCredentials.ApiKey, TestingCredentials.Secret);
+            var returnData = client.GetItemsByIds(new List<int> { 104633, 42944 });
             Assert.IsNotNull(returnData.Response);
         }
     }
