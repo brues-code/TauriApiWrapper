@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TauriApiWrapper.Objects.Responses
 {
-    public sealed class ItemResponse : ItemResponseBase
+    public sealed class ItemResponse : BaseApiResponse
     {
         [JsonProperty("SocketContainedMask")]
         public long SocketContainedMask { get; set; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TauriApiWrapperTester
+namespace TauriApiWrapperTests
 {
     internal class TestingCredentials
     {

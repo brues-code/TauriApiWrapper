@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TauriApiWrapper.Objects.Responses
 {
-    public abstract class ItemResponseBase
+    public abstract class BaseApiResponse
     {
         [JsonProperty("isCata")]
         public bool IsCata { get; set; }
