@@ -1,8 +1,0 @@
-language: csharp
-solution: "Tauri SDK.sln"
-mono:
-  - latest
-  - 3.12.0
-  - 3.10.0
-install:
-- nuget restore Tauri SDK.sln
