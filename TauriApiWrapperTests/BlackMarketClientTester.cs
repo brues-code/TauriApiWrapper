@@ -1,10 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
-using TauriApiWrapper.Objects.Responses;
+using TauriApiWrapper.Objects.Responses.AuctionHouse;
 
 namespace TauriApiWrapperTests
 {

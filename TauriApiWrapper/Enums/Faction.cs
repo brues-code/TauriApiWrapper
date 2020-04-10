@@ -4,9 +4,10 @@ using System.Text;
 
 namespace TauriApiWrapper.Enums
 {
-    [Flags, Serializable]
-    public enum Races
+    public enum Faction
     {
-        //TODO Add enum values
+        Undefined = -1,
+        Alliance = 0,
+        Horde = 1
     }
 }

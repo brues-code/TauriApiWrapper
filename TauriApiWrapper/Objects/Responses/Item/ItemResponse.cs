@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapper.Objects.Responses
 {
@@ -38,7 +39,7 @@ namespace TauriApiWrapper.Objects.Responses
         public object[] SocketContainedGem { get; set; }
 
         [JsonProperty("ID")]
-        public long Id { get; set; }
+        public long ID { get; set; }
 
         [JsonProperty("_Class")]
         public long Class { get; set; }
@@ -312,39 +313,5 @@ namespace TauriApiWrapper.Objects.Responses
 
         [JsonProperty("useenchantment")]
         public string UseEnchantment { get; set; }
-    }
-
-    public sealed class Durability
-    {
-        [JsonProperty("current")]
-        public long Current { get; set; }
-
-        [JsonProperty("max")]
-        public long Max { get; set; }
-    }
-
-    public sealed class ItemSetInfo
-    {
-    }
-
-    public sealed class ItemStat
-    {
-        [JsonProperty("type")]
-        public long Type { get; set; }
-
-        [JsonProperty("value")]
-        public long Value { get; set; }
-
-        [JsonProperty("StatDescription")]
-        public string StatDescription { get; set; }
-    }
-
-    public sealed class Socket
-    {
-        [JsonProperty("Color")]
-        public long Color { get; set; }
-
-        [JsonProperty("Content")]
-        public long Content { get; set; }
     }
 }

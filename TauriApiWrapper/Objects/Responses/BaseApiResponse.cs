@@ -11,7 +11,7 @@ namespace TauriApiWrapper.Objects.Responses
         public bool IsCata { get; set; }
 
         [JsonProperty("expansion")]
-        public long Expansion { get; set; }
+        public int Expansion { get; set; }
 
         [JsonProperty("dataUrlPrefix")]
         public string DataUrlPrefix { get; set; }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TauriApiWrapper.Objects.Responses
+namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
     public class BlackMarketResponse : BaseApiResponse
     {

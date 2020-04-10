@@ -2,31 +2,32 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TauriApiWrapper.Enums;
 
-namespace TauriApiWrapper.Objects.Responses
+namespace TauriApiWrapper.Objects.Responses.Character
 {
     public class CharacterResponse : BaseApiResponse
     {
         [JsonProperty("charname")]
-        public string Charname { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("race")]
-        public long Race { get; set; }
+        public Race Race { get; set; }
 
         [JsonProperty("class")]
-        public long Class { get; set; }
+        public Class Class { get; set; }
 
         [JsonProperty("gender")]
-        public long Gender { get; set; }
+        public Gender Gender { get; set; }
 
         [JsonProperty("guildname")]
         public string Guildname { get; set; }
 
         [JsonProperty("level")]
-        public long Level { get; set; }
+        public int Level { get; set; }
 
         [JsonProperty("faction")]
-        public long Faction { get; set; }
+        public Faction Faction { get; set; }
 
         [JsonProperty("isCharacter")]
         public bool IsCharacter { get; set; }
