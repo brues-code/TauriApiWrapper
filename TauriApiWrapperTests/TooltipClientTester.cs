@@ -17,7 +17,7 @@ namespace TauriApiWrapperTests
         {
             using (TooltipClient client = new TooltipClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<ItemResponse> returnData = client.GetItemById(104633);
+                ApiResponse<ItemResponse> returnData = client.GetItemById(99359);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.Response.ID > 0);
             }

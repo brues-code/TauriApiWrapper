@@ -12,7 +12,7 @@ namespace TauriApiWrapper.Objects.Responses
         public long SocketContainedMask { get; set; }
 
         [JsonProperty("curDurability")]
-        public long CurDurability { get; set; }
+        public long CurrentDurability { get; set; }
 
         [JsonProperty("creatorName")]
         public string CreatorName { get; set; }
@@ -24,13 +24,13 @@ namespace TauriApiWrapper.Objects.Responses
         public string SocketBonusDesc { get; set; }
 
         [JsonProperty("AllowedClassesStr")]
-        public string AllowedClassesStr { get; set; }
+        public string AllowedClasses { get; set; }
 
         [JsonProperty("AllowedRacesStr")]
-        public string AllowedRacesStr { get; set; }
+        public string AllowedRaces { get; set; }
 
         [JsonProperty("ReqSkillStr")]
-        public string ReqSkillStr { get; set; }
+        public string ReqSkill { get; set; }
 
         [JsonProperty("ReqSkillRank")]
         public long ReqSkillRank { get; set; }
@@ -48,7 +48,7 @@ namespace TauriApiWrapper.Objects.Responses
         public long SubClass { get; set; }
 
         [JsonProperty("DisplayId")]
-        public long DisplayId { get; set; }
+        public long DisplayID { get; set; }
 
         [JsonProperty("InventoryType")]
         public long InventoryType { get; set; }
@@ -196,6 +196,9 @@ namespace TauriApiWrapper.Objects.Responses
 
         [JsonProperty("Socket")]
         public Socket[] Socket { get; set; }
+
+        [JsonProperty("itemsetInfo")]
+        public string ItemSetInfoHtml { get; set; }
 
         [JsonProperty("ItemSetInfo")]
         public ItemSetInfo ItemSetInfo { get; set; }
