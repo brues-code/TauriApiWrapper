@@ -7,11 +7,11 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public sealed class BlackMarketRequest : IApiParam
+    public class AuctionHouseBaseRequest : IApiParam
     {
         private Realm _realm;
 
-        public BlackMarketRequest(Realm realm) => _realm = realm;
+        public AuctionHouseBaseRequest(Realm realm) => _realm = realm;
 
         [JsonProperty("r")]
         public string RealmName => _realm.ToName();

@@ -7,7 +7,7 @@ using TauriApiWrapper.Extensions;
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
-    public class BlackMarketInfoResponse : BaseApiResponse
+    public class AuctionHouseInfoResponse : BaseApiResponse
     {
         [JsonProperty("lastModified"), JsonConverter(typeof(UnixDateConverter))]
         public DateTime LastModified { get; set; }
