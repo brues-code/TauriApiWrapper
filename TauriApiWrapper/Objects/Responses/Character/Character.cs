@@ -6,7 +6,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Character
 {
-    public class CharacterResponse : BaseApiResponse
+    public class Character : BaseApiResponse
     {
         [JsonProperty("charname")]
         public string Name { get; set; }

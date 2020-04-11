@@ -1,21 +1,17 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using TauriApiWrapper.Converters;
+using System.Text;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects.Responses.Dungeon;
+using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapper.Objects.Responses.Character
 {
-    public sealed class CharacterSheetResponse : CharacterResponse
+    public sealed class CharacterTalents : Character
     {
-        [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm Realm { get; set; }
-
         [JsonProperty("guid")]
-        public int Guid { get; set; }
-
-        [JsonProperty("name")]
-        public new string Name { get; set; }
+        public long Guid { get; set; }
 
         [JsonProperty("titleName")]
         public string TitleName { get; set; }
@@ -27,10 +23,10 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public string PortraitPath { get; set; }
 
         [JsonProperty("pts")]
-        public int AchievementPoints { get; set; }
+        public long AchievmentPoints { get; set; }
 
-        [JsonProperty("faction_string_class"), JsonConverter(typeof(FactionConverter))]
-        public new Faction Faction { get; set; }
+        [JsonProperty("faction_string_class")]
+        public Faction FactionStringClass { get; set; }
 
         [JsonProperty("guildName")]
         public string GuildName { get; set; }
@@ -39,19 +35,19 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public string GuildLinkName { get; set; }
 
         [JsonProperty("arenaTeam2v2id")]
-        public int ArenaTeam2V2Id { get; set; }
+        public long ArenaTeam2V2Id { get; set; }
 
         [JsonProperty("arenaTeam3v3id")]
-        public int ArenaTeam3V3Id { get; set; }
+        public long ArenaTeam3V3Id { get; set; }
 
         [JsonProperty("arenaTeam5v5id")]
-        public int ArenaTeam5V5Id { get; set; }
+        public long ArenaTeam5V5Id { get; set; }
 
         [JsonProperty("dualSpec")]
         public bool DualSpec { get; set; }
 
         [JsonProperty("activeSpec")]
-        public int ActiveSpec { get; set; }
+        public long ActiveSpec { get; set; }
 
         [JsonProperty("talents_builds_0")]
         public string TalentsBuilds0 { get; set; }
@@ -87,13 +83,10 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public bool DisabledDs1 { get; set; }
 
         [JsonProperty("playerHonorKills")]
-        public int PlayerHonorKills { get; set; }
+        public long PlayerHonorKills { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }
-
-        [JsonProperty("tname")]
-        public string NameWithTitle { get; set; }
 
         [JsonProperty("isBookmarked")]
         public bool IsBookmarked { get; set; }
@@ -105,7 +98,7 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public string CharacterUrlString { get; set; }
 
         [JsonProperty("avgitemlevel")]
-        public int AvgItemLevel { get; set; }
+        public long AvgItemlevel { get; set; }
 
         [JsonProperty("skindata")]
         public SkinData SkinData { get; set; }
@@ -113,28 +106,16 @@ namespace TauriApiWrapper.Objects.Responses.Character
         [JsonProperty("challengemode")]
         public Dictionary<string, ChallengeMode> ChallengeMode { get; set; }
 
-        [JsonProperty("healthValue")]
-        public int HealthValue { get; set; }
+        [JsonProperty("Glyphs_0")]
+        public Glyph[] Glyphs0 { get; set; }
 
-        [JsonProperty("additionalBarInfo")]
-        public AdditionalBarInfo AdditionalBarInfo { get; set; }
+        [JsonProperty("Glyphs_1")]
+        public Glyph[] Glyphs1 { get; set; }
 
-        [JsonProperty("characterStat")]
-        public Dictionary<string, double> CharacterStat { get; set; }
+        [JsonProperty("talents")]
+        public string Talents { get; set; }
 
-        [JsonProperty("characterItems")]
-        public CharacterItem[] CharacterItems { get; set; }
-
-        [JsonProperty("primary_trade_skill_1")]
-        public PrimaryTradeSkill PrimaryTradeSkill1 { get; set; }
-
-        [JsonProperty("primary_trade_skill_2")]
-        public PrimaryTradeSkill PrimaryTradeSkill2 { get; set; }
-
-        [JsonProperty("characterArenaTeamInfo")]
-        public Dictionary<string, CharacterArenaTeamInfo> CharacterArenaTeamInfo { get; set; }
-
-        [JsonProperty("characterFeed")]
-        public CharacterFeed[] CharacterFeed { get; set; }
+        [JsonProperty("talentsFileName")]
+        public string TalentsFileName { get; set; }
     }
 }

@@ -7,23 +7,47 @@ namespace TauriApiWrapper
 {
     public class CharacterClient : TauriClient
     {
-        private const string _characterTooltipUrl = "item-tooltip";
-        private const string _characterSheerUrl = "character-sheet";
-
         public CharacterClient(string apiKey, string secretKey) : base(apiKey, secretKey)
         {
         }
 
-        public ApiResponse<CharacterResponse> GetCharacterTooltipByName(string characterName, Realm realm)
+        private class Endpoints
         {
-            ApiParams param = new ApiParams(_characterTooltipUrl, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterResponse>(param);
+            public const string TooltipUrl = "item-tooltip";
+            public const string SheetUrl = "character-sheet";
+            public const string Talents = "character-talents";
+            public const string Reputation = "character-reputation";
+            public const string ArenaTeams = "character-arenateams";
         }
 
-        public ApiResponse<CharacterSheetResponse> GetCharacterSheet(string characterName, Realm realm)
+        public ApiResponse<Character> GetCharacterTooltipByName(string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(_characterSheerUrl, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterSheetResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
+            return Communicate<Character>(param);
         }
+
+        public ApiResponse<CharacterSheet> GetCharacterSheet(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
+            return Communicate<CharacterSheet>(param);
+        }
+
+        public ApiResponse<CharacterTalents> GetCharacterTalents(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Talents, Secret, new CharacterRequest(characterName, realm));
+            return Communicate<CharacterTalents>(param);
+        }
+
+        public ApiResponse<CharacterReputation> GetCharacterReputation(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Reputation, Secret, new CharacterRequest(characterName, realm));
+            return Communicate<CharacterReputation>(param);
+        }
+
+        //public ApiResponse<CharacterReputation> GetCharacterArenaTeams(string characterName, Realm realm)
+        //{
+        //    ApiParams param = new ApiParams(Endpoints.ArenaTeams, Secret, new CharacterRequest(characterName, realm));
+        //    return Communicate<CharacterReputation>(param);
+        //}
     }
 }

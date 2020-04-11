@@ -13,7 +13,10 @@ namespace TauriApiWrapper
 {
     public class TooltipClient : TauriClient
     {
-        private const string _url = "item-tooltip";
+        private class Endpoints
+        {
+            public const string ItemTooltip = "item-tooltip";
+        }
 
         public TooltipClient(string apiKey, string secret) : base(apiKey, secret)
         {
@@ -26,7 +29,7 @@ namespace TauriApiWrapper
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
         public ApiResponse<ItemResponse> GetItemById(int id, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(_url, Secret, new ItemRequest(id, realm));
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(id, realm));
             return Communicate<ItemResponse>(param);
         }
 
@@ -37,7 +40,7 @@ namespace TauriApiWrapper
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
         public ApiResponse<List<ItemResponse>> GetItemsByIds(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(_url, Secret, new ItemBulkRequest(itemIds, realm));
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemBulkRequest(itemIds, realm));
 
             ApiResponse<JObject> apiItems = Communicate<JObject>(param);
             List<ItemResponse> items = new List<ItemResponse>();
@@ -68,7 +71,7 @@ namespace TauriApiWrapper
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
         public ApiResponse<ItemResponse> GetItemByGuid(string guid, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(_url, Secret, new ItemRequest(guid, realm));
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(guid, realm));
             return Communicate<ItemResponse>(param);
         }
     }

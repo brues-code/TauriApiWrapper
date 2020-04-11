@@ -7,43 +7,19 @@ namespace TauriApiWrapper.Objects.Responses.Character
 {
     public sealed class Player
     {
-        [JsonProperty("specializationid")]
-        public int Specializationid { get; set; }
+        [JsonProperty("specializationid", NullValueHandling = NullValueHandling.Ignore)]
+        public int SpecializationID { get; set; }
 
-        [JsonProperty("specializationrole")]
-        public int Specializationrole { get; set; }
+        [JsonProperty("specializationrole", NullValueHandling = NullValueHandling.Ignore)]
+        public int SpecializationRole { get; set; }
 
-        [JsonProperty("specializationname")]
-        public string Specializationname { get; set; }
+        [JsonProperty("specializationname", NullValueHandling = NullValueHandling.Ignore)]
+        public string SpecializationName { get; set; }
 
-        [JsonProperty("specializationicon")]
-        public string Specializationicon { get; set; }
+        [JsonProperty("specializationicon", NullValueHandling = NullValueHandling.Ignore)]
+        public string SpecializationIcon { get; set; }
 
-        [JsonProperty("playerinfo")]
-        public PlayerInfo Playerinfo { get; set; }
-    }
-
-    public sealed class PlayerInfo
-    {
-        [JsonProperty("charname")]
-        public string Charname { get; set; }
-
-        [JsonProperty("race")]
-        public int Race { get; set; }
-
-        [JsonProperty("class")]
-        public int Class { get; set; }
-
-        [JsonProperty("gender")]
-        public int Gender { get; set; }
-
-        [JsonProperty("guildname")]
-        public string Guildname { get; set; }
-
-        [JsonProperty("level")]
-        public int Level { get; set; }
-
-        [JsonProperty("faction")]
-        public int Faction { get; set; }
+        [JsonProperty("playerinfo", NullValueHandling = NullValueHandling.Ignore)]
+        public Character PlayerInfo { get; set; }
     }
 }

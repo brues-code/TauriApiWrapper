@@ -12,7 +12,7 @@ namespace TauriApiWrapperTests
         {
             using (CharacterClient c = new CharacterClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterResponse> data = c.GetCharacterTooltipByName("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<Character> data = c.GetCharacterTooltipByName("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
@@ -24,7 +24,19 @@ namespace TauriApiWrapperTests
         {
             using (CharacterClient c = new CharacterClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterSheetResponse> data = c.GetCharacterSheet("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> data = c.GetCharacterSheet("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.IsSuccess);
+                Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
+            }
+        }
+
+        [TestMethod]
+        public void GetCharacterTalentsByName()
+        {
+            using (CharacterClient c = new CharacterClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            {
+                TauriApiWrapper.Objects.ApiResponse<CharacterTalents> data = c.GetCharacterTalents("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
