@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects.Responses.Dungeon;
 using TauriApiWrapper.Objects.Responses.Item;

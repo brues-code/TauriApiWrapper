@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Responses.AuctionHouse;
