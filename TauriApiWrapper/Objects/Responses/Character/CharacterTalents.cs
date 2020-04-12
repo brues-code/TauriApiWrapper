@@ -13,6 +13,9 @@ namespace TauriApiWrapper.Objects.Responses.Character
         [JsonProperty("guid")]
         public long Guid { get; set; }
 
+        [JsonProperty("name")]
+        public new string Name { get; set; }
+
         [JsonProperty("titleName")]
         public string TitleName { get; set; }
 
