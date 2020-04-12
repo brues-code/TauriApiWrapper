@@ -48,9 +48,10 @@ namespace TauriApiWrapperTests
         {
             using (AuctionHouseClient client = new AuctionHouseClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<object> data = client.GetAuctionsData(TauriApiWrapper.Enums.Realm.Tauri);
+                ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
-                //Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
+                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
+                Assert.IsTrue(data.Response.Auctions != null);
             }
         }
 
@@ -59,9 +60,10 @@ namespace TauriApiWrapperTests
         {
             using (AuctionHouseClient client = new AuctionHouseClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<object> data = client.GetAuctionItemPrice(1323, TauriApiWrapper.Enums.Realm.Tauri);
+                ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
-                //Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
+                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
+                Assert.IsTrue(data.Response.Auctions != null);
             }
         }
     }

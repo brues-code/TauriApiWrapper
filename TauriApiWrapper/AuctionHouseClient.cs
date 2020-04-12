@@ -14,6 +14,7 @@ namespace TauriApiWrapper
         {
             public const string AuctionsInfo = "auctions-info";
             public const string AuctionsData = "auctions-data";
+            public const string AuctionItemData = "auctions-item-prices";
         }
 
         public AuctionHouseClient(string apiKey, string secretKey) : base(apiKey, secretKey)
@@ -26,16 +27,16 @@ namespace TauriApiWrapper
             return Communicate<AuctionHouseInfoResponse>(param);
         }
 
-        public ApiResponse<object> GetAuctionsData(Realm realm)
+        public ApiResponse<AuctionHouseResponse> GetAllAuctionsData(Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
-            return Communicate<object>(param);
+            return Communicate<AuctionHouseResponse>(param);
         }
 
-        public ApiResponse<object> GetAuctionItemPrice(int itemID, Realm realm)
+        public ApiResponse<AuctionHouseResponse> GetAuctionsByItemID(int itemID, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
-            return Communicate<object>(param);
+            ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
+            return Communicate<AuctionHouseResponse>(param);
         }
     }
 }

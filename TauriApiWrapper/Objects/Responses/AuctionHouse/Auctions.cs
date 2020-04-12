@@ -5,15 +5,15 @@ using System.Text;
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
-    public partial class Auctions
+    public sealed class Auctions
     {
-        //[JsonProperty("auctioner_2")]
-        //public Auctioner[] Auctioner2 { get; set; }
+        [JsonProperty("auctioner_2")]
+        public Auctioneer[] AllianceAuctions { get; set; }
 
-        //[JsonProperty("auctioner_6")]
-        //public Auctioner[] Auctioner6 { get; set; }
+        [JsonProperty("auctioner_6")]
+        public Auctioneer[] HordeAuctions { get; set; }
 
-        //[JsonProperty("auctioner_7")]
-        //public Auctioner[] Auctioner7 { get; set; }
+        [JsonProperty("auctioner_7")]
+        public Auctioneer[] BlackwaterAuctions { get; set; }
     }
 }
