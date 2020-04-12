@@ -19,7 +19,7 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<ItemResponse> returnData = client.GetItemById(99359);
                 Assert.IsNotNull(returnData.Response);
-                Assert.IsTrue(returnData.Response.ID > 0);
+                Assert.IsTrue(returnData.IsSuccess);
             }
         }
 
@@ -30,19 +30,7 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<List<ItemResponse>> returnData = client.GetItemsByIds(new List<int> { 104633, 42944 });
                 Assert.IsNotNull(returnData.Response);
-                Assert.IsTrue(returnData.Response.Any(x => x.ID > 0));
-            }
-        }
-
-        [TestMethod]
-        public void GetItemByGuid()
-        {
-            using (TooltipClient client = new TooltipClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
-            {
-                //This will fail. need to get an actual GUID from the API First...
-                ApiResponse<ItemResponse> returnData = client.GetItemByGuid(Guid.Empty.ToString());
-                //Assert.IsNotNull(returnData.Response);
-                //Assert.IsTrue(returnData.Response.ID > 0);
+                Assert.IsTrue(returnData.IsSuccess);
             }
         }
     }

@@ -8,7 +8,7 @@ using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapper.Objects.Responses.Character
 {
-    public sealed class CharacterTalents : Character
+    public sealed class CharacterTalents : CharacterData
     {
         [JsonProperty("guid")]
         public long Guid { get; set; }

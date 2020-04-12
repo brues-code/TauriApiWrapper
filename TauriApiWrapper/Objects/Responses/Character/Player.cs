@@ -20,6 +20,6 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public string SpecializationIcon { get; set; }
 
         [JsonProperty("playerinfo", NullValueHandling = NullValueHandling.Ignore)]
-        public Character PlayerInfo { get; set; }
+        public CharacterData PlayerInfo { get; set; }
     }
 }

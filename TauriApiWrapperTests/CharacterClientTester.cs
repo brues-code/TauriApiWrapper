@@ -12,7 +12,7 @@ namespace TauriApiWrapperTests
         {
             using (CharacterClient c = new CharacterClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                TauriApiWrapper.Objects.ApiResponse<Character> data = c.GetCharacterTooltipByName("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterData> data = c.GetCharacterTooltipByName("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));

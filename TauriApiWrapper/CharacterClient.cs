@@ -23,10 +23,10 @@ namespace TauriApiWrapper
 
         #region Sync
 
-        public ApiResponse<Character> GetCharacterTooltipByName(string characterName, Realm realm)
+        public ApiResponse<CharacterData> GetCharacterTooltipByName(string characterName, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<Character>(param);
+            return Communicate<CharacterData>(param);
         }
 
         public ApiResponse<CharacterSheet> GetCharacterSheet(string characterName, Realm realm)
@@ -51,10 +51,10 @@ namespace TauriApiWrapper
 
         #region Async
 
-        public async Task<ApiResponse<Character>> GetCharacterTooltipByNameAsync(string characterName, Realm realm)
+        public async Task<ApiResponse<CharacterData>> GetCharacterTooltipByNameAsync(string characterName, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<Character>(param);
+            return await CommunicateAsync<CharacterData>(param);
         }
 
         public async Task<ApiResponse<CharacterSheet>> GetCharacterSheetAsync(string characterName, Realm realm)

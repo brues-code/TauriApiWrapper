@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Dungeon;
 
 namespace TauriApiWrapper.Objects.Responses.Character
 {
-    public sealed class CharacterSheet : Character
+    public sealed class CharacterSheet : CharacterData
     {
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
         public Realm Realm { get; set; }
@@ -14,8 +14,8 @@ namespace TauriApiWrapper.Objects.Responses.Character
         [JsonProperty("guid")]
         public int Guid { get; set; }
 
-        [JsonProperty("name")]
-        public new string Name { get; set; }
+        //[JsonProperty("name")]
+        //public new string Name { get; set; }
 
         [JsonProperty("titleName")]
         public string TitleName { get; set; }

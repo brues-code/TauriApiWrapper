@@ -17,7 +17,6 @@ namespace TauriApiWrapperTests
                 ApiResponse<BlackMarketResponse> data = client.GetBlackMarketAuctions(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
-                Assert.IsTrue(data.Response.Auctions.Count > 0);
             }
         }
 
@@ -28,7 +27,6 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<AuctionHouseInfoResponse> data = client.GetBlackMarketInfo(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
-                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
             }
         }
 
@@ -39,7 +37,6 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<AuctionHouseInfoResponse> data = client.GetAuctionHouseInfo(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
-                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
             }
         }
 
@@ -50,8 +47,6 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
-                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
-                Assert.IsTrue(data.Response.Auctions != null);
             }
         }
 
@@ -62,8 +57,6 @@ namespace TauriApiWrapperTests
             {
                 ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
-                Assert.IsTrue(data.Response.LastModified > DateTime.MinValue);
-                Assert.IsTrue(data.Response.Auctions != null);
             }
         }
     }

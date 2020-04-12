@@ -10,8 +10,8 @@ namespace TauriApiWrapper
     {
         private class Endpoints
         {
-            public const string AuctionsData = "item-tooltip";
-            public const string AuctionsInfo = "item-tooltip";
+            public const string AuctionsData = "bmauctions-data";
+            public const string AuctionsInfo = "bmauctions-info";
         }
 
         public BlackMarketClient(string apiKey, string secretKey) : base(apiKey, secretKey)
