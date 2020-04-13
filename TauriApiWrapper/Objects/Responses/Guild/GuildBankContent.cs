@@ -16,10 +16,7 @@ namespace TauriApiWrapper.Objects.Responses.Guild
         [JsonProperty("guildBankTabs")]
         public Dictionary<int, GuildBankTab> GuildBankTabs { get; set; }
 
-        [JsonProperty("GuildBankContents")]
-        public Dictionary<int, Dictionary<int, string>> GuildBankContents { get; set; }
-
         [JsonProperty("GuildBankItemList")]
-        public Dictionary<string, GuildBankItem> GuildBankItemList { get; set; }
+        public Dictionary<int, GuildBankItem> GuildBankItemList { get; set; }
     }
 }

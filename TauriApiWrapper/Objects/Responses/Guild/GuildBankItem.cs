@@ -9,22 +9,22 @@ namespace TauriApiWrapper.Objects.Responses.Guild
     public sealed class GuildBankItem
     {
         [JsonProperty("tid")]
-        public long Tid { get; set; }
+        public int TID { get; set; }
 
         [JsonProperty("tabid")]
-        public GuildBankTab Tabid { get; set; }
+        public string TabID { get; set; }
 
         [JsonProperty("sid")]
-        public long Sid { get; set; }
+        public long SID { get; set; }
 
         [JsonProperty("entry")]
-        public long Entry { get; set; }
+        public int Entry { get; set; }
 
         [JsonProperty("Quality_original")]
-        public long QualityOriginal { get; set; }
+        public int QualityOriginal { get; set; }
 
         [JsonProperty("Quality")]
-        public long Quality { get; set; }
+        public ItemRarity Quality { get; set; }
 
         [JsonProperty("name_original")]
         public string NameOriginal { get; set; }
@@ -33,7 +33,7 @@ namespace TauriApiWrapper.Objects.Responses.Guild
         public string Name { get; set; }
 
         [JsonProperty("classname")]
-        public Class Class { get; set; }
+        public string ItemType{ get; set; }
 
         [JsonProperty("subclassname")]
         public string Subclassname { get; set; }
@@ -45,7 +45,7 @@ namespace TauriApiWrapper.Objects.Responses.Guild
         public string Icon { get; set; }
 
         [JsonProperty("stackcount")]
-        public long Stackcount { get; set; }
+        public int StackCount { get; set; }
 
         [JsonProperty("tooltip")]
         public string Tooltip { get; set; }

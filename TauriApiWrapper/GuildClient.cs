@@ -13,6 +13,7 @@ namespace TauriApiWrapper
             public const string GuildInfo = "guild-info";
             public const string GuildStats = "guild-stats";
             public const string GuildBankContents = "guild-bank-contents";
+            public const string GuildBankLogs = "guild-bank-log";
         }
 
         public GuildClient(string apiKey, string secretKey) : base(apiKey, secretKey)
@@ -31,10 +32,16 @@ namespace TauriApiWrapper
             return Communicate<GuildStats>(param);
         }
 
-        public ApiResponse<object> GetGuildBankContents(string guildName, Realm realm = Realm.Evermoon)
+        public ApiResponse<GuildBankContent> GetGuildBankContents(string guildName, Realm realm = Realm.Evermoon)
         {
             ApiParams param = new ApiParams(Endpoints.GuildBankContents, Secret, new GuildRequest(guildName, realm));
-            return Communicate<object>(param);
+            return Communicate<GuildBankContent>(param);
+        }
+
+        public ApiResponse<GuildBankLog> GetGuildBankLogs(string guildName, Realm realm = Realm.Evermoon)
+        {
+            ApiParams param = new ApiParams(Endpoints.GuildBankLogs, Secret, new GuildRequest(guildName, realm));
+            return Communicate<GuildBankLog>(param);
         }
     }
 }

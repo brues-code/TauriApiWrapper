@@ -33,5 +33,30 @@ namespace TauriApiWrapperTests
                 Assert.IsTrue(returnData.Response.GuildList.Count > 0);
             }
         }
+
+        [TestMethod]
+        public void GetGuildBankContent()
+        {
+            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            {
+                ApiResponse<GuildBankContent> returnData = client.GetGuildBankContents("Muzykanci z Gruzji");
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+                Assert.IsTrue(returnData.Response.GuildBankItemList.Count > 0);
+            }
+        }
+
+        [TestMethod]
+        public void GetGuildLogs()
+        {
+            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            {
+                ApiResponse<GuildBankLog> returnData = client.GetGuildBankLogs("Muzykanci z Gruzji");
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+                Assert.IsTrue(returnData.Response.GuildBankItemList.Count > 0);
+                Assert.IsTrue(returnData.Response.GuildBankTabs.Count > 0);
+            }
+        }
     }
 }
