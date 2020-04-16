@@ -15,7 +15,7 @@ namespace TauriApiWrapperTests
         {
             using (AchievementClient client = new AchievementClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<AchievementFirst> returnData = client.GetAchievementFrists(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<AchievementFirst> returnData = client.GetAchievementFirsts(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.Response.AchievementFirstArray.Count > 0);

@@ -6,7 +6,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
-    public partial class CharacterAchievementsLoaderCriteria
+    public sealed class CharacterAchievementsLoaderCriteria
     {
         [JsonProperty("refAchievement")]
         public int RefAchievement { get; set; }

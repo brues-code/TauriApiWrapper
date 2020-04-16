@@ -7,7 +7,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class AchievementsLoaderRequest : AchievementBaseRequest
+    internal sealed class AchievementsLoaderRequest : AchievementBaseRequest
     {
         public AchievementsLoaderRequest(string name, int id, Realm realm) : base(realm)
         {

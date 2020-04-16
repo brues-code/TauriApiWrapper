@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses
 {
@@ -8,7 +9,7 @@ namespace TauriApiWrapper.Objects.Responses
         public bool IsCata { get; set; }
 
         [JsonProperty("expansion")]
-        public int Expansion { get; set; }
+        public Expansion Expansion { get; set; }
 
         [JsonProperty("dataUrlPrefix")]
         public string DataUrlPrefix { get; set; }

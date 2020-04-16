@@ -3,7 +3,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class ItemRequest : BaseRequestObject
+    internal sealed class ItemRequest : BaseRequestObject
     {
         public ItemRequest(int itemID, Realm realm = Realm.Evermoon) : base(realm)
         {

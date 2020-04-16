@@ -3,7 +3,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class CharacterAchievementsRequest : AchievementBaseRequest
+    internal sealed class CharacterAchievementsRequest : AchievementBaseRequest
     {
         public CharacterAchievementsRequest(string name, Realm realm) : base(realm)
         {

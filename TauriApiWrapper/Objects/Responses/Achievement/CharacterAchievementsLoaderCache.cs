@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using TauriApiWrapper.Enums;
 
-
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
-    public partial class CharacterAchievementsLoaderCache
+    public sealed class CharacterAchievementsLoaderCache
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -25,13 +24,13 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string Desc { get; set; }
 
         [JsonProperty("pts")]
-        public int Pts { get; set; }
+        public int AchievementPoints { get; set; }
 
         [JsonProperty("reward")]
         public string Reward { get; set; }
 
         [JsonProperty("catid")]
-        public int Catid { get; set; }
+        public int CatID { get; set; }
 
         [JsonProperty("criteria")]
         public Dictionary<string, CharacterAchievementsLoaderCriteria> Criteria { get; set; }

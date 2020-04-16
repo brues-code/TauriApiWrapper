@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class ItemBulkRequest : BaseRequestObject
+    internal sealed class ItemBulkRequest : BaseRequestObject
     {
         public ItemBulkRequest(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon) : base(realm)
         {
