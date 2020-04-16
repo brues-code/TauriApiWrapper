@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TauriApiWrapper.Objects.Responses.Character;
 
 namespace TauriApiWrapper.Objects.Responses.Guild

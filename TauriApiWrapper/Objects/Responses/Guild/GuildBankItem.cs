@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Guild
@@ -33,7 +30,7 @@ namespace TauriApiWrapper.Objects.Responses.Guild
         public string Name { get; set; }
 
         [JsonProperty("classname")]
-        public string ItemType{ get; set; }
+        public string ItemType { get; set; }
 
         [JsonProperty("subclassname")]
         public string Subclassname { get; set; }

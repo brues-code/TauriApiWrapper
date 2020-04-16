@@ -1,8 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
-using TauriApiWrapper.Objects.Responses;
 using TauriApiWrapper.Objects.Responses.Guild;
 
 namespace TauriApiWrapperTests

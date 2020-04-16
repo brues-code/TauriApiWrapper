@@ -2,7 +2,6 @@
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Requests;
-using TauriApiWrapper.Objects.Responses;
 using TauriApiWrapper.Objects.Responses.Achievement;
 
 namespace TauriApiWrapper

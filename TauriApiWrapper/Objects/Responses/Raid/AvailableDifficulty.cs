@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
-using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Raid
 {
@@ -11,7 +6,6 @@ namespace TauriApiWrapper.Objects.Responses.Raid
     {
         [JsonProperty("id")]
         public int ID { get; set; }
-
 
         [JsonProperty("name")]
         public string Name { get; set; }

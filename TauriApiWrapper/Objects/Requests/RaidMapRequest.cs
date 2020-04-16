@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Enums;
+﻿using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {

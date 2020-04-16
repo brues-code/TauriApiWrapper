@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {

@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
@@ -26,7 +24,6 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
 
         [JsonProperty("Achievements")]
         public Dictionary<string, CharacterAchievement> Achievements { get; set; }
-
 
         //not directly related to achievements
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
@@ -98,7 +95,6 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         [JsonProperty("title")]
         public string Title { get; set; }
 
-
         //addonitial data not specified in Tauri API response
         [JsonProperty("guildLinkName")]
         public string GuildLinkName { get; set; }
@@ -138,6 +134,5 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
 
         [JsonProperty("challengemode")]
         public Dictionary<string, CharacterAchievementChallengmode> Challengemode { get; set; }
-
     }
 }
