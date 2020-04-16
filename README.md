@@ -11,3 +11,4 @@ Please report all the issues you find in our issue tracker.
 ## Pull requests
 We love pull requests, but if you're going to submit one, make sure its coming with the proper tests to your functionality. If they pass all the tests, they'll be reviewed and accepted.
 
+## Contributors
