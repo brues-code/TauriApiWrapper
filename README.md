@@ -2,7 +2,7 @@
  **Tauri API Wrapper** was built to help out all types of developers to navigate the intricate [Tauri WoW](https://tauriwow.com/) API. We've translated all the API endpoints into elegant C# typified Objects.
 
 # How to install
-Simply download our NuGet or download one of our releases and add the reference to your project.
+Simply download our NuGet (soon) or download one of our releases and add the reference to your project.
 Then you will obtain your API Key from  [Tauri WoW](https://tauriwow.com/) and you can start doing some queries.
 
 ## Issues
