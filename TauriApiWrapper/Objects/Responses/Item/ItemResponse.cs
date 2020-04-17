@@ -136,22 +136,22 @@ namespace TauriApiWrapper.Objects.Responses
         public string SubClassName { get; set; }
 
         [JsonProperty("BaseMinDamage")]
-        public decimal BaseMinDamage { get; set; }
+        public float BaseMinDamage { get; set; }
 
         [JsonProperty("BaseMaxDamage")]
-        public decimal BaseMaxDamage { get; set; }
+        public float BaseMaxDamage { get; set; }
 
         [JsonProperty("BaseTypeDamage")]
-        public int BaseTypeDamage { get; set; }
+        public float BaseTypeDamage { get; set; }
 
         [JsonProperty("ExtraMinDamage")]
-        public int ExtraMinDamage { get; set; }
+        public float ExtraMinDamage { get; set; }
 
         [JsonProperty("ExtraMaxDamage")]
-        public decimal ExtraMaxDamage { get; set; }
+        public float ExtraMaxDamage { get; set; }
 
         [JsonProperty("ExtraTypeDamage")]
-        public decimal ExtraTypeDamage { get; set; }
+        public float ExtraTypeDamage { get; set; }
 
         [JsonProperty("MaxDurability")]
         public int MaxDurability { get; set; }
@@ -211,13 +211,13 @@ namespace TauriApiWrapper.Objects.Responses
         public bool WeaponDamage { get; set; }
 
         [JsonProperty("minDmg")]
-        public decimal MinDmg { get; set; }
+        public float MinDmg { get; set; }
 
         [JsonProperty("maxDmg")]
-        public decimal MaxDmg { get; set; }
+        public float MaxDmg { get; set; }
 
         [JsonProperty("dmg_speed")]
-        public decimal DmgSpeed { get; set; }
+        public float DmgSpeed { get; set; }
 
         [JsonProperty("ench")]
         public string Ench { get; set; }
