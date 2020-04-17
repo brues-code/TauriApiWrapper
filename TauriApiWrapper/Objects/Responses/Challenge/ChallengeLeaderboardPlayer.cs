@@ -6,18 +6,18 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
     public partial class ChallengeLeaderboardPlayer
     {
         [JsonProperty("specializationid")]
-        public int Specializationid { get; set; }
+        public int SpecializationId { get; set; }
 
         [JsonProperty("specializationrole")]
-        public SpecializationRole Specializationrole { get; set; }
+        public SpecializationRole SpecializationRole { get; set; }
 
         [JsonProperty("specializationname")]
-        public string Specializationname { get; set; }
+        public string SpecializationName { get; set; }
 
         [JsonProperty("specializationicon")]
-        public string Specializationicon { get; set; }
+        public string SpecializationIcon { get; set; }
 
         [JsonProperty("playerinfo")]
-        public ChallengeLeaderboardPlayerInfo Playerinfo { get; set; }
+        public ChallengeLeaderboardPlayerInfo PlayerInfo { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
     public partial class ChallengeLeaderboardPlayerInfo
     {
         [JsonProperty("charname")]
-        public string Charname { get; set; }
+        public string CharacterName { get; set; }
 
         [JsonProperty("race")]
         public Race Race { get; set; }
@@ -18,10 +18,10 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
         public Gender Gender { get; set; }
 
         [JsonProperty("guildname")]
-        public string Guildname { get; set; }
+        public string GuildName { get; set; }
 
         [JsonProperty("level")]
-        public long Level { get; set; }
+        public int Level { get; set; }
 
         [JsonProperty("faction")]
         public Faction Faction { get; set; }

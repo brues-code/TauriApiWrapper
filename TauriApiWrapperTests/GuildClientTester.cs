@@ -54,6 +54,7 @@ namespace TauriApiWrapperTests
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.Response.GuildBankItemList.Count > 0);
                 Assert.IsTrue(returnData.Response.GuildBankTabs.Count > 0);
+                Assert.IsTrue(!string.IsNullOrEmpty(returnData.Response.GuildName));
             }
         }
     }

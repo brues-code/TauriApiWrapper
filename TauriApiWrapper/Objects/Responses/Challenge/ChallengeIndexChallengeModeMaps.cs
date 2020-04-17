@@ -5,24 +5,24 @@ using TauriApiWrapper.Converters;
 
 namespace TauriApiWrapper.Objects.Responses.Challenge
 {
-    public partial class ChallengeIndexChallengeModeMaps
+    public sealed class ChallengeIndexChallengeModeMaps
     {
         [JsonProperty("challengeid")]
-        public int Challengeid { get; set; }
+        public int ChallengeId { get; set; }
 
         [JsonProperty("challengemapid")]
-        public int Challengemapid { get; set; }
+        public int ChallengeMapId { get; set; }
 
         [JsonProperty("challengemapname")]
-        public string Challengemapname { get; set; }
+        public string ChallengeMapName { get; set; }
 
         [JsonProperty("goldmedaltime"), JsonConverter(typeof(TimeSpanSecondsConverter))]
-        public TimeSpan Goldmedaltime { get; set; }
+        public TimeSpan GoldMedalTime { get; set; }
 
         [JsonProperty("silvermedaltime"), JsonConverter(typeof(TimeSpanSecondsConverter))]
-        public TimeSpan Silvermedaltime { get; set; }
+        public TimeSpan SilverMedalTime { get; set; }
 
         [JsonProperty("bronzemedaltime"), JsonConverter(typeof(TimeSpanSecondsConverter))]
-        public TimeSpan Bronzemedaltime { get; set; }
+        public TimeSpan BronzeMedalTime { get; set; }
     }
 }

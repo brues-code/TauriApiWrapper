@@ -5,10 +5,10 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Challenge
 {
-    public class ChallengeLeaderboard : BaseApiResponse
+    public sealed class ChallengeLeaderboard : BaseApiResponse
     {
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("mapdata")]
         public ChallengeIndexChallengeModeMaps Mapdata { get; set; }

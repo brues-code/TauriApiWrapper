@@ -8,7 +8,7 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
     public class ChallengeIndex : BaseApiResponse
     {
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("challengemodemaps")]
         public Dictionary<string, ChallengeIndexChallengeModeMaps> ChallengeModeMaps { get; set; }
