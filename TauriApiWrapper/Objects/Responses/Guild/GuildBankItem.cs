@@ -6,13 +6,13 @@ namespace TauriApiWrapper.Objects.Responses.Guild
     public sealed class GuildBankItem
     {
         [JsonProperty("tid")]
-        public int TID { get; set; }
+        public int TId { get; set; }
 
         [JsonProperty("tabid")]
-        public string TabID { get; set; }
+        public string TabId { get; set; }
 
         [JsonProperty("sid")]
-        public long SID { get; set; }
+        public long SId { get; set; }
 
         [JsonProperty("entry")]
         public int Entry { get; set; }
@@ -48,6 +48,6 @@ namespace TauriApiWrapper.Objects.Responses.Guild
         public string Tooltip { get; set; }
 
         [JsonProperty("slotid")]
-        public string Slotid { get; set; }
+        public string SlotId { get; set; }
     }
 }
