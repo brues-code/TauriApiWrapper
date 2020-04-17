@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapper.Objects.Responses
@@ -6,7 +7,7 @@ namespace TauriApiWrapper.Objects.Responses
     public sealed class ItemResponse : BaseApiResponse
     {
         [JsonProperty("SocketContainedMask")]
-        public long SocketContainedMask { get; set; }
+        public int SocketContainedMask { get; set; }
 
         [JsonProperty("curDurability")]
         public long CurrentDurability { get; set; }
@@ -30,73 +31,73 @@ namespace TauriApiWrapper.Objects.Responses
         public string ReqSkill { get; set; }
 
         [JsonProperty("ReqSkillRank")]
-        public long ReqSkillRank { get; set; }
+        public int ReqSkillRank { get; set; }
 
         [JsonProperty("SocketContainedGem")]
         public object[] SocketContainedGem { get; set; }
 
         [JsonProperty("ID")]
-        public long ID { get; set; }
+        public int ID { get; set; }
 
         [JsonProperty("_Class")]
-        public long Class { get; set; }
+        public Class Class { get; set; }
 
         [JsonProperty("_SubClass")]
-        public long SubClass { get; set; }
+        public int SubClass { get; set; }
 
         [JsonProperty("DisplayId")]
-        public long DisplayID { get; set; }
+        public int DisplayID { get; set; }
 
         [JsonProperty("InventoryType")]
-        public long InventoryType { get; set; }
+        public int InventoryType { get; set; }
 
         [JsonProperty("Quality_orig")]
-        public long QualityOrig { get; set; }
+        public int QualityOrig { get; set; }
 
         [JsonProperty("Quality")]
-        public long Quality { get; set; }
+        public ItemRarity Quality { get; set; }
 
         [JsonProperty("Flags")]
-        public long Flags { get; set; }
+        public int Flags { get; set; }
 
         [JsonProperty("Flags2")]
-        public long Flags2 { get; set; }
+        public int Flags2 { get; set; }
 
         [JsonProperty("Flags3")]
-        public long Flags3 { get; set; }
+        public int Flags3 { get; set; }
 
         [JsonProperty("BuyCount")]
-        public long BuyCount { get; set; }
+        public int BuyCount { get; set; }
 
         [JsonProperty("BuyPrice")]
-        public long BuyPrice { get; set; }
+        public int BuyPrice { get; set; }
 
         [JsonProperty("SellPrice")]
-        public long SellPrice { get; set; }
+        public int SellPrice { get; set; }
 
         [JsonProperty("ItemLevel")]
-        public long ItemLevel { get; set; }
+        public int ItemLevel { get; set; }
 
         [JsonProperty("MaxCount")]
-        public long MaxCount { get; set; }
+        public int MaxCount { get; set; }
 
         [JsonProperty("Stackable")]
-        public long Stackable { get; set; }
+        public bool Stackable { get; set; }
 
         [JsonProperty("ContainerSlots")]
-        public long ContainerSlots { get; set; }
+        public int ContainerSlots { get; set; }
 
         [JsonProperty("ScalingStatDistribution")]
-        public long ScalingStatDistribution { get; set; }
+        public int ScalingStatDistribution { get; set; }
 
         [JsonProperty("Delay")]
-        public long Delay { get; set; }
+        public int Delay { get; set; }
 
         [JsonProperty("RangedModRange")]
-        public long RangedModRange { get; set; }
+        public int RangedModRange { get; set; }
 
         [JsonProperty("Bonding")]
-        public long Bonding { get; set; }
+        public int Bonding { get; set; }
 
         [JsonProperty("originalname")]
         public string Originalname { get; set; }
@@ -108,19 +109,19 @@ namespace TauriApiWrapper.Objects.Responses
         public string Description { get; set; }
 
         [JsonProperty("RandomProperty")]
-        public long RandomProperty { get; set; }
+        public int RandomProperty { get; set; }
 
         [JsonProperty("RandomSuffix")]
-        public long RandomSuffix { get; set; }
+        public int RandomSuffix { get; set; }
 
         [JsonProperty("ItemSet")]
-        public long ItemSet { get; set; }
+        public int ItemSet { get; set; }
 
         [JsonProperty("SocketBonus")]
-        public long SocketBonus { get; set; }
+        public int SocketBonus { get; set; }
 
         [JsonProperty("GemProperties")]
-        public long GemProperties { get; set; }
+        public int GemProperties { get; set; }
 
         [JsonProperty("m_inventoryIconOriginal")]
         public string InventoryIconOriginal { get; set; }
@@ -135,55 +136,55 @@ namespace TauriApiWrapper.Objects.Responses
         public string SubClassName { get; set; }
 
         [JsonProperty("BaseMinDamage")]
-        public long BaseMinDamage { get; set; }
+        public decimal BaseMinDamage { get; set; }
 
         [JsonProperty("BaseMaxDamage")]
-        public long BaseMaxDamage { get; set; }
+        public decimal BaseMaxDamage { get; set; }
 
         [JsonProperty("BaseTypeDamage")]
-        public long BaseTypeDamage { get; set; }
+        public int BaseTypeDamage { get; set; }
 
         [JsonProperty("ExtraMinDamage")]
-        public long ExtraMinDamage { get; set; }
+        public int ExtraMinDamage { get; set; }
 
         [JsonProperty("ExtraMaxDamage")]
-        public long ExtraMaxDamage { get; set; }
+        public decimal ExtraMaxDamage { get; set; }
 
         [JsonProperty("ExtraTypeDamage")]
-        public long ExtraTypeDamage { get; set; }
+        public decimal ExtraTypeDamage { get; set; }
 
         [JsonProperty("MaxDurability")]
-        public long MaxDurability { get; set; }
+        public int MaxDurability { get; set; }
 
         [JsonProperty("RequiredLevel")]
-        public long RequiredLevel { get; set; }
+        public int RequiredLevel { get; set; }
 
         [JsonProperty("RequiredSkill")]
-        public long RequiredSkill { get; set; }
+        public int RequiredSkill { get; set; }
 
         [JsonProperty("RequiredSkillRank")]
-        public long RequiredSkillRank { get; set; }
+        public int RequiredSkillRank { get; set; }
 
         [JsonProperty("RequiredSpell")]
-        public long RequiredSpell { get; set; }
+        public int RequiredSpell { get; set; }
 
         [JsonProperty("RequiredHonorRank")]
-        public long RequiredHonorRank { get; set; }
+        public int RequiredHonorRank { get; set; }
 
         [JsonProperty("RequiredCityRank")]
-        public long RequiredCityRank { get; set; }
+        public int RequiredCityRank { get; set; }
 
         [JsonProperty("RequiredReputationFaction")]
-        public long RequiredReputationFaction { get; set; }
+        public int RequiredReputationFaction { get; set; }
 
         [JsonProperty("RequiredReputationRank")]
-        public long RequiredReputationRank { get; set; }
+        public int RequiredReputationRank { get; set; }
 
         [JsonProperty("Armory")]
-        public long Armory { get; set; }
+        public int Armory { get; set; }
 
         [JsonProperty("SpellTrigger")]
-        public long[] SpellTrigger { get; set; }
+        public int[] SpellTrigger { get; set; }
 
         [JsonProperty("SpellId")]
         public object[] SpellId { get; set; }
@@ -210,13 +211,13 @@ namespace TauriApiWrapper.Objects.Responses
         public bool WeaponDamage { get; set; }
 
         [JsonProperty("minDmg")]
-        public long MinDmg { get; set; }
+        public decimal MinDmg { get; set; }
 
         [JsonProperty("maxDmg")]
-        public long MaxDmg { get; set; }
+        public decimal MaxDmg { get; set; }
 
         [JsonProperty("dmg_speed")]
-        public long DmgSpeed { get; set; }
+        public decimal DmgSpeed { get; set; }
 
         [JsonProperty("ench")]
         public string Ench { get; set; }
@@ -240,7 +241,7 @@ namespace TauriApiWrapper.Objects.Responses
         public string TemperaturesDescription { get; set; }
 
         [JsonProperty("is_heroic")]
-        public long IsHeroic { get; set; }
+        public bool IsHeroic { get; set; }
 
         [JsonProperty("bonding")]
         public string TemperaturesBonding { get; set; }
@@ -258,13 +259,13 @@ namespace TauriApiWrapper.Objects.Responses
         public string Classes { get; set; }
 
         [JsonProperty("need_level")]
-        public long NeedLevel { get; set; }
+        public int NeedLevel { get; set; }
 
         [JsonProperty("need_skill")]
         public string NeedSkill { get; set; }
 
         [JsonProperty("need_skill_rank")]
-        public long NeedSkillRank { get; set; }
+        public int NeedSkillRank { get; set; }
 
         [JsonProperty("need_reputation_rank")]
         public string NeedReputationRank { get; set; }
@@ -276,7 +277,7 @@ namespace TauriApiWrapper.Objects.Responses
         public Durability Durability { get; set; }
 
         [JsonProperty("startquesto")]
-        public long StartQuesto { get; set; }
+        public int StartQuesto { get; set; }
 
         [JsonProperty("fullLootInfo")]
         public string FullLootInfo { get; set; }
@@ -285,10 +286,10 @@ namespace TauriApiWrapper.Objects.Responses
         public string Source { get; set; }
 
         [JsonProperty("itemLevel")]
-        public long TemperaturesItemLevel { get; set; }
+        public int TemperaturesItemLevel { get; set; }
 
         [JsonProperty("transmogid")]
-        public long TransmogID { get; set; }
+        public int TransmogID { get; set; }
 
         [JsonProperty("transmogitemname")]
         public string TransmogItemName { get; set; }
@@ -297,13 +298,13 @@ namespace TauriApiWrapper.Objects.Responses
         public string TransmogItemIcon { get; set; }
 
         [JsonProperty("upgradeid")]
-        public long UpgradeID { get; set; }
+        public int UpgradeID { get; set; }
 
         [JsonProperty("upgradelevel")]
-        public long Upgradelevel { get; set; }
+        public int Upgradelevel { get; set; }
 
         [JsonProperty("upgrademaxlevel")]
-        public long UpgradeMaxLevel { get; set; }
+        public int UpgradeMaxLevel { get; set; }
 
         [JsonProperty("upgradetext")]
         public string UpgradeText { get; set; }
