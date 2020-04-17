@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
+using TauriApiWrapper.Converters;
+
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
@@ -10,7 +13,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         [JsonProperty("date")]
         public long Date { get; set; }
 
-        [JsonProperty("catid")]
-        public long Catid { get; set; }
+        [JsonProperty("catid"), JsonConverter(typeof(UnixDateConverter))]
+        public DateTime Catid { get; set; }
     }
 }

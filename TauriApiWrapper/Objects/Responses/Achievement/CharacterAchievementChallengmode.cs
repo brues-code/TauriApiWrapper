@@ -1,28 +1,30 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
+using TauriApiWrapper.Converters;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
     public partial class CharacterAchievementChallengmode
     {
-        [JsonProperty("completiontime", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Completiontime { get; set; }
+        [JsonProperty("completiontime"), JsonConverter(typeof(TimeSpanConverter))]
+        public TimeSpan Completiontime { get; set; }
 
-        [JsonProperty("completedtime", NullValueHandling = NullValueHandling.Ignore)]
-        public long? Completedtime { get; set; }
+        [JsonProperty("completedtime"), JsonConverter(typeof(UnixDateConverter))]
+        public DateTime Completedtime { get; set; }
 
-        [JsonProperty("medal", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("medal")]
         public long? Medal { get; set; }
 
-        [JsonProperty("playerrank", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("playerrank")]
         public long? Playerrank { get; set; }
 
-        [JsonProperty("guildrank", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("guildrank")]
         public long? Guildrank { get; set; }
 
-        [JsonProperty("players", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("players")]
         public Player[] Players { get; set; }
 
-        [JsonProperty("guildinfo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("guildinfo")]
         public Guildinfo Guildinfo { get; set; }
     }
 }

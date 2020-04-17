@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using TauriApiWrapper.Enums;
+
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
@@ -8,7 +10,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public int Specializationid { get; set; }
 
         [JsonProperty("specializationrole")]
-        public int Specializationrole { get; set; }
+        public SpecializationRole Specializationrole { get; set; }
 
         [JsonProperty("specializationname")]
         public string Specializationname { get; set; }

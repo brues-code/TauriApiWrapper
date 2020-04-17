@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using TauriApiWrapper.Enums;
+using TauriApiWrapper.Converters;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
@@ -32,7 +34,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         [JsonProperty("reward")]
         public string AReward { get; set; }
 
-        [JsonProperty("timestamp")]
-        public int ATimestamp { get; set; }
+        [JsonProperty("timestamp"), JsonConverter(typeof(UnixDateConverter))]
+        public DateTime ATimestamp { get; set; }
     }
 }
