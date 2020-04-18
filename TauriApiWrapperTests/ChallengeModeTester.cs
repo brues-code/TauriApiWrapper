@@ -24,7 +24,7 @@ namespace TauriApiWrapperTests
         {
             using (ChallengeModeClient client = new ChallengeModeClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<ChallengeLeaderboard> returnData = client.GetChallengeLeaderboard(960, TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ChallengeLeaderboard> returnData = client.GetChallengeLeaderboard((int)TauriApiWrapper.Enums.ChallengeMap.TempleOfTheJadeSerpent, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }

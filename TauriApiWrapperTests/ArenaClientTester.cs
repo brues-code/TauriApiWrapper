@@ -32,7 +32,7 @@ namespace TauriApiWrapperTests
         {
             using (ArenaClient client = new ArenaClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<ArenaTeamInfo> returnData = client.GetArenaTeamInfo(2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ArenaTeamInfo> returnData = client.GetArenaTeamInfo((int)TauriApiWrapper.Enums.TeamType._2v2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }
@@ -43,7 +43,7 @@ namespace TauriApiWrapperTests
         {
             using (ArenaClient client = new ArenaClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<ArenaTeamGameChart> returnData = client.GetArenaTeamGameChart(2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ArenaTeamGameChart> returnData = client.GetArenaTeamGameChart((int)TauriApiWrapper.Enums.TeamType._2v2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }
@@ -54,7 +54,7 @@ namespace TauriApiWrapperTests
         {
             using (ArenaClient client = new ArenaClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
             {
-                ApiResponse<ArenaTeamReoprtOpposingTeams> returnData = client.GetArenaTeamReportOpposingTeams(2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ArenaTeamReoprtOpposingTeams> returnData = client.GetArenaTeamReportOpposingTeams((int)TauriApiWrapper.Enums.TeamType._2v2, "teamname", TauriApiWrapper.Enums.Realm.Evermoon);
                 //Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }

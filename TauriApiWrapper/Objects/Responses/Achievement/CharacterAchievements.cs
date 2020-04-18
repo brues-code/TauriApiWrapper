@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
+using TauriApiWrapper.Objects.Responses.Character;
+using TauriApiWrapper.Objects.Responses.Challenge;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
     public class CharacterAchievements : BaseApiResponse
     {
         [JsonProperty("pts")]
-        public int achievementPoints { get; set; }
+        public int AchievementPoints { get; set; }
 
         [JsonProperty("categories")]
         public Dictionary<string, CharacterAchievementsCategory> Categories { get; set; }
@@ -27,7 +29,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
 
         //not directly related to achievements
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("class")]
         public Class Class { get; set; }
@@ -51,13 +53,13 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string GuildName { get; set; }
 
         [JsonProperty("arenaTeam2v2id")]
-        public int ArenaTeam2V2Id { get; set; }
+        public int ArenaTeam2v2Id { get; set; }
 
         [JsonProperty("arenaTeam3v3id")]
-        public int ArenaTeam3V3Id { get; set; }
+        public int ArenaTeam3v3Id { get; set; }
 
         [JsonProperty("arenaTeam5v5id")]
-        public int ArenaTeam5V5Id { get; set; }
+        public int ArenaTeam5v5Id { get; set; }
 
         [JsonProperty("dualSpec")]
         public bool DualSpec { get; set; }
@@ -100,7 +102,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string GuildLinkName { get; set; }
 
         [JsonProperty("activeSpec")]
-        public long ActiveSpec { get; set; }
+        public int ActiveSpec { get; set; }
 
         [JsonProperty("talents_0")]
         public string Talents0 { get; set; }
@@ -115,7 +117,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string UrlName { get; set; }
 
         [JsonProperty("tname")]
-        public string Tname { get; set; }
+        public string TName { get; set; }
 
         [JsonProperty("isBookmarked")]
         public bool IsBookmarked { get; set; }
@@ -127,12 +129,12 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string CharacterUrlString { get; set; }
 
         [JsonProperty("avgitemlevel")]
-        public int Avgitemlevel { get; set; }
+        public int AvgItemLevel { get; set; }
 
         [JsonProperty("skindata")]
-        public CharacterAchievementsSkindata Skindata { get; set; }
+        public SkinData Skindata { get; set; }
 
         [JsonProperty("challengemode")]
-        public Dictionary<string, CharacterAchievementChallengmode> Challengemode { get; set; }
+        public Dictionary<string, ChallengeLeaderboardChallengesData> Challengemode { get; set; }
     }
 }

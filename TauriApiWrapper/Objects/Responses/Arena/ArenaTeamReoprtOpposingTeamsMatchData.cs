@@ -31,7 +31,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public int MatchLength { get; set; }
 
         [JsonProperty("realm")]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("matchId")]
         public int MatchId { get; set; }

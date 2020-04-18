@@ -10,7 +10,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
     public class ArenaTeamInfoTeamMembers
     {
         [JsonProperty("realm")]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("class")]
         public Class Class { get; set; }

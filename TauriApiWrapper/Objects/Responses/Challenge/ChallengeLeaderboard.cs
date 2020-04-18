@@ -11,9 +11,9 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
         public Realm Realm { get; set; }
 
         [JsonProperty("mapdata")]
-        public ChallengeIndexChallengeModeMaps Mapdata { get; set; }
+        public ChallengeIndexChallengeModeMaps MapData { get; set; }
 
         [JsonProperty("challengesdata")]
-        public ChallengeLeaderboardChallengesData[] Challengesdata { get; set; }
+        public ChallengeLeaderboardChallengesData[] ChallengesData { get; set; }
     }
 }

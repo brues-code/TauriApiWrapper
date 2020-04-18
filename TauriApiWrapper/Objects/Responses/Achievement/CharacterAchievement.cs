@@ -10,10 +10,10 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("date")]
-        public long Date { get; set; }
+        [JsonProperty("date"), JsonConverter(typeof(UnixDateConverter))]
+        public DateTime Date { get; set; }
 
-        [JsonProperty("catid"), JsonConverter(typeof(UnixDateConverter))]
-        public DateTime Catid { get; set; }
+        [JsonProperty("catid")]
+        public int Catid { get; set; }
     }
 }

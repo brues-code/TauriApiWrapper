@@ -19,7 +19,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public string MapName { get; set; }
 
         [JsonProperty("realm")]
-        public Realm realm{ get; set; }
+        public Realm Realm{ get; set; }
 
         [JsonProperty("winnerTeam")]
         public string WinnerTeam { get; set; }

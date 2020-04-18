@@ -14,7 +14,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string Desc { get; set; }
 
         [JsonProperty("pts")]
-        public long Pts { get; set; }
+        public int Pts { get; set; }
 
         [JsonProperty("reward")]
         public string Reward { get; set; }

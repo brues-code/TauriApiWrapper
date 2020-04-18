@@ -10,7 +10,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
     public class ArenaLadder : BaseApiResponse
     {
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("teamType")]
         public TeamType TeamType{ get; set; }

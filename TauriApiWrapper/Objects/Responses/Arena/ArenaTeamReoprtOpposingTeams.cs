@@ -10,13 +10,13 @@ namespace TauriApiWrapper.Objects.Responses.Arena
     public partial class ArenaTeamReoprtOpposingTeams : BaseApiResponse
     {
         [JsonProperty("realm" ), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("team")]
         public ArenaTeam Team { get; set; }
 
         [JsonProperty("teamstats")]
-        public ArenaTeamGameChartTeamstats Teamstats { get; set; }
+        public ArenaTeamGameChartTeamstats TeamStats { get; set; }
 
         [JsonProperty("Season_start_time")]
         public int SeasonStartTime{ get; set; }

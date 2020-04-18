@@ -11,6 +11,6 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public Dictionary<string, AchievementFirstArray[]> AchievementFirstArray { get; set; }
 
         [JsonProperty("realmName"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
     }
 }

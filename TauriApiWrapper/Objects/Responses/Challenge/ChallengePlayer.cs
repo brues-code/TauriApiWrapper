@@ -3,10 +3,10 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Challenge
 {
-    public partial class ChallengeLeaderboardPlayer
+    public sealed class ChallengePlayer
     {
         [JsonProperty("specializationid")]
-        public int SpecializationId { get; set; }
+        public int SpecializationID { get; set; }
 
         [JsonProperty("specializationrole")]
         public SpecializationRole SpecializationRole { get; set; }
@@ -18,6 +18,6 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
         public string SpecializationIcon { get; set; }
 
         [JsonProperty("playerinfo")]
-        public ChallengeLeaderboardPlayerInfo PlayerInfo { get; set; }
+        public ChallengePlayerInfo PlayerInfo { get; set; }
     }
 }

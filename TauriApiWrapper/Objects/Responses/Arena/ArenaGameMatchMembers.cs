@@ -37,7 +37,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public int HealingTaken { get; set; }
 
         [JsonProperty("realmName")]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }

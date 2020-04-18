@@ -13,13 +13,13 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public int ItemID { get; set; }
 
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
-        public Realm realm { get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("team")]
         public ArenaTeam Team { get; set; }
 
         [JsonProperty("teamstats")]
-        public ArenaTeamInfoTeamstats Teamstats { get; set; }
+        public ArenaTeamInfoTeamstats TeamStats { get; set; }
 
         [JsonProperty("teamMembers")]
         public ArenaTeamInfoTeamMembers TeamMembers { get; set; }

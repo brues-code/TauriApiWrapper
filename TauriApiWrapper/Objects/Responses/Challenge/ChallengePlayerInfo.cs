@@ -1,12 +1,12 @@
 ﻿using Newtonsoft.Json;
 using TauriApiWrapper.Enums;
 
-namespace TauriApiWrapper.Objects.Responses.Achievement
+namespace TauriApiWrapper.Objects.Responses.Challenge
 {
-    public partial class Playerinfo
+    public class ChallengePlayerInfo
     {
         [JsonProperty("charname")]
-        public string Charname { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("race")]
         public Race Race { get; set; }
@@ -21,7 +21,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string Guildname { get; set; }
 
         [JsonProperty("level")]
-        public long Level { get; set; }
+        public int Level { get; set; }
 
         [JsonProperty("faction")]
         public Faction Faction { get; set; }

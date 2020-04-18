@@ -20,21 +20,21 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public Gender Gender { get; set; }
 
         [JsonProperty("guildname")]
-        public string Guildname { get; set; }
+        public string GuildName { get; set; }
 
         [JsonProperty("name")]
-        public string AName { get; set; }
+        public string AchievementName { get; set; }
 
         [JsonProperty("description")]
-        public string ADescription { get; set; }
+        public string AchievementDescription { get; set; }
 
         [JsonProperty("point")]
-        public int APoint { get; set; }
+        public int AchievementPoint { get; set; }
 
         [JsonProperty("reward")]
-        public string AReward { get; set; }
+        public string AchievementReward { get; set; }
 
         [JsonProperty("timestamp"), JsonConverter(typeof(UnixDateConverter))]
-        public DateTime ATimestamp { get; set; }
+        public DateTime AchievementTimestamp { get; set; }
     }
 }

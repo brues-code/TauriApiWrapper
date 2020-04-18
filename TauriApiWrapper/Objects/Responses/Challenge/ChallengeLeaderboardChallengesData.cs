@@ -24,7 +24,7 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
         public int GuildRank { get; set; }
 
         [JsonProperty("players")]
-        public ChallengeLeaderboardPlayer[] Players { get; set; }
+        public ChallengePlayer[] Players { get; set; }
 
         [JsonProperty("guildinfo")]
         public GuildData GuildTnfo { get; set; }
