@@ -3,7 +3,7 @@ using System;
 
 namespace TauriApiWrapper.Converters
 {
-    internal class TimeSpanConverter : JsonConverter
+    internal sealed class TimeSpanConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

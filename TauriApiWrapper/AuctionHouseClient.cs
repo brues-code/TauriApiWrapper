@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.AuctionHouse;
 
 namespace TauriApiWrapper
 {
-    public class AuctionHouseClient : TauriClient
+    public sealed class AuctionHouseClient : TauriClient
     {
         private class Endpoints
         {

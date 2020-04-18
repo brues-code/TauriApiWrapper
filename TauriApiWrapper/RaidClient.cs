@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Raid;
 
 namespace TauriApiWrapper
 {
-    public class RaidClient : TauriClient
+    public sealed class RaidClient : TauriClient
     {
         private class Endpoints
         {

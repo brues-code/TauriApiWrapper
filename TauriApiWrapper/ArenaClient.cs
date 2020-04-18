@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Requests;
@@ -6,11 +7,7 @@ using TauriApiWrapper.Objects.Responses.Arena;
 
 namespace TauriApiWrapper
 {
-    /*
-     * 
-     *  NYI in Tauri API
-     *  
-     */
+    [Obsolete("Currently not implemented in tauri, probably deprecated by them")]
     public class ArenaClient : TauriClient
     {
         private class Endpoints
@@ -21,6 +18,7 @@ namespace TauriApiWrapper
             public const string ArenaTeamReportOpposingTeams = "arena-team-report-opposing-teams";
             public const string ArenaGame = "arena-game";
         }
+
         public ArenaClient(string apiKey, string secretKey) : base(apiKey, secretKey)
         {
         }
@@ -44,6 +42,7 @@ namespace TauriApiWrapper
             ApiParams param = new ApiParams(Endpoints.ArenaTeamGameChart, Secret, new ArenaTeamRequest(teamSize, teamName, realm));
             return Communicate<ArenaTeamGameChart>(param);
         }
+
         public ApiResponse<ArenaTeamReoprtOpposingTeams> GetArenaTeamReportOpposingTeams(int teamSize, string teamName, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.ArenaTeamReportOpposingTeams, Secret, new ArenaTeamRequest(teamSize, teamName, realm));
@@ -77,6 +76,7 @@ namespace TauriApiWrapper
             ApiParams param = new ApiParams(Endpoints.ArenaTeamGameChart, Secret, new ArenaTeamRequest(teamSize, teamName, realm));
             return await CommunicateAsync<ArenaTeamGameChart>(param);
         }
+
         public async Task<ApiResponse<ArenaTeamReoprtOpposingTeams>> GetArenaTeamReportOpposingTeamsAsync(int teamSize, string teamName, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.ArenaTeamReportOpposingTeams, Secret, new ArenaTeamRequest(teamSize, teamName, realm));

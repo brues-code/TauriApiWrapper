@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Challenge;
 
 namespace TauriApiWrapper
 {
-    public class ChallengeModeClient : TauriClient
+    public sealed class ChallengeModeClient : TauriClient
     {
         private class Endpoints
         {

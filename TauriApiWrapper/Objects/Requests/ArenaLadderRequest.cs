@@ -7,7 +7,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class ArenaLadderRequest : ArenaBaseRequest
+    internal class ArenaLadderRequest : ArenaBaseRequest
     {
         public ArenaLadderRequest(int teamSize, Realm realm) : base(realm)
         {

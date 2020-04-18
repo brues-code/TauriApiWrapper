@@ -9,7 +9,7 @@ using TauriApiWrapper.Objects.Responses;
 
 namespace TauriApiWrapper
 {
-    public class TooltipClient : TauriClient
+    public sealed class TooltipClient : TauriClient
     {
         private class Endpoints
         {

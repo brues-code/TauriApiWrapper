@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Converters
 {
-    public class TeamTypeConverter : JsonConverter
+    internal sealed class TeamTypeConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
@@ -13,7 +13,7 @@ namespace TauriApiWrapper.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType == JsonToken.Null) 
+            if (reader.TokenType == JsonToken.Null)
                 return null;
 
             string value = serializer.Deserialize<string>(reader);

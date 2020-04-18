@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Converters
 {
-    internal class FactionConverter : JsonConverter
+    internal sealed class FactionConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

@@ -4,7 +4,7 @@ using TauriApiWrapper.Extensions;
 
 namespace TauriApiWrapper.Converters
 {
-    internal class UnixDateConverter : JsonConverter
+    internal sealed class UnixDateConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

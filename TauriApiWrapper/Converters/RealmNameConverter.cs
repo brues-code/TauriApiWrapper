@@ -5,7 +5,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Converters
 {
-    internal class RealmNameConverter : JsonConverter
+    internal sealed class RealmNameConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

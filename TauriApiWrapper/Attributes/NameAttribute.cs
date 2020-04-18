@@ -6,7 +6,7 @@ namespace TauriApiWrapper.Enums
     {
         internal string Name { get; private set; }
 
-        public NameAttribute(string name)
+        internal NameAttribute(string name)
         {
             Name = name;
         }

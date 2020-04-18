@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
-    public class ArenaBaseRequest : IApiParam
+    internal class ArenaBaseRequest : IApiParam
     {
         private Realm _realm;
 

@@ -2,7 +2,7 @@
 
 namespace TauriApiWrapper.Extensions
 {
-    public static class DateTimeExtensions
+    internal static class DateTimeExtensions
     {
         private readonly static DateTime _Epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 

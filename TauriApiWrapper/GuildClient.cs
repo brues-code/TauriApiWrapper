@@ -5,7 +5,7 @@ using TauriApiWrapper.Objects.Responses.Guild;
 
 namespace TauriApiWrapper
 {
-    public class GuildClient : TauriClient
+    public sealed class GuildClient : TauriClient
     {
         private class Endpoints
         {

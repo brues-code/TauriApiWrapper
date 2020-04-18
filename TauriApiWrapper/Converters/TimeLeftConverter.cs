@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Converters
 {
-    internal class TimeLeftConverter : JsonConverter
+    internal sealed class TimeLeftConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {

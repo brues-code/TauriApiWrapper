@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Character;
 
 namespace TauriApiWrapper
 {
-    public class CharacterClient : TauriClient
+    public sealed class CharacterClient : TauriClient
     {
         public CharacterClient(string apiKey, string secretKey) : base(apiKey, secretKey)
         {

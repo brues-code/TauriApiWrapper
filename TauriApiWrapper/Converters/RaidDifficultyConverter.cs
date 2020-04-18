@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Converters
 {
-    public class RaidDifficultyConverter : JsonConverter
+    internal sealed class RaidDifficultyConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
