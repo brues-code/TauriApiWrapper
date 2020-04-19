@@ -24,7 +24,7 @@ jobs:
     - name: create-env-json
       uses: schdck/create-env-json@v1
       with:
-        file-name: '/home/runner/work/TauriApiWrapper/TauriApiWrapper/TauriApiWrapperTests/bin/Debug/netcoreapp3.1/settings.json'
+        file-name: 'settings.json'
         apiKey: ${{ secrets.APIKEY }}
         apiSecret: ${{ secrets.APISECRET }}
     - name: Test
