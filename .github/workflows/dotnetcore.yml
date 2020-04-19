@@ -25,7 +25,7 @@ jobs:
       uses: schdck/create-env-json@v1
       with:
         file-name: 'settings.json'
-        apiKey: ${{ secrets.APIKEY }}
-        apiSecret: ${{ secrets.APISECRET }}
+        APIKEY: ${{ secrets.APIKEY }}
+        APISECRET: ${{ secrets.APISECRET }}
     - name: Test
       run: dotnet test --no-restore --verbosity normal
