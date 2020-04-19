@@ -5,10 +5,10 @@ namespace TauriApiWrapperTests
 {
     internal class ApiCredentials
     {
-        [JsonProperty("apiKey")]
+        [JsonProperty("APIKEY")]
         public string ApiKey { get; set; }
 
-        [JsonProperty("apiSecret")]
+        [JsonProperty("APISECRET")]
         public string ApiSecret { get; set; }
 
         public static ApiCredentials GetCredentials()
