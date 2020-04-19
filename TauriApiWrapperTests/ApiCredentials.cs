@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System.IO;
 
 namespace TauriApiWrapperTests
@@ -14,6 +15,19 @@ namespace TauriApiWrapperTests
         public static ApiCredentials GetCredentials()
         {
             return JsonConvert.DeserializeObject<ApiCredentials>(File.ReadAllText("../../../settings.json"));
+        }
+    }
+
+    [TestClass]
+    public class ApiCredentialsTester
+    {
+        private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
+
+        [TestMethod]
+        public void GetItemById()
+        {
+            Assert.IsTrue(!string.IsNullOrEmpty(_credentials.ApiKey));
+            Assert.IsTrue(!string.IsNullOrEmpty(_credentials.ApiSecret));
         }
     }
 }
