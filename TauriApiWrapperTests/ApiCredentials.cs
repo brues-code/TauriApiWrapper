@@ -24,7 +24,7 @@ namespace TauriApiWrapperTests
         private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
 
         [TestMethod]
-        public void GetItemById()
+        public void CheckAPICredentials()
         {
             Assert.IsTrue(!string.IsNullOrEmpty(_credentials.ApiKey));
             Assert.IsTrue(!string.IsNullOrEmpty(_credentials.ApiSecret));
