@@ -8,10 +8,12 @@ namespace TauriApiWrapperTests
     [TestClass]
     public class AchievementClientTester
     {
+        private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
+
         [TestMethod]
         public void GetAchievementFrist()
         {
-            using (AchievementClient client = new AchievementClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<AchievementFirst> returnData = client.GetAchievementFirsts(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
@@ -23,7 +25,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterAchievements()
         {
-            using (AchievementClient client = new AchievementClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<CharacterAchievements> returnData = client.GetCharacterAchievements("Rdzio", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
@@ -34,7 +36,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterAchievementsLoader()
         {
-            using (AchievementClient client = new AchievementClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<CharacterAchievementsLoader> returnData = client.GetCharacterAchievementsLoader("Rdzio", (int)TauriApiWrapper.Enums.AchievementCategory.Guild, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);

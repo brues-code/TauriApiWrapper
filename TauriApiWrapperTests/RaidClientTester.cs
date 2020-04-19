@@ -8,10 +8,12 @@ namespace TauriApiWrapperTests
     [TestClass]
     public class RaidClientTester
     {
+        private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
+
         [TestMethod]
         public void GetRaidMapsInfo()
         {
-            using (RaidClient client = new RaidClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<RaidMaps> returnData = client.GetRaidMaps();
                 Assert.IsNotNull(returnData.Response);
@@ -27,7 +29,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetLatestRaidsInfo()
         {
-            using (RaidClient client = new RaidClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
                 Assert.IsNotNull(returnData.Response);
@@ -38,7 +40,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetLatestRaidLogInfo()
         {
-            using (RaidClient client = new RaidClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
                 Assert.IsNotNull(returnData.Response);
@@ -53,7 +55,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetLatestRaidLogByPlayerName()
         {
-            using (RaidClient client = new RaidClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromPlayerName("Cat", realm: TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(returnData.IsSuccess);

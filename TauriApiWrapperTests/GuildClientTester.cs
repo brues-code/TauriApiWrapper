@@ -8,10 +8,12 @@ namespace TauriApiWrapperTests
     [TestClass]
     public class GuildClientTester
     {
+        private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
+
         [TestMethod]
         public void GetGuildRoster()
         {
-            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (GuildClient client = new GuildClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<GuildRoster> returnData = client.GetGuildRoster("Muzykanci z Gruzji");
                 Assert.IsTrue(returnData.IsSuccess);
@@ -23,7 +25,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetGuildStats()
         {
-            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (GuildClient client = new GuildClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<GuildStats> returnData = client.GetGuildStats("Muzykanci z Gruzji");
                 Assert.IsTrue(returnData.IsSuccess);
@@ -35,7 +37,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetGuildBankContent()
         {
-            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (GuildClient client = new GuildClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<GuildBankContent> returnData = client.GetGuildBankContents("Muzykanci z Gruzji");
                 Assert.IsTrue(returnData.IsSuccess);
@@ -47,7 +49,7 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetGuildLogs()
         {
-            using (GuildClient client = new GuildClient(TestingCredentials.ApiKey, TestingCredentials.Secret))
+            using (GuildClient client = new GuildClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<GuildBankLog> returnData = client.GetGuildBankLogs("Muzykanci z Gruzji");
                 Assert.IsTrue(returnData.IsSuccess);
