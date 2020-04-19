@@ -14,7 +14,7 @@ namespace TauriApiWrapperTests
 
         public static ApiCredentials GetCredentials()
         {
-            return JsonConvert.DeserializeObject<ApiCredentials>(File.ReadAllText("settings.json"));
+            return JsonConvert.DeserializeObject<ApiCredentials>(File.ReadAllText("../../../settings.json"));
         }
     }
 
