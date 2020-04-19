@@ -22,7 +22,7 @@ jobs:
     - name: create-env-json
       uses: schdck/create-env-json@v1
       with:
-        file-name: 'settings.json'
+        file-name: '/TauriApiWrapperTests/settings.json'
         APIKEY: ${{ secrets.APIKEY }}
         APISECRET: ${{ secrets.APISECRET }}
     - name: Build
