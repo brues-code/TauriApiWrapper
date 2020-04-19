@@ -19,13 +19,13 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Debug --no-restore
     - name: create-env-json
       uses: schdck/create-env-json@v1
       with:
-        file-name: 'settings.json'
+        file-name: '/home/runner/work/TauriApiWrapper/TauriApiWrapper/TauriApiWrapperTests/bin/Debug/netcoreapp3.1/settings.json'
         apiKey: ${{ secrets.APIKEY }}
         apiSecret: ${{ secrets.APISECRET }}
-    - name: Build
-      run: dotnet build --configuration Debug --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
