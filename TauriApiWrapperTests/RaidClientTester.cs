@@ -62,5 +62,38 @@ namespace TauriApiWrapperTests
                 Assert.IsNotNull(returnData.Response);
             }
         }
+
+        [TestMethod]
+        public void GetRaidLogFromGuildName()
+        {
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromGuildName("Muzykanci z Gruzji", realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+            }
+        }
+
+        [TestMethod]
+        public void GetRaidEncounterRanking()
+        {
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+            }
+        }
+
+        [TestMethod]
+        public void GetRaidGuildEncounterRanking()
+        {
+            using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidGuildEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+            }
+        }
     }
 }
