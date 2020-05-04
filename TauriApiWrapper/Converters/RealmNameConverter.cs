@@ -19,22 +19,13 @@ namespace TauriApiWrapper.Converters
 
             string value = serializer.Deserialize<string>(reader);
 
-            switch (value)
+            return value switch
             {
-                case "[EN] Evermoon":
-                    return Realm.Evermoon;
-
-                case "[HU] Tauri WoW Server":
-                    return Realm.Tauri;
-
-                case "[HU] Warriors of Darkness":
-                    return Realm.WoD;
-
-                default:
-                    return Realm.Evermoon;
-            }
-
-            throw new NotImplementedException("Unexpected realm name");
+                "[EN] Evermoon" => Realm.Evermoon,
+                "[HU] Tauri WoW Server" => Realm.Tauri,
+                "[HU] Warriors of Darkness" => Realm.WoD,
+                _ => Realm.Evermoon,
+            };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

@@ -15,30 +15,17 @@ namespace TauriApiWrapper.Converters
         {
             if (reader.TokenType == JsonToken.Null) return null;
             var value = serializer.Deserialize<string>(reader);
-            switch (value)
+            return value switch
             {
-                case "10 Player":
-                    return RaidDifficulty._10Player;
-
-                case "10 Player (Heroic)":
-                    return RaidDifficulty._10PlayerHeroic;
-
-                case "25 Player":
-                    return RaidDifficulty._25Player;
-
-                case "25 Player (Heroic)":
-                    return RaidDifficulty._25PlayerHeroic;
-
-                case "40 Player":
-                    return RaidDifficulty._40Player;
-
-                case "Flexible":
-                    return RaidDifficulty._Flexible;
-
-                case "Looking For Raid":
-                    return RaidDifficulty._LookingForRaid;
-            }
-            throw new Exception("Cannot marshal type RaidDifficulty");
+                "10 Player" => RaidDifficulty._10Player,
+                "10 Player (Heroic)" => RaidDifficulty._10PlayerHeroic,
+                "25 Player" => RaidDifficulty._25Player,
+                "25 Player (Heroic)" => RaidDifficulty._25PlayerHeroic,
+                "40 Player" => RaidDifficulty._40Player,
+                "Flexible" => RaidDifficulty._Flexible,
+                "Looking For Raid" => RaidDifficulty._LookingForRaid,
+                _ => throw new Exception("Cannot marshal type RaidDifficulty"),
+            };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -79,8 +66,10 @@ namespace TauriApiWrapper.Converters
                 case RaidDifficulty._LookingForRaid:
                     serializer.Serialize(writer, "Looking For Raid");
                     return;
+
+                default:
+                    throw new Exception("Cannot marshal type TimeLeft");
             }
-            throw new Exception("Cannot marshal type TimeLeft");
         }
     }
 }

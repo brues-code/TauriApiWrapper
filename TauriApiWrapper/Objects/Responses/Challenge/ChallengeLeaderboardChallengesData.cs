@@ -8,7 +8,7 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
 {
     public partial class ChallengeLeaderboardChallengesData
     {
-        [JsonProperty("completiontime"), JsonConverter(typeof(TimeSpanConverter))]
+        [JsonProperty("completiontime"), JsonConverter(typeof(TimeSpanMillisecondsConverter))]
         public TimeSpan CompletionTime { get; set; }
 
         [JsonProperty("completedtime"), JsonConverter(typeof(UnixDateConverter))]

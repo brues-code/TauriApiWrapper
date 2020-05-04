@@ -44,7 +44,7 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         [JsonProperty("deahts_total")]
         public int DeathsTotal { get; set; }
 
-        [JsonProperty("fight_time"), JsonConverter(typeof(TimeSpanConverter))]
+        [JsonProperty("fight_time"), JsonConverter(typeof(TimeSpanMillisecondsConverter))]
         public TimeSpan FightTime { get; set; }
 
         [JsonProperty("deaths_fight")]

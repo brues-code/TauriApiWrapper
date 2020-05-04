@@ -18,19 +18,12 @@ namespace TauriApiWrapper.Converters
 
             string value = serializer.Deserialize<string>(reader);
 
-            switch (value)
+            return value switch
             {
-                case "Horde":
-                    return Faction.Horde;
-
-                case "Alliance":
-                    return Faction.Alliance;
-
-                default:
-                    throw new NotImplementedException("Unexpected realm name");
-            }
-
-            throw new NotImplementedException("Unexpected realm name");
+                "Horde" => Faction.Horde,
+                "Alliance" => Faction.Alliance,
+                _ => throw new NotImplementedException("Unexpected realm name"),
+            };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

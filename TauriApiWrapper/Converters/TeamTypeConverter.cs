@@ -18,18 +18,13 @@ namespace TauriApiWrapper.Converters
 
             string value = serializer.Deserialize<string>(reader);
 
-            switch (value)
+            return value switch
             {
-                case "2v2":
-                    return TeamType._2v2;
-
-                case "3v3":
-                    return TeamType._3v3;
-
-                case "5v5":
-                    return TeamType._5v5;
-            }
-            throw new Exception("Unexpected team type");
+                "2v2" => TeamType._2v2,
+                "3v3" => TeamType._3v3,
+                "5v5" => TeamType._5v5,
+                _ => throw new Exception("Unexpected team type"),
+            };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -54,8 +49,10 @@ namespace TauriApiWrapper.Converters
                 case TeamType._5v5:
                     serializer.Serialize(writer, "5v5");
                     return;
+
+                default:
+                    throw new Exception("Cannot marshal type TeamType");
             }
-            throw new Exception("Cannot marshal type TeamType");
         }
     }
 }

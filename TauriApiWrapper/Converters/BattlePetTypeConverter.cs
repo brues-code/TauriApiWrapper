@@ -14,40 +14,21 @@ namespace TauriApiWrapper.Converters
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null) return null;
-            var value = serializer.Deserialize<string>(reader);
-            switch (value)
+            string value = serializer.Deserialize<string>(reader);
+            return value switch
             {
-                case "Aquatic":
-                    return BattlePetType.Aquatic;
-
-                case "Beast":
-                    return BattlePetType.Beast;
-
-                case "Critter":
-                    return BattlePetType.Critter;
-
-                case "Dragonkin":
-                    return BattlePetType.Dragonkin;
-
-                case "Elemental":
-                    return BattlePetType.Elemental;
-
-                case "Flying":
-                    return BattlePetType.Flying;
-
-                case "Humanoid":
-                    return BattlePetType.Humanoid;
-
-                case "Magic":
-                    return BattlePetType.Magic;
-
-                case "Mechanical":
-                    return BattlePetType.Mechanical;
-
-                case "Undead":
-                    return BattlePetType.Undead;
-            }
-            throw new Exception("Cannot unmarshal type PettypeName");
+                "Aquatic" => BattlePetType.Aquatic,
+                "Beast" => BattlePetType.Beast,
+                "Critter" => BattlePetType.Critter,
+                "Dragonkin" => BattlePetType.Dragonkin,
+                "Elemental" => BattlePetType.Elemental,
+                "Flying" => BattlePetType.Flying,
+                "Humanoid" => BattlePetType.Humanoid,
+                "Magic" => BattlePetType.Magic,
+                "Mechanical" => BattlePetType.Mechanical,
+                "Undead" => BattlePetType.Undead,
+                _ => throw new Exception("Cannot unmarshal type PetTypeName"),
+            };
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
