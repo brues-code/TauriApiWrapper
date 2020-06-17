@@ -11,6 +11,9 @@
         Tauri,
 
         [Name("[HU] Warriors of Darkness")]
-        WoD
+        WoD,
+        
+        [Name("Crystalsong")]
+        Crystalsong,
     }
 }
