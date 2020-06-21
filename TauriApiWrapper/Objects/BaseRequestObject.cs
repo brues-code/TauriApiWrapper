@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using TauriApiWrapper.Attributes;
+using TauriApiWrapper.Extensions;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects

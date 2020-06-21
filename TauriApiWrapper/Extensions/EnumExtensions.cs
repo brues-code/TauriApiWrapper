@@ -1,9 +1,9 @@
 ﻿using System;
 using TauriApiWrapper.Enums;
 
-namespace TauriApiWrapper.Attributes
+namespace TauriApiWrapper.Extensions
 {
-    internal static class EnumAttributes
+    internal static class EnumExtensions
     {
         internal static string ToName(this Enum val)
         {
