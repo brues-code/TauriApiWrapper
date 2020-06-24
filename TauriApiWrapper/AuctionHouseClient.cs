@@ -23,18 +23,30 @@ namespace TauriApiWrapper
 
         public ApiResponse<AuctionHouseInfoResponse> GetAuctionHouseInfo(Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
             return Communicate<AuctionHouseInfoResponse>(param);
         }
 
         public ApiResponse<AuctionHouseResponse> GetAllAuctionsData(Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
             return Communicate<AuctionHouseResponse>(param);
         }
 
         public ApiResponse<AuctionHouseResponse> GetAuctionsByItemID(int itemID, Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
             return Communicate<AuctionHouseResponse>(param);
         }
@@ -45,18 +57,30 @@ namespace TauriApiWrapper
 
         public async Task<ApiResponse<AuctionHouseInfoResponse>> GetAuctionHouseInfoAsync(Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
             return await CommunicateAsync<AuctionHouseInfoResponse>(param);
         }
 
         public async Task<ApiResponse<AuctionHouseResponse>> GetAllAuctionsDataAsync(Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
             return await CommunicateAsync<AuctionHouseResponse>(param);
         }
 
         public async Task<ApiResponse<AuctionHouseResponse>> GetAuctionsByItemIDAsync(int itemID, Realm realm)
         {
+            //temp fix before linked realms Update
+            if (realm == Realm.Evermoon)
+                realm = Realm.Tauri;
+
             ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
             return await CommunicateAsync<AuctionHouseResponse>(param);
         }
