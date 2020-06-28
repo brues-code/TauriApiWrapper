@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
@@ -12,5 +13,10 @@ namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 
         [JsonProperty("auctioner_7")]
         public Auctioneer[] BlackwaterAuctions { get; set; }
+
+        public bool IsAuctionHouseEmpty()
+        {
+            return !AllianceAuctions.Any() || !HordeAuctions.Any() || !BlackwaterAuctions.Any();
+        }
     }
 }

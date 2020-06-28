@@ -11,7 +11,7 @@ namespace TauriApiWrapperTests
         private static readonly ApiCredentials _credentials = ApiCredentials.GetCredentials();
 
         [TestMethod]
-        public void GetAchievementFrist()
+        public void GetAchievementFirst()
         {
             using (AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret))
             {

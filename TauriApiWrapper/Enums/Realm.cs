@@ -1,10 +1,12 @@
-﻿namespace TauriApiWrapper.Enums
+﻿using TauriApiWrapper.Attributes;
+
+namespace TauriApiWrapper.Enums
 {
     public enum Realm
     {
         Undefined,
 
-        [Name("[EN] Evermoon")]
+        [Name("[EN] Evermoon"), LinkedRealm(Tauri)]
         Evermoon,
 
         [Name("[HU] Tauri WoW Server")]
@@ -12,7 +14,7 @@
 
         [Name("[HU] Warriors of Darkness")]
         WoD,
-        
+
         [Name("Crystalsong")]
         Crystalsong,
     }
