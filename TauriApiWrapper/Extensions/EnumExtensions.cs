@@ -23,5 +23,14 @@ namespace TauriApiWrapper.Extensions
                .GetCustomAttributes(typeof(LinkedRealmAttribute), false);
             return (Realm)(attributes.Length > 0 ? attributes[0].MasterRealm : val);
         }
+
+        internal static bool IsLinkedRealm(this Enum val)
+        {
+            LinkedRealmAttribute[] attributes = (LinkedRealmAttribute[])val
+               .GetType()
+               .GetField(val.ToString())
+               .GetCustomAttributes(typeof(LinkedRealmAttribute), false);
+            return attributes.Length > 0;
+        }
     }
 }

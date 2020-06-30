@@ -68,6 +68,17 @@ namespace TauriApiWrapperTests
         }
 
         [TestMethod]
+        public void GetAuctionItemPriceOnLinkedRealm()
+        {
+            using (AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsTrue(data.IsSuccess);
+                Assert.IsNotNull(data.Response);
+            }
+        }
+
+        [TestMethod]
         public void GetAuctionItemPrice()
         {
             using (AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret))

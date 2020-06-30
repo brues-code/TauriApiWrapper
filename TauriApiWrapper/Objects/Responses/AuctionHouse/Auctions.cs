@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Linq;
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
