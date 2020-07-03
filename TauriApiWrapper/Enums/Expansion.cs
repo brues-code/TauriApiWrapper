@@ -9,7 +9,7 @@
         MistsOfPandaria = 4,
         WarlordsOfDraenor = 5,
         Legion = 7,
-        BfA = 8,
+        BattleForAzeroth = 8,
         Shadowlands = 9
     }
 }
