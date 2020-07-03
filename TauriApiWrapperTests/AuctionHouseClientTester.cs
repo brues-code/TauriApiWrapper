@@ -19,6 +19,7 @@ namespace TauriApiWrapperTests
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(data.Response.Auctions.Count > 0);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -30,6 +31,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseInfoResponse> data = client.GetBlackMarketInfo(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -41,6 +43,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseInfoResponse> data = client.GetAuctionHouseInfo(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -52,6 +55,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -63,6 +67,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
                 Assert.IsTrue(!data.Response.Auctions.IsAuctionHouseEmpty());
             }
         }
@@ -75,6 +80,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -86,6 +92,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
     }
