@@ -7,7 +7,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaTeamReoprtOpposingTeamsMatchData
+    public partial class ArenaTeamReportOpposingTeamsMatchData
     {
         [JsonProperty("EnemyTeamId")]
         public int EnemyTeamId { get; set; }
@@ -40,9 +40,9 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public int StartTime { get; set; }
 
         [JsonProperty("wins")]
-        public int Wins{ get; set; }
+        public int Wins { get; set; }
 
         [JsonProperty("matchs")]
-        public int Matchs{ get; set; }
+        public int Matchs { get; set; }
     }
 }

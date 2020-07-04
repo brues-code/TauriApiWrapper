@@ -12,11 +12,14 @@ namespace TauriApiWrapper
         #region Fields
 
         private Lazy<HttpClient> _client = new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.ExecutionAndPublication);
-
-        private HttpClient Client => _client.Value;
-
         private readonly string _apiKey;
         protected readonly string Secret;
+
+        protected readonly string InvalidExpansion = "This expansion is invalid or not supported for this method.";
+
+        #endregion Fields
+
+        #region Private Properties
 
         private string Endpoint
         {
@@ -26,7 +29,9 @@ namespace TauriApiWrapper
             }
         }
 
-        #endregion Fields
+        private HttpClient Client => _client.Value;
+
+        #endregion Private Properties
 
         #region Ctor
 
@@ -40,12 +45,12 @@ namespace TauriApiWrapper
 
         #region Methods
 
-        protected ApiResponse<T> Communicate<T>(ApiParams data)
+        protected ApiResponse<T> Communicate<T>(ApiParams data) where T : class
         {
             return CommunicateAsync<T>(data).GetAwaiter().GetResult();
         }
 
-        protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data)
+        protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data) where T : class
         {
             ApiResponse<T> apiObject = new ApiResponse<T>();
             var response = await CallAPI(data);

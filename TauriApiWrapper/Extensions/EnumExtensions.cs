@@ -32,5 +32,15 @@ namespace TauriApiWrapper.Extensions
                .GetCustomAttributes(typeof(LinkedRealmAttribute), false);
             return attributes.Length > 0;
         }
+
+        internal static Expansion GetRealmExpansion(this Realm val)
+        {
+            ExpansionAttribute[] attributes = (ExpansionAttribute[])val
+               .GetType()
+               .GetField(val.ToString())
+               .GetCustomAttributes(typeof(ExpansionAttribute), false);
+
+            return attributes.Length > 0 ? attributes[0].Expansion : Expansion.Undefined;
+        }
     }
 }

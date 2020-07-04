@@ -6,16 +6,16 @@ namespace TauriApiWrapper.Enums
     {
         Undefined,
 
-        [Name("[EN] Evermoon"), LinkedRealm(Tauri)]
+        [Name("[EN] Evermoon"), LinkedRealm(Tauri), Expansion(Expansion.MistsOfPandaria)]
         Evermoon,
 
-        [Name("[HU] Tauri WoW Server")]
+        [Name("[HU] Tauri WoW Server"), Expansion(Expansion.MistsOfPandaria)]
         Tauri,
 
-        [Name("[HU] Warriors of Darkness")]
+        [Name("[HU] Warriors of Darkness"), Expansion(Expansion.MistsOfPandaria)]
         WoD,
 
-        [Name("Crystalsong")]
+        [Name("Crystalsong"), Expansion(Expansion.WrathOfTheLichKing)]
         Crystalsong,
     }
 }

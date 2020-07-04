@@ -2,6 +2,7 @@
 {
     public enum Expansion
     {
+        Undefined = -1,
         Classic = 0,
         BurningCrusade = 1,
         WrathOfTheLichKing = 2,

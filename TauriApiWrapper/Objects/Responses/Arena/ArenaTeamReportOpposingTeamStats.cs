@@ -7,7 +7,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaTeamReoprtOpposingTeamsTeamstats
+    public partial class ArenaTeamReportOpposingTeamStats
     {
         [JsonProperty("rating")]
         public int Rating { get; set; }
