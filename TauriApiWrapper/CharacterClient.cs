@@ -31,7 +31,7 @@ namespace TauriApiWrapper
 
         public ApiResponse<CharacterSheet> GetCharacterSheet(string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
+            ApiParams param = new ApiParams(Endpoints.SheetUrl, Secret, new CharacterRequest(characterName, realm));
             return Communicate<CharacterSheet>(param);
         }
 
@@ -59,7 +59,7 @@ namespace TauriApiWrapper
 
         public async Task<ApiResponse<CharacterSheet>> GetCharacterSheetAsync(string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
+            ApiParams param = new ApiParams(Endpoints.SheetUrl, Secret, new CharacterRequest(characterName, realm));
             return await CommunicateAsync<CharacterSheet>(param);
         }
 
