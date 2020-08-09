@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Responses.Raid;
@@ -32,8 +33,10 @@ namespace TauriApiWrapperTests
             using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
                 ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
-                Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
 
@@ -45,10 +48,13 @@ namespace TauriApiWrapperTests
                 ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
 
                 ApiResponse<RaidLog> raidlog = client.GetRaidLogFromId(returnData.Response.Logs[0].LogId);
                 Assert.IsTrue(raidlog.IsSuccess);
                 Assert.IsNotNull(raidlog.Response);
+                Assert.IsNotNull(raidlog.Response.Encounter);
             }
         }
 
@@ -60,6 +66,8 @@ namespace TauriApiWrapperTests
                 ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromPlayerName("Cat", realm: TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
 
@@ -71,6 +79,8 @@ namespace TauriApiWrapperTests
                 ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromGuildName("Muzykanci z Gruzji", realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
 
@@ -82,6 +92,8 @@ namespace TauriApiWrapperTests
                 ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
 
@@ -93,6 +105,8 @@ namespace TauriApiWrapperTests
                 ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidGuildEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
     }

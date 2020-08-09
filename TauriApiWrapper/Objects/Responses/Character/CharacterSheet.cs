@@ -8,6 +8,9 @@ namespace TauriApiWrapper.Objects.Responses.Character
 {
     public sealed class CharacterSheet : CharacterData
     {
+        [JsonProperty("name")]
+        public new string Name { get; set; }
+
         [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
         public Realm Realm { get; set; }
 

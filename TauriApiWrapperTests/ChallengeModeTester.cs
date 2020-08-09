@@ -18,6 +18,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<ChallengeIndex> returnData = client.GetChallengeIndex(TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsTrue(returnData.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
 
@@ -29,6 +30,7 @@ namespace TauriApiWrapperTests
                 ApiResponse<ChallengeLeaderboard> returnData = client.GetChallengeLeaderboard((int)TauriApiWrapper.Enums.ChallengeMap.TempleOfTheJadeSerpent, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
+                Assert.IsTrue(returnData.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
             }
         }
     }

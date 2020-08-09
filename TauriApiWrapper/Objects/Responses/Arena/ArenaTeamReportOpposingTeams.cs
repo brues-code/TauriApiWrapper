@@ -7,9 +7,9 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaTeamReoprtOpposingTeams : BaseApiResponse
+    public partial class ArenaTeamReportOpposingTeams : BaseApiResponse
     {
-        [JsonProperty("realm" ), JsonConverter(typeof(RealmNameConverter))]
+        [JsonProperty("realm"), JsonConverter(typeof(RealmNameConverter))]
         public Realm Realm { get; set; }
 
         [JsonProperty("team")]
@@ -19,9 +19,9 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public ArenaTeamGameChartTeamstats TeamStats { get; set; }
 
         [JsonProperty("Season_start_time")]
-        public int SeasonStartTime{ get; set; }
+        public int SeasonStartTime { get; set; }
 
         [JsonProperty("matchData")]
-        public ArenaTeamReoprtOpposingTeamsMatchData MatchData { get; set; }
+        public ArenaTeamReportOpposingTeamsMatchData MatchData { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace TauriApiWrapperTests
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
+                Assert.IsNotNull(data.Response.CharacterItems);
             }
         }
 

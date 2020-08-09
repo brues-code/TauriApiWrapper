@@ -21,4 +21,14 @@
     <ProjectReference Include="..\TauriApiWrapper\TauriApiWrapper.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="settings.json">
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Update="settings.Release.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>settings.json</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

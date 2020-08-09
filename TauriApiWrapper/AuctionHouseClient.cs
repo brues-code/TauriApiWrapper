@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using TauriApiWrapper.Enums;
+using TauriApiWrapper.Extensions;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Requests;
 using TauriApiWrapper.Objects.Responses.AuctionHouse;
@@ -23,19 +24,19 @@ namespace TauriApiWrapper
 
         public ApiResponse<AuctionHouseInfoResponse> GetAuctionHouseInfo(Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm.ToMasterRealm()));
             return Communicate<AuctionHouseInfoResponse>(param);
         }
 
         public ApiResponse<AuctionHouseResponse> GetAllAuctionsData(Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm.ToMasterRealm()));
             return Communicate<AuctionHouseResponse>(param);
         }
 
         public ApiResponse<AuctionHouseResponse> GetAuctionsByItemID(int itemID, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm.ToMasterRealm()));
             return Communicate<AuctionHouseResponse>(param);
         }
 
@@ -45,19 +46,19 @@ namespace TauriApiWrapper
 
         public async Task<ApiResponse<AuctionHouseInfoResponse>> GetAuctionHouseInfoAsync(Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm.ToMasterRealm()));
             return await CommunicateAsync<AuctionHouseInfoResponse>(param);
         }
 
         public async Task<ApiResponse<AuctionHouseResponse>> GetAllAuctionsDataAsync(Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm.ToMasterRealm()));
             return await CommunicateAsync<AuctionHouseResponse>(param);
         }
 
         public async Task<ApiResponse<AuctionHouseResponse>> GetAuctionsByItemIDAsync(int itemID, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm));
+            ApiParams param = new ApiParams(Endpoints.AuctionItemData, Secret, new AuctionHouseItemPriceRequest(itemID, realm.ToMasterRealm()));
             return await CommunicateAsync<AuctionHouseResponse>(param);
         }
 

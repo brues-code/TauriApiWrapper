@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TauriApiWrapper", "TauriApi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TauriApiWrapperTests", "TauriApiWrapperTests\TauriApiWrapperTests.csproj", "{2552D9BD-E995-4193-AC1C-75D9A9B20EEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauriApiWrapper.NuGet", "TauriApiWrapper.NuGet\TauriApiWrapper.NuGet.csproj", "{B68108D3-D7BA-4102-BF48-0F2E52D60735}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{2552D9BD-E995-4193-AC1C-75D9A9B20EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2552D9BD-E995-4193-AC1C-75D9A9B20EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2552D9BD-E995-4193-AC1C-75D9A9B20EEA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B68108D3-D7BA-4102-BF48-0F2E52D60735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B68108D3-D7BA-4102-BF48-0F2E52D60735}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B68108D3-D7BA-4102-BF48-0F2E52D60735}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B68108D3-D7BA-4102-BF48-0F2E52D60735}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

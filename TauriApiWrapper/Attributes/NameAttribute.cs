@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace TauriApiWrapper.Enums
+namespace TauriApiWrapper.Attributes
 {
+    [AttributeUsage(AttributeTargets.Field, Inherited = false, AllowMultiple = true)]
     internal class NameAttribute : Attribute
     {
         internal string Name { get; private set; }

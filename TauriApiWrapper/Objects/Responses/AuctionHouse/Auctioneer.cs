@@ -25,7 +25,7 @@ namespace TauriApiWrapper.Objects.Responses.AuctionHouse
         public long Bid { get; set; }
 
         [JsonProperty("buyout")]
-        public double Buyout { get; set; }
+        public long Buyout { get; set; }
 
         [JsonProperty("timeLeft"), JsonConverter(typeof(TimeLeftConverter))]
         public TimeLeft TimeLeft { get; set; }
