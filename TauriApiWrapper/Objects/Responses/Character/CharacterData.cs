@@ -5,7 +5,7 @@ namespace TauriApiWrapper.Objects.Responses.Character
 {
     public class CharacterData : BaseApiResponse
     {
-        [JsonProperty("charname")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("race")]
