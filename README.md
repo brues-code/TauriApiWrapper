@@ -13,5 +13,5 @@ We love pull requests, but if you're going to submit one, make sure its coming w
 
 ## Contributors
 
- - [Query](https://github.com/query-js)
+ - [Query](https://github.com/query-wow)
  - [Rdzio](https://github.com/Rdzio)
