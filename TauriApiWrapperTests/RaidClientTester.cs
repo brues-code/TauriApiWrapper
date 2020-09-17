@@ -63,7 +63,7 @@ namespace TauriApiWrapperTests
         {
             using (RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret))
             {
-                ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromPlayerName("Cat", realm: TauriApiWrapper.Enums.Realm.Tauri);
+                ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromPlayerName("Cat", realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);
