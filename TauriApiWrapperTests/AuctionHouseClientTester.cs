@@ -59,6 +59,20 @@ namespace TauriApiWrapperTests
             }
         }
 
+
+        [TestMethod]
+        public void GetWrathAuctionsData()
+        {
+            using (AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Crystalsong);
+                Assert.IsTrue(data.IsSuccess);
+                Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.WrathOfTheLichKing);
+            }
+        }
+
+
         [TestMethod]
         public void GetAuctionsDataLinkedRealm()
         {
