@@ -18,6 +18,7 @@ namespace TauriApiWrapper
             public const string SheetUrl = "character-sheet";
             public const string Talents = "character-talents";
             public const string Reputation = "character-reputation";
+            public const string Feed = "character-feed";
             public const string ArenaTeams = "character-arenateams";
         }
 
