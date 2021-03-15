@@ -16,8 +16,11 @@ namespace TauriApiWrapper
             public const string ArenaLadder = "arena-ladder";
             public const string TeamInfo = "team-info";
             public const string ArenaTeamGameChart = "arena-team-game-chart";
-            public const string ArenaTeamReportOpposingTeams = "arena-team-report-opposing-teams";
-            public const string ArenaGame = "arena-game";
+            public const string ArenaTeamReportOpposingTeams = "arena-team-report-opposing-teams"; // currently unused even on Crystalsong
+            public const string ArenaGame = "arena-game"; // obsolete, use pvp-match instead
+            public const string CharacterArenaTeams = "character-arenateams";
+            public const string CharacterPvPStat = "character-pvp-stat";
+            public const string PvPMatch = "pvp-match";
         }
 
         public ArenaClient(string apiKey, string secretKey) : base(apiKey, secretKey)
