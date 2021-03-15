@@ -19,7 +19,7 @@ namespace TauriApiWrapper
             public const string Talents = "character-talents";
             public const string Reputation = "character-reputation";
             public const string Feed = "character-feed";
-            public const string ArenaTeams = "character-arenateams";
+            public const string Mounts = "character-mounts";
         }
 
         #region Sync
