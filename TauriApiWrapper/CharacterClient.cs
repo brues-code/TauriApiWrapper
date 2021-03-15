@@ -48,9 +48,29 @@ namespace TauriApiWrapper
             return Communicate<CharacterReputation>(param);
         }
 
+        public ApiResponse<CharacterMounts> GetCharacterMountsByName(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Mounts, Secret, new CharacterRequest(characterName, realm));
+            return Communicate<CharacterMounts>(param);
+        }
+
+
         #endregion Sync
 
         #region Async
+
+        public async Task<ApiResponse<CharacterMounts>> GetCharacterMountsByNameAsync(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Mounts, Secret, new CharacterRequest(characterName, realm));
+            return await CommunicateAsync<CharacterMounts>(param);
+        }
+        
+        public async Task<ApiResponse<CharacterFeedList>> GetCharacterFeedByNameAsync(string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Feed, Secret, new CharacterRequest(characterName, realm));
+            return await CommunicateAsync<CharacterFeedList>(param);
+        }
+
 
         public async Task<ApiResponse<CharacterData>> GetCharacterTooltipByNameAsync(string characterName, Realm realm)
         {

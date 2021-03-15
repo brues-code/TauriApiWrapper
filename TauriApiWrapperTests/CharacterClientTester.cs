@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects.Responses.Character;
 
@@ -43,6 +45,28 @@ namespace TauriApiWrapperTests
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
+            }
+        }
+
+        [TestMethod]
+        public async Task GetCharacterMountsByName()
+        {
+            using (CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                TauriApiWrapper.Objects.ApiResponse<CharacterMounts> data = await c.GetCharacterMountsByNameAsync("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.IsSuccess);
+            }
+        } 
+        
+        [TestMethod]
+        public async Task GetCharacterFeedByName()
+        {
+            using (CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret))
+            {
+                TauriApiWrapper.Objects.ApiResponse<CharacterFeedList> data = await c.GetCharacterFeedByNameAsync("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsNotNull(data.Response);
+                Assert.IsTrue(data.IsSuccess);
             }
         }
     }

@@ -53,8 +53,8 @@ namespace TauriApiWrapper
         protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data) where T : class
         {
             ApiResponse<T> apiObject = new ApiResponse<T>();
-            var response = await CallAPI(data);
-            var result = await response.Content.ReadAsStringAsync();
+            var response = await CallAPI(data).ConfigureAwait(false);
+            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             return apiObject.ToApiResponse(result);
         }
 
