@@ -12,10 +12,13 @@ namespace TauriApiWrapper.Objects.Requests
 
         public ItemRequest(string guid, Realm realm) : base(realm)
         {
-            ItemID = guid.ToString();
+            ItemGuid = guid;
         }
 
         [JsonProperty("e")]
-        public string ItemID { get; }
+        public string ItemID { get; } 
+        
+        [JsonProperty("i")]
+        public string ItemGuid { get; }
     }
 }
