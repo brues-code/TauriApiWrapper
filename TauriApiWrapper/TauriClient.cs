@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -9,10 +10,7 @@ namespace TauriApiWrapper
 {
     public abstract class TauriClient
     {
-        #region Fields
-
-        private static readonly HttpClientHandler httpClientHandler = new HttpClientHandler { MaxConnectionsPerServer = 10 };
-        private static readonly HttpClient Client = new HttpClient(httpClientHandler) { Timeout = TimeSpan.FromSeconds(15) };
+        #region Fields 
         private readonly string _apiKey;
         protected readonly string Secret;
 
@@ -68,13 +66,15 @@ namespace TauriApiWrapper
 
         private async Task<string> CallAPI(ApiParams data)
         {
-            StringContent json = new StringContent(data.ToJSON(), Encoding.UTF8, "application/json");
-            using var response = await Client.PostAsync(Endpoint, json).ConfigureAwait(false);
+            RestClient client = new();
+            RestRequest request = new(Endpoint, Method.POST);
+            request.AddJsonBody(data.ToJSON());
 
-            if (response.IsSuccessStatusCode)
+            IRestResponse response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
             {
-                string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                return result;
+                return response.Content;
             }
 
             return default;
