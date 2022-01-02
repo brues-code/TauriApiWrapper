@@ -37,7 +37,6 @@ namespace TauriApiWrapperTests
         public void GetCharacterAchievementsLoader()
         {
             AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret);
-            AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret);
             {
                 ApiResponse<CharacterAchievementsLoader> returnData = client.GetCharacterAchievementsLoader("Rdzio", (int)TauriApiWrapper.Enums.AchievementCategory.Guild, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
