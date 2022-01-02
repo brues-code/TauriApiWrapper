@@ -15,6 +15,7 @@
     <Authors>Query, Rdzio</Authors>
     <Product>TauriWoW</Product>
     <NeutralLanguage>en</NeutralLanguage>
+    <Configurations>Debug;Release;DBDESIGNER;DBDESIGNERPROD</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

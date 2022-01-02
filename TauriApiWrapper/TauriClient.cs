@@ -7,11 +7,11 @@ using TauriApiWrapper.Objects;
 
 namespace TauriApiWrapper
 {
-    public abstract class TauriClient : IDisposable
+    public abstract class TauriClient 
     {
         #region Fields
 
-        private Lazy<HttpClient> _client = new Lazy<HttpClient>(() => new HttpClient(), LazyThreadSafetyMode.ExecutionAndPublication);
+        private static HttpClient Client = new HttpClient();
         private readonly string _apiKey;
         protected readonly string Secret;
 
@@ -28,8 +28,6 @@ namespace TauriApiWrapper
                 return $"{Uri.UriSchemeHttp}{Uri.SchemeDelimiter}chapi.tauri.hu/apiIndex.php?apikey={_apiKey}";
             }
         }
-
-        private HttpClient Client => _client.Value;
 
         #endregion Private Properties
 
@@ -69,17 +67,5 @@ namespace TauriApiWrapper
         }
 
         #endregion Privates
-
-        #region Dispose
-
-        public void Dispose()
-        {
-            if (_client.IsValueCreated)
-            {
-                _client.Value.Dispose();
-            }
-        }
-
-        #endregion Dispose
     }
 }
