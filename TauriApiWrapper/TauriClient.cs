@@ -7,11 +7,12 @@ using TauriApiWrapper.Objects;
 
 namespace TauriApiWrapper
 {
-    public abstract class TauriClient 
+    public abstract class TauriClient
     {
         #region Fields
 
-        private static HttpClient Client = new HttpClient();
+        private static readonly HttpClientHandler httpClientHandler = new HttpClientHandler { MaxConnectionsPerServer = 10 };
+        private static readonly HttpClient Client = new HttpClient(httpClientHandler) { Timeout = TimeSpan.FromSeconds(15) };
         private readonly string _apiKey;
         protected readonly string Secret;
 
@@ -51,19 +52,32 @@ namespace TauriApiWrapper
         protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data) where T : class
         {
             ApiResponse<T> apiObject = new ApiResponse<T>();
-            var response = await CallAPI(data).ConfigureAwait(false);
-            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            return apiObject.ToApiResponse(result);
+            string response = await CallAPI(data).ConfigureAwait(false);
+
+            if (!string.IsNullOrEmpty(response))
+            {
+                return apiObject.ToApiResponse(response);
+            }
+
+            return apiObject;
         }
 
         #endregion Methods
 
         #region Privates
 
-        private async Task<HttpResponseMessage> CallAPI(ApiParams data)
+        private async Task<string> CallAPI(ApiParams data)
         {
             StringContent json = new StringContent(data.ToJSON(), Encoding.UTF8, "application/json");
-            return await Client.PostAsync(Endpoint, json);
+            using var response = await Client.PostAsync(Endpoint, json).ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                return result;
+            }
+
+            return default;
         }
 
         #endregion Privates
