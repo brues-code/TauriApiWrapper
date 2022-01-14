@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Class
+    public enum Class : byte
     {
         Undefined = 0,
         Warrior = 1,

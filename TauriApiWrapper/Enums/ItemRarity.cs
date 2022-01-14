@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum ItemRarity
+    public enum ItemRarity : byte
     {
         Poor = 0,
         Common = 1,

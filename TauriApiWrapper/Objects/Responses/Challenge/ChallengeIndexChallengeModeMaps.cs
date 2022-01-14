@@ -1,6 +1,5 @@
-﻿using System;
-using Newtonsoft.Json;
-using TauriApiWrapper.Enums;
+﻿using Newtonsoft.Json;
+using System;
 using TauriApiWrapper.Converters;
 
 namespace TauriApiWrapper.Objects.Responses.Challenge
@@ -8,10 +7,10 @@ namespace TauriApiWrapper.Objects.Responses.Challenge
     public sealed class ChallengeIndexChallengeModeMaps
     {
         [JsonProperty("challengeid")]
-        public int ChallengeId { get; set; }
+        public int ChallengeID { get; set; }
 
         [JsonProperty("challengemapid")]
-        public int ChallengeMapId { get; set; }
+        public int ChallengeMapID { get; set; }
 
         [JsonProperty("challengemapname")]
         public string ChallengeMapName { get; set; }

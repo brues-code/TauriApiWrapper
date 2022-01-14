@@ -21,7 +21,7 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public string SpellIcon { get; set; }
 
         [JsonProperty("itementry")]
-        public long ItemEntryId { get; set; }
+        public long ItemEntryID { get; set; }
 
         [JsonProperty("quality")]
         public ItemRarity Quality { get; set; }

@@ -18,7 +18,7 @@ namespace TauriApiWrapper.Objects.Responses.Character
         public Gender Gender { get; set; }
 
         [JsonProperty("guildname")]
-        public string Guildname { get; set; }
+        public string GuildName { get; set; }
 
         [JsonProperty("level")]
         public int Level { get; set; }

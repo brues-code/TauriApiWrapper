@@ -17,13 +17,13 @@ namespace TauriApiWrapper.Converters
             var value = serializer.Deserialize<string>(reader);
             return value switch
             {
-                "10 Player" => RaidDifficulty._10Player,
-                "10 Player (Heroic)" => RaidDifficulty._10PlayerHeroic,
-                "25 Player" => RaidDifficulty._25Player,
-                "25 Player (Heroic)" => RaidDifficulty._25PlayerHeroic,
-                "40 Player" => RaidDifficulty._40Player,
-                "Flexible" => RaidDifficulty._Flexible,
-                "Looking For Raid" => RaidDifficulty._LookingForRaid,
+                "10 Player" => RaidDifficulty.TenPlayer,
+                "10 Player (Heroic)" => RaidDifficulty.TenPlayerHeroic,
+                "25 Player" => RaidDifficulty.TwentyFivePlayer,
+                "25 Player (Heroic)" => RaidDifficulty.TwentyFivePlayerHeroic,
+                "40 Player" => RaidDifficulty.FortyPlayer,
+                "Flexible" => RaidDifficulty.Flexible,
+                "Looking For Raid" => RaidDifficulty.LookingForRaid,
                 _ => throw new Exception("Cannot marshal type RaidDifficulty"),
             };
         }
@@ -39,31 +39,31 @@ namespace TauriApiWrapper.Converters
             RaidDifficulty castedValue = (RaidDifficulty)value;
             switch (castedValue)
             {
-                case RaidDifficulty._10Player:
+                case RaidDifficulty.TenPlayer:
                     serializer.Serialize(writer, "10 Player");
                     return;
 
-                case RaidDifficulty._10PlayerHeroic:
+                case RaidDifficulty.TenPlayerHeroic:
                     serializer.Serialize(writer, "10 Player (Heroic)");
                     return;
 
-                case RaidDifficulty._25Player:
+                case RaidDifficulty.TwentyFivePlayer:
                     serializer.Serialize(writer, "25 Player");
                     return;
 
-                case RaidDifficulty._25PlayerHeroic:
+                case RaidDifficulty.TwentyFivePlayerHeroic:
                     serializer.Serialize(writer, "25 Player (Heroic)");
                     return;
 
-                case RaidDifficulty._40Player:
+                case RaidDifficulty.FortyPlayer:
                     serializer.Serialize(writer, "40 Player");
                     return;
 
-                case RaidDifficulty._Flexible:
+                case RaidDifficulty.Flexible:
                     serializer.Serialize(writer, "Flexible");
                     return;
 
-                case RaidDifficulty._LookingForRaid:
+                case RaidDifficulty.LookingForRaid:
                     serializer.Serialize(writer, "Looking For Raid");
                     return;
 

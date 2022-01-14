@@ -11,7 +11,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public int ReqType { get; set; }
 
         [JsonProperty("reqID")]
-        public int ReqId { get; set; }
+        public int ReqID { get; set; }
 
         [JsonProperty("reqCnt")]
         public int ReqCnt { get; set; }

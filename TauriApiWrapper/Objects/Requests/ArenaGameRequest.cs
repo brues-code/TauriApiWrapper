@@ -1,20 +1,16 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Requests
 {
     internal class ArenaGameRequest : ArenaBaseRequest
     {
-        public ArenaGameRequest(int matchId, Realm realm) : base(realm)
+        public ArenaGameRequest(int matchID, Realm realm) : base(realm)
         {
-            MatchId = matchId;
+            MatchID = matchID;
         }
 
         [JsonProperty("gid")]
-        public int MatchId { get; set; }
+        public int MatchID { get; set; }
     }
 }

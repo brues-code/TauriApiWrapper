@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaGame : BaseApiResponse
+    public sealed class ArenaGame : BaseApiResponse
     {
         [JsonProperty("matchStart")]
         public int MatchStart { get; set; }
@@ -19,7 +15,7 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         public string MapName { get; set; }
 
         [JsonProperty("realm")]
-        public Realm Realm{ get; set; }
+        public Realm Realm { get; set; }
 
         [JsonProperty("winnerTeam")]
         public string WinnerTeam { get; set; }

@@ -1,11 +1,11 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 using TauriApiWrapper.Converters;
 
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
-    public partial class CharacterAchievement
+    public sealed class CharacterAchievement
     {
         [JsonProperty("name")]
         public string Name { get; set; }

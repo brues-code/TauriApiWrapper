@@ -1,10 +1,10 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Medal
+    public enum Medal : byte
     {
-        None   = 0,
+        None = 0,
         Bronze = 1,
         Silver = 2,
-        Gold   = 3
+        Gold = 3
     }
 }

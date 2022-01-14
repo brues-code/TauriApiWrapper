@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Expansion
+    public enum Expansion : short
     {
         Undefined = -1,
         Classic = 0,

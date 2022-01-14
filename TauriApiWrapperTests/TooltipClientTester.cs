@@ -2,8 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
-using TauriApiWrapper.Objects.Responses;
 using TauriApiWrapper.Objects.Responses.Character;
+using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapperTests
 {
@@ -15,9 +15,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetItemById()
         {
-            TooltipClient client = new TooltipClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<ItemResponse> returnData = client.GetItemById(99359);
+                ApiResponse<ItemResponse> returnData = TooltipClient.GetItemByID(client, 99359);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.IsSuccess);
             }
@@ -26,9 +26,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetItemByIds()
         {
-            TooltipClient client = new TooltipClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<List<ItemResponse>> returnData = client.GetItemsByIds(new List<int> { 104633, 42944 });
+                ApiResponse<List<ItemResponse>> returnData = TooltipClient.GetItemsByIDs(client, new List<int> { 104633, 42944 });
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.IsSuccess);
             }
@@ -37,13 +37,12 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetItemByGuid()
         {
-            TooltipClient client = new TooltipClient(_credentials.ApiKey, _credentials.ApiSecret);
-            CharacterClient characterClient = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> itemData = characterClient.GetCharacterSheet("Cat", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> itemData = CharacterClient.GetCharacterSheet(client, "Cat", TauriApiWrapper.Enums.Realm.Evermoon);
                 foreach (var item in itemData.Response.CharacterItems)
                 {
-                    ApiResponse<ItemResponse> returnData = client.GetItemByGuid(item.Guid.ToString());
+                    ApiResponse<ItemResponse> returnData = TooltipClient.GetItemByGuid(client, item.Guid.ToString());
 
                     Assert.IsNotNull(returnData.Response);
                     Assert.IsTrue(returnData.IsSuccess);

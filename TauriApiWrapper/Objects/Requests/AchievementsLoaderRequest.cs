@@ -8,13 +8,13 @@ namespace TauriApiWrapper.Objects.Requests
         public AchievementsLoaderRequest(string name, int id, Realm realm) : base(realm)
         {
             CharacterName = name;
-            CategoryId = id;
+            CategoryID = id;
         }
 
         [JsonProperty("n")]
         public string CharacterName { get; set; }
 
         [JsonProperty("c")]
-        public int CategoryId { get; set; }
+        public int CategoryID { get; set; }
     }
 }

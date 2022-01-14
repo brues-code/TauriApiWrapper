@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Challenge;
 
 namespace TauriApiWrapper
 {
-    public sealed class ChallengeModeClient : TauriClient
+    public static class ChallengeModeClient
     {
         private class Endpoints
         {
@@ -15,38 +15,35 @@ namespace TauriApiWrapper
             public const string CaallengeLeaderboardGuild = "challenge-leaderboard-guild"; // same as the ChallengeLeaderboard
         }
 
-        public ChallengeModeClient(string apiKey, string secretKey) : base(apiKey, secretKey)
-        {
-        }
 
         #region Sync
 
-        public ApiResponse<ChallengeIndex> GetChallengeIndex(Realm realm)
+        public static ApiResponse<ChallengeIndex> GetChallengeIndex(TauriClient client, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.ChallengeIndex, Secret, new ChallengeModeBaseRequest(realm));
-            return Communicate<ChallengeIndex>(param);
+            ApiParams param = new ApiParams(Endpoints.ChallengeIndex, client.ApiSecret, new ChallengeModeBaseRequest(realm));
+            return client.Communicate<ChallengeIndex>(param);
         }
 
-        public ApiResponse<ChallengeLeaderboard> GetChallengeLeaderboard(int mapId, Realm realm)
+        public static ApiResponse<ChallengeLeaderboard> GetChallengeLeaderboard(TauriClient client, int mapID, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.ChallengeLeaderboard, Secret, new ChallengeModeLeaderboardRequest(mapId, realm));
-            return Communicate<ChallengeLeaderboard>(param);
+            ApiParams param = new ApiParams(Endpoints.ChallengeLeaderboard, client.ApiSecret, new ChallengeModeLeaderboardRequest(mapID, realm));
+            return client.Communicate<ChallengeLeaderboard>(param);
         }
 
         #endregion Sync
 
         #region Async
 
-        public async Task<ApiResponse<ChallengeIndex>> GetChallengeIndexAsync(Realm realm)
+        public static async Task<ApiResponse<ChallengeIndex>> GetChallengeIndexAsync(TauriClient client, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.ChallengeIndex, Secret, new ChallengeModeBaseRequest(realm));
-            return await CommunicateAsync<ChallengeIndex>(param);
+            ApiParams param = new ApiParams(Endpoints.ChallengeIndex, client.ApiSecret, new ChallengeModeBaseRequest(realm));
+            return await client.CommunicateAsync<ChallengeIndex>(param);
         }
 
-        public async Task<ApiResponse<ChallengeLeaderboard>> GetChallengeLeaderboardAsync(int mapId, Realm realm)
+        public static async Task<ApiResponse<ChallengeLeaderboard>> GetChallengeLeaderboardAsync(TauriClient client, int mapID, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.ChallengeLeaderboard, Secret, new ChallengeModeLeaderboardRequest(mapId, realm));
-            return await CommunicateAsync<ChallengeLeaderboard>(param);
+            ApiParams param = new ApiParams(Endpoints.ChallengeLeaderboard, client.ApiSecret, new ChallengeModeLeaderboardRequest(mapID, realm));
+            return await client.CommunicateAsync<ChallengeLeaderboard>(param);
         }
 
         #endregion Async

@@ -6,7 +6,7 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
     public sealed class CharacterAchievementsLoaderCache
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [JsonProperty("pid")]
         public int Pid { get; set; }

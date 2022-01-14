@@ -1,12 +1,12 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects.Responses.Guild;
 
 namespace TauriApiWrapper.Objects.Responses.Challenge
 {
-    public partial class ChallengeLeaderboardChallengesData
+    public sealed class ChallengeLeaderboardChallengesData
     {
         [JsonProperty("completiontime"), JsonConverter(typeof(TimeSpanMillisecondsConverter))]
         public TimeSpan CompletionTime { get; set; }

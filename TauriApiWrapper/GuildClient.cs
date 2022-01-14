@@ -5,7 +5,7 @@ using TauriApiWrapper.Objects.Responses.Guild;
 
 namespace TauriApiWrapper
 {
-    public sealed class GuildClient : TauriClient
+    public static class GuildClient
     {
         private class Endpoints
         {
@@ -15,32 +15,29 @@ namespace TauriApiWrapper
             public const string GuildBankLogs = "guild-bank-log";
         }
 
-        public GuildClient(string apiKey, string secretKey) : base(apiKey, secretKey)
+
+        public static ApiResponse<GuildRoster> GetGuildRoster(TauriClient client, string guildName, Realm realm = Realm.Evermoon)
         {
+            ApiParams param = new ApiParams(Endpoints.GuildInfo, client.ApiSecret, new GuildRequest(guildName, realm));
+            return client.Communicate<GuildRoster>(param);
         }
 
-        public ApiResponse<GuildRoster> GetGuildRoster(string guildName, Realm realm = Realm.Evermoon)
+        public static ApiResponse<GuildStats> GetGuildStats(TauriClient client, string guildName, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.GuildInfo, Secret, new GuildRequest(guildName, realm));
-            return Communicate<GuildRoster>(param);
+            ApiParams param = new ApiParams(Endpoints.GuildStats, client.ApiSecret, new GuildRequest(guildName, realm));
+            return client.Communicate<GuildStats>(param);
         }
 
-        public ApiResponse<GuildStats> GetGuildStats(string guildName, Realm realm = Realm.Evermoon)
+        public static ApiResponse<GuildBankContent> GetGuildBankContents(TauriClient client, string guildName, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.GuildStats, Secret, new GuildRequest(guildName, realm));
-            return Communicate<GuildStats>(param);
+            ApiParams param = new ApiParams(Endpoints.GuildBankContents, client.ApiSecret, new GuildRequest(guildName, realm));
+            return client.Communicate<GuildBankContent>(param);
         }
 
-        public ApiResponse<GuildBankContent> GetGuildBankContents(string guildName, Realm realm = Realm.Evermoon)
+        public static ApiResponse<GuildBankLog> GetGuildBankLogs(TauriClient client, string guildName, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.GuildBankContents, Secret, new GuildRequest(guildName, realm));
-            return Communicate<GuildBankContent>(param);
-        }
-
-        public ApiResponse<GuildBankLog> GetGuildBankLogs(string guildName, Realm realm = Realm.Evermoon)
-        {
-            ApiParams param = new ApiParams(Endpoints.GuildBankLogs, Secret, new GuildRequest(guildName, realm));
-            return Communicate<GuildBankLog>(param);
+            ApiParams param = new ApiParams(Endpoints.GuildBankLogs, client.ApiSecret, new GuildRequest(guildName, realm));
+            return client.Communicate<GuildBankLog>(param);
         }
     }
 }

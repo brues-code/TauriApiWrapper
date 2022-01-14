@@ -6,12 +6,8 @@ using TauriApiWrapper.Objects.Responses.Character;
 
 namespace TauriApiWrapper
 {
-    public sealed class CharacterClient : TauriClient
+    public static class CharacterClient
     {
-        public CharacterClient(string apiKey, string secretKey) : base(apiKey, secretKey)
-        {
-        }
-
         private class Endpoints
         {
             public const string TooltipUrl = "item-tooltip";
@@ -24,34 +20,34 @@ namespace TauriApiWrapper
 
         #region Sync
 
-        public ApiResponse<CharacterData> GetCharacterTooltipByName(string characterName, Realm realm)
+        public static ApiResponse<CharacterData> GetCharacterTooltipByName(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterData>(param);
+            ApiParams param = new ApiParams(Endpoints.TooltipUrl, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return client.Communicate<CharacterData>(param);
         }
 
-        public ApiResponse<CharacterSheet> GetCharacterSheet(string characterName, Realm realm)
+        public static ApiResponse<CharacterSheet> GetCharacterSheet(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.SheetUrl, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterSheet>(param);
+            ApiParams param = new ApiParams(Endpoints.SheetUrl, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return client.Communicate<CharacterSheet>(param);
         }
 
-        public ApiResponse<CharacterTalents> GetCharacterTalents(string characterName, Realm realm)
+        public static ApiResponse<CharacterTalents> GetCharacterTalents(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Talents, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterTalents>(param);
+            ApiParams param = new ApiParams(Endpoints.Talents, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return client.Communicate<CharacterTalents>(param);
         }
 
-        public ApiResponse<CharacterReputation> GetCharacterReputation(string characterName, Realm realm)
+        public static ApiResponse<CharacterReputation> GetCharacterReputation(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Reputation, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterReputation>(param);
+            ApiParams param = new ApiParams(Endpoints.Reputation, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return client.Communicate<CharacterReputation>(param);
         }
 
-        public ApiResponse<CharacterMounts> GetCharacterMountsByName(string characterName, Realm realm)
+        public static ApiResponse<CharacterMounts> GetCharacterMountsByName(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Mounts, Secret, new CharacterRequest(characterName, realm));
-            return Communicate<CharacterMounts>(param);
+            ApiParams param = new ApiParams(Endpoints.Mounts, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return client.Communicate<CharacterMounts>(param);
         }
 
 
@@ -59,41 +55,41 @@ namespace TauriApiWrapper
 
         #region Async
 
-        public async Task<ApiResponse<CharacterMounts>> GetCharacterMountsByNameAsync(string characterName, Realm realm)
+        public static async Task<ApiResponse<CharacterMounts>> GetCharacterMountsByNameAsync(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Mounts, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterMounts>(param);
-        }
-        
-        public async Task<ApiResponse<CharacterFeedList>> GetCharacterFeedByNameAsync(string characterName, Realm realm)
-        {
-            ApiParams param = new ApiParams(Endpoints.Feed, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterFeedList>(param);
+            ApiParams param = new ApiParams(Endpoints.Mounts, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterMounts>(param);
         }
 
-
-        public async Task<ApiResponse<CharacterData>> GetCharacterTooltipByNameAsync(string characterName, Realm realm)
+        public static async Task<ApiResponse<CharacterFeedList>> GetCharacterFeedByNameAsync(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.TooltipUrl, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterData>(param);
+            ApiParams param = new ApiParams(Endpoints.Feed, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterFeedList>(param);
         }
 
-        public async Task<ApiResponse<CharacterSheet>> GetCharacterSheetAsync(string characterName, Realm realm)
+
+        public static async Task<ApiResponse<CharacterData>> GetCharacterTooltipByNameAsync(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.SheetUrl, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterSheet>(param);
+            ApiParams param = new ApiParams(Endpoints.TooltipUrl, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterData>(param);
         }
 
-        public async Task<ApiResponse<CharacterTalents>> GetCharacterTalentsAsync(string characterName, Realm realm)
+        public static async Task<ApiResponse<CharacterSheet>> GetCharacterSheetAsync(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Talents, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterTalents>(param);
+            ApiParams param = new ApiParams(Endpoints.SheetUrl, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterSheet>(param);
         }
 
-        public async Task<ApiResponse<CharacterReputation>> GetCharacterReputationAsync(string characterName, Realm realm)
+        public static async Task<ApiResponse<CharacterTalents>> GetCharacterTalentsAsync(TauriClient client, string characterName, Realm realm)
         {
-            ApiParams param = new ApiParams(Endpoints.Reputation, Secret, new CharacterRequest(characterName, realm));
-            return await CommunicateAsync<CharacterReputation>(param);
+            ApiParams param = new ApiParams(Endpoints.Talents, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterTalents>(param);
+        }
+
+        public static async Task<ApiResponse<CharacterReputation>> GetCharacterReputationAsync(TauriClient client, string characterName, Realm realm)
+        {
+            ApiParams param = new ApiParams(Endpoints.Reputation, client.ApiSecret, new CharacterRequest(characterName, realm));
+            return await client.CommunicateAsync<CharacterReputation>(param);
         }
 
         #endregion Async

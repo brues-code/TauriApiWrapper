@@ -1,16 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaTeamReportOpposingTeamsMatchData
+    public sealed class ArenaTeamReportOpposingTeamsMatchData
     {
-        [JsonProperty("EnemyTeamId")]
-        public int EnemyTeamId { get; set; }
+        [JsonProperty("EnemyTeamID")]
+        public int EnemyTeamID { get; set; }
 
         [JsonProperty("EnemyTeamName")]
         public string EnemyTeamName { get; set; }
@@ -33,8 +29,8 @@ namespace TauriApiWrapper.Objects.Responses.Arena
         [JsonProperty("realm")]
         public Realm Realm { get; set; }
 
-        [JsonProperty("matchId")]
-        public int MatchId { get; set; }
+        [JsonProperty("matchID")]
+        public int MatchID { get; set; }
 
         [JsonProperty("start_time")]
         public int StartTime { get; set; }

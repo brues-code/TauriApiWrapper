@@ -1,8 +1,7 @@
 ﻿using Newtonsoft.Json;
 using TauriApiWrapper.Enums;
-using TauriApiWrapper.Objects.Responses.Item;
 
-namespace TauriApiWrapper.Objects.Responses
+namespace TauriApiWrapper.Objects.Responses.Item
 {
     public sealed class ItemResponse : BaseApiResponse
     {
@@ -45,7 +44,7 @@ namespace TauriApiWrapper.Objects.Responses
         [JsonProperty("_SubClass")]
         public int SubClass { get; set; }
 
-        [JsonProperty("DisplayId")]
+        [JsonProperty("DisplayID")]
         public int DisplayID { get; set; }
 
         [JsonProperty("InventoryType")]
@@ -186,8 +185,8 @@ namespace TauriApiWrapper.Objects.Responses
         [JsonProperty("SpellTrigger")]
         public int[] SpellTrigger { get; set; }
 
-        [JsonProperty("SpellId")]
-        public object[] SpellId { get; set; }
+        [JsonProperty("SpellID")]
+        public object[] SpellID { get; set; }
 
         [JsonProperty("ItemStat")]
         public ItemStat[] ItemStat { get; set; }

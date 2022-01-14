@@ -5,14 +5,18 @@ namespace TauriApiWrapper.Objects.Requests
 {
     internal class RaidListRequest : BaseRequestObject
     {
-        public RaidListRequest(Realm realm, int fromID = 0, int limit = 0) : base(realm)
+        public RaidListRequest(Realm realm, int? mapID = null, long? fromID = null, int limit = 0) : base(realm)
         {
             From = fromID;
             Limit = limit;
+            MapID = mapID;
         }
 
         [JsonProperty("from")]
-        public int From { get; set; }
+        public long? From { get; set; }
+
+        [JsonProperty("mapid")]
+        public int? MapID { get; set; }
 
         [JsonProperty("limit")]
         public int Limit { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Faction
+    public enum Faction : short
     {
         Undefined = -1,
         Alliance = 0,

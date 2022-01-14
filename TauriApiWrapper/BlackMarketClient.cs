@@ -7,7 +7,7 @@ using TauriApiWrapper.Objects.Responses.AuctionHouse;
 
 namespace TauriApiWrapper
 {
-    public sealed class BlackMarketClient : TauriClient
+    public static class BlackMarketClient
     {
         private class Endpoints
         {
@@ -15,50 +15,46 @@ namespace TauriApiWrapper
             public const string AuctionsInfo = "bmauctions-info";
         }
 
-        public BlackMarketClient(string apiKey, string secretKey) : base(apiKey, secretKey)
-        {
-        }
-
         #region Sync
 
-        public ApiResponse<BlackMarketResponse> GetBlackMarketAuctions(Realm realm)
+        public static ApiResponse<BlackMarketResponse> GetBlackMarketAuctions(TauriClient client, Realm realm)
         {
             if (realm.GetRealmExpansion() < Expansion.MistsOfPandaria)
-                return new ApiResponse<BlackMarketResponse>() { ErrorMessage = InvalidExpansion };
+                return new ApiResponse<BlackMarketResponse>() { ErrorMessage = TauriClient.InvalidExpansion };
 
-            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
-            return Communicate<BlackMarketResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.AuctionsData, client.ApiSecret, new AuctionHouseBaseRequest(realm));
+            return client.Communicate<BlackMarketResponse>(param);
         }
 
-        public ApiResponse<AuctionHouseInfoResponse> GetBlackMarketInfo(Realm realm)
+        public static ApiResponse<AuctionHouseInfoResponse> GetBlackMarketInfo(TauriClient client, Realm realm)
         {
             if (realm.GetRealmExpansion() < Expansion.MistsOfPandaria)
-                return new ApiResponse<AuctionHouseInfoResponse>() { ErrorMessage = InvalidExpansion };
+                return new ApiResponse<AuctionHouseInfoResponse>() { ErrorMessage = TauriClient.InvalidExpansion };
 
-            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
-            return Communicate<AuctionHouseInfoResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, client.ApiSecret, new AuctionHouseBaseRequest(realm));
+            return client.Communicate<AuctionHouseInfoResponse>(param);
         }
 
         #endregion Sync
 
         #region Async
 
-        public async Task<ApiResponse<BlackMarketResponse>> GetBlackMarketAuctionsAsync(Realm realm)
+        public static async Task<ApiResponse<BlackMarketResponse>> GetBlackMarketAuctionsAsync(TauriClient client, Realm realm)
         {
             if (realm.GetRealmExpansion() < Expansion.MistsOfPandaria)
-                return new ApiResponse<BlackMarketResponse>() { ErrorMessage = InvalidExpansion };
+                return new ApiResponse<BlackMarketResponse>() { ErrorMessage = TauriClient.InvalidExpansion };
 
-            ApiParams param = new ApiParams(Endpoints.AuctionsData, Secret, new AuctionHouseBaseRequest(realm));
-            return await CommunicateAsync<BlackMarketResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.AuctionsData, client.ApiSecret, new AuctionHouseBaseRequest(realm));
+            return await client.CommunicateAsync<BlackMarketResponse>(param);
         }
 
-        public async Task<ApiResponse<AuctionHouseInfoResponse>> GetBlackMarketInfoAsync(Realm realm)
+        public static async Task<ApiResponse<AuctionHouseInfoResponse>> GetBlackMarketInfoAsync(TauriClient client, Realm realm)
         {
             if (realm.GetRealmExpansion() < Expansion.MistsOfPandaria)
-                return new ApiResponse<AuctionHouseInfoResponse>() { ErrorMessage = InvalidExpansion };
+                return new ApiResponse<AuctionHouseInfoResponse>() { ErrorMessage = TauriClient.InvalidExpansion };
 
-            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, Secret, new AuctionHouseBaseRequest(realm));
-            return await CommunicateAsync<AuctionHouseInfoResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.AuctionsInfo, client.ApiSecret, new AuctionHouseBaseRequest(realm));
+            return await client.CommunicateAsync<AuctionHouseInfoResponse>(param);
         }
 
         #endregion Async

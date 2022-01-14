@@ -1,9 +1,9 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum SpecializationRole
+    public enum SpecializationRole : byte
     {
-        Tank   = 0,
+        Tank = 0,
         Healer = 1,
-        DPS    = 2
+        DPS = 2
     }
 }

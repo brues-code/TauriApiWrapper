@@ -1,13 +1,13 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum RaidDifficulty
+    public enum RaidDifficulty : byte
     {
-        _10Player = 3,
-        _25Player = 4,
-        _10PlayerHeroic = 5,
-        _25PlayerHeroic = 6,
-        _LookingForRaid = 7,
-        _40Player = 9,
-        _Flexible = 14,
+        TenPlayer = 3,
+        TwentyFivePlayer = 4,
+        TenPlayerHeroic = 5,
+        TwentyFivePlayerHeroic = 6,
+        LookingForRaid = 7,
+        FortyPlayer = 9,
+        Flexible = 14,
     }
 }

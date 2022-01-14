@@ -12,7 +12,7 @@ namespace TauriApiWrapper.Objects.Responses.AuctionHouse
         public long CreatureID { get; set; }
 
         [JsonProperty("IconFileID")]
-        public long IconFileId { get; set; }
+        public long IconFileID { get; set; }
 
         [JsonProperty("SummonSpellID")]
         public long SummonSpellID { get; set; }

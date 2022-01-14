@@ -16,8 +16,8 @@ namespace TauriApiWrapper.Objects.Requests
         }
 
         [JsonProperty("e")]
-        public string ItemID { get; } 
-        
+        public string ItemID { get; }
+
         [JsonProperty("i")]
         public string ItemGuid { get; }
     }

@@ -1,7 +1,7 @@
-﻿using System;
-using Newtonsoft.Json;
-using TauriApiWrapper.Enums;
+﻿using Newtonsoft.Json;
+using System;
 using TauriApiWrapper.Converters;
+using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {

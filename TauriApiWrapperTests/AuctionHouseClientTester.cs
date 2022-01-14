@@ -13,9 +13,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetBlackMarketAuctions()
         {
-            BlackMarketClient client = new BlackMarketClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<BlackMarketResponse> data = client.GetBlackMarketAuctions(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<BlackMarketResponse> data = BlackMarketClient.GetBlackMarketAuctions(client, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(data.Response.Auctions.Count > 0);
@@ -26,9 +26,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetBlackMarketInfo()
         {
-            BlackMarketClient client = new BlackMarketClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseInfoResponse> data = client.GetBlackMarketInfo(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<AuctionHouseInfoResponse> data = BlackMarketClient.GetBlackMarketInfo(client, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -38,9 +38,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAuctionHouseInfo()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseInfoResponse> data = client.GetAuctionHouseInfo(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<AuctionHouseInfoResponse> data = AuctionHouseClient.GetAuctionHouseInfo(client, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -50,9 +50,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAuctionsData()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Tauri);
+                ApiResponse<AuctionHouseResponse> data = AuctionHouseClient.GetAllAuctionsData(client, TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -63,9 +63,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetWrathAuctionsData()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Crystalsong);
+                ApiResponse<AuctionHouseResponse> data = AuctionHouseClient.GetAllAuctionsData(client, TauriApiWrapper.Enums.Realm.Crystalsong);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.WrathOfTheLichKing);
@@ -76,9 +76,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAuctionsDataLinkedRealm()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseResponse> data = client.GetAllAuctionsData(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<AuctionHouseResponse> data = AuctionHouseClient.GetAllAuctionsData(client, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -89,9 +89,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAuctionItemPriceOnLinkedRealm()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<AuctionHouseResponse> data = AuctionHouseClient.GetAuctionsByItemID(client, 25707, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -101,9 +101,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAuctionItemPrice()
         {
-            AuctionHouseClient client = new AuctionHouseClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<AuctionHouseResponse> data = client.GetAuctionsByItemID(25707, TauriApiWrapper.Enums.Realm.Tauri);
+                ApiResponse<AuctionHouseResponse> data = AuctionHouseClient.GetAuctionsByItemID(client, 25707, TauriApiWrapper.Enums.Realm.Tauri);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);

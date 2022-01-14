@@ -13,9 +13,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetAchievementFirst()
         {
-            AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
 
-            ApiResponse<AchievementFirst> returnData = client.GetAchievementFirsts(TauriApiWrapper.Enums.Realm.Evermoon);
+            ApiResponse<AchievementFirst> returnData = AchievementClient.GetAchievementFirsts(client, TauriApiWrapper.Enums.Realm.Evermoon);
             Assert.IsTrue(returnData.IsSuccess);
             Assert.IsNotNull(returnData.Response);
             Assert.IsTrue(returnData.Response.AchievementFirstArray.Count > 0);
@@ -25,9 +25,10 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterAchievements()
         {
-            AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
+
             {
-                ApiResponse<CharacterAchievements> returnData = client.GetCharacterAchievements("Rdzio", TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<CharacterAchievements> returnData = AchievementClient.GetCharacterAchievements(client, "Rdzio", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }
@@ -36,9 +37,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterAchievementsLoader()
         {
-            AchievementClient client = new AchievementClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<CharacterAchievementsLoader> returnData = client.GetCharacterAchievementsLoader("Rdzio", (int)TauriApiWrapper.Enums.AchievementCategory.Guild, TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<CharacterAchievementsLoader> returnData = AchievementClient.GetCharacterAchievementsLoader(client, "Rdzio", (int)TauriApiWrapper.Enums.AchievementCategory.Guild, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
             }

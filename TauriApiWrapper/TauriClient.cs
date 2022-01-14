@@ -1,20 +1,28 @@
 ﻿using RestSharp;
 using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using TauriApiWrapper.Objects;
 
 namespace TauriApiWrapper
 {
-    public abstract class TauriClient
+    public class TauriClient
     {
-        #region Fields 
-        private readonly string _apiKey;
-        protected readonly string Secret;
+        public TauriClient(string apiKey, string apiSecret, bool useStormforgeApi)
+        {
+            ApiKey = apiKey;
+            IsStormforge = useStormforgeApi;
+            ApiSecret = apiSecret;
+        }
 
-        protected readonly string InvalidExpansion = "This expansion is invalid or not supported for this method.";
+        #region Fields 
+
+
+        private readonly string ApiKey;
+        private readonly bool IsStormforge;
+        internal readonly string ApiSecret;
+
+
+        public static readonly string InvalidExpansion = "This expansion is invalid or not supported for this method.";
 
         #endregion Fields
 
@@ -24,33 +32,36 @@ namespace TauriApiWrapper
         {
             get
             {
-                return $"{Uri.UriSchemeHttp}{Uri.SchemeDelimiter}chapi.tauri.hu/apiIndex.php?apikey={_apiKey}";
+                if (IsStormforge)
+                {
+                    return $"{Uri.UriSchemeHttps}{Uri.SchemeDelimiter}characters-api.stormforge.gg/v1/?apikey={ApiKey}";
+                }
+
+                return $"{Uri.UriSchemeHttp}{Uri.SchemeDelimiter}chapi.tauri.hu/apiIndex.php?apikey={ApiKey}";
             }
         }
 
         #endregion Private Properties
 
-        #region Ctor
-
-        public TauriClient(string apiKey, string secretKey)
-        {
-            _apiKey = apiKey;
-            Secret = secretKey;
-        }
-
-        #endregion Ctor
-
         #region Methods
 
-        protected ApiResponse<T> Communicate<T>(ApiParams data) where T : class
-        {
-            return CommunicateAsync<T>(data).GetAwaiter().GetResult();
-        }
-
-        protected async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data) where T : class
+        internal ApiResponse<T> Communicate<T>(ApiParams data) where T : class
         {
             ApiResponse<T> apiObject = new ApiResponse<T>();
-            string response = await CallAPI(data).ConfigureAwait(false);
+            string response = CallAPI(data);
+
+            if (!string.IsNullOrEmpty(response))
+            {
+                return apiObject.ToApiResponse(response);
+            }
+
+            return apiObject;
+        }
+
+        internal async Task<ApiResponse<T>> CommunicateAsync<T>(ApiParams data) where T : class
+        {
+            ApiResponse<T> apiObject = new ApiResponse<T>();
+            string response = await CallAPIAsync(data).ConfigureAwait(false);
 
             if (!string.IsNullOrEmpty(response))
             {
@@ -64,20 +75,38 @@ namespace TauriApiWrapper
 
         #region Privates
 
-        private async Task<string> CallAPI(ApiParams data)
+        private string CallAPI(ApiParams data)
         {
-            RestClient client = new();
-            RestRequest request = new(Endpoint, Method.POST);
-            request.AddJsonBody(data.ToJSON());
-
-            IRestResponse response = await client.ExecuteAsync(request);
+            SetRequestData(data, out RestClient client, out RestRequest request);
+            IRestResponse response = client.Execute(request);
 
             if (response.IsSuccessful)
             {
                 return response.Content;
             }
-
             return default;
+        }
+
+        private async Task<string> CallAPIAsync(ApiParams data)
+        {
+            SetRequestData(data, out RestClient client, out RestRequest request);
+            IRestResponse response = await client.ExecuteAsync(request).ConfigureAwait(false);
+
+            if (response.IsSuccessful)
+            {
+                return response.Content;
+            }
+            return default;
+        }
+
+        private void SetRequestData(ApiParams data, out RestClient client, out RestRequest request)
+        {
+            client = new RestClient(Endpoint);
+            client.Timeout = -1;
+            request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            string requestData = data.ToJson();
+            request.AddParameter("application/json", requestData, ParameterType.RequestBody);
         }
 
         #endregion Privates

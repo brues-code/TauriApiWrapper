@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
-    public partial class CharacterAchievementsCategory
+    public sealed class CharacterAchievementsCategory
     {
         [JsonProperty("info")]
         public CharacterAchievementsInfo Info { get; set; }

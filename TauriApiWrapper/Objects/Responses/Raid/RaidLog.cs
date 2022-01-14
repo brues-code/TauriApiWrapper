@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects.Responses.Guild;
@@ -12,10 +13,10 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         public int Pos { get; set; }
 
         [JsonProperty("log_id")]
-        public int LogId { get; set; }
+        public int LogID { get; set; }
 
         [JsonProperty("map_id")]
-        public int MapId { get; set; }
+        public int MapID { get; set; }
 
         [JsonProperty("mapentry")]
         public Encounter Encounter { get; set; }
@@ -39,19 +40,19 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         public DateTime KillTime { get; set; }
 
         [JsonProperty("wipes")]
-        public int Wipes { get; set; }
+        public short Wipes { get; set; }
 
         [JsonProperty("deahts_total")]
-        public int DeathsTotal { get; set; }
+        public short DeathsTotal { get; set; }
 
         [JsonProperty("fight_time"), JsonConverter(typeof(TimeSpanMillisecondsConverter))]
         public TimeSpan FightTime { get; set; }
 
         [JsonProperty("deaths_fight")]
-        public int Deaths { get; set; }
+        public short Deaths { get; set; }
 
         [JsonProperty("resurrects_fight")]
-        public int Resurrects { get; set; }
+        public short Resurrects { get; set; }
 
         [JsonProperty("encounter_id")]
         public int EncounterID { get; set; }
@@ -60,9 +61,14 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         public Encounter EncounterData { get; set; }
 
         [JsonProperty("member_count")]
-        public int MemberCount { get; set; }
+        public short MemberCount { get; set; }
 
         [JsonProperty("item_count")]
-        public int ItemCount { get; set; }
+        public short ItemCount { get; set; }
+
+        [JsonProperty("members")]
+        public List<RaidMember> Members { get; set; }
     }
+
+
 }

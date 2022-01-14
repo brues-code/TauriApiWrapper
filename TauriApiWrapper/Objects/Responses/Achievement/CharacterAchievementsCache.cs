@@ -2,7 +2,7 @@
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
-    public partial class CharacterAchievementsCache
+    public sealed class CharacterAchievementsCache
     {
         [JsonProperty("icon")]
         public string Icon { get; set; }

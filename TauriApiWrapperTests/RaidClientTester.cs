@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Responses.Raid;
@@ -14,25 +13,23 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetRaidMapsInfo()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
-            {
-                ApiResponse<RaidMaps> returnData = client.GetRaidMaps();
-                Assert.IsNotNull(returnData.Response);
-                Assert.IsTrue(returnData.IsSuccess);
-                Assert.IsTrue(returnData.Response.ClassicRaids.Length > 0);
-                Assert.IsTrue(returnData.Response.BurningCrusadeRaids.Length > 0);
-                Assert.IsTrue(returnData.Response.WrathOfTheLichKingRaids.Length > 0);
-                Assert.IsTrue(returnData.Response.CataclysmRaids.Length > 0);
-                Assert.IsTrue(returnData.Response.MistsOfPandariaRaids.Length > 0);
-            }
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
+            ApiResponse<RaidMaps> returnData = RaidClient.GetRaidMaps(client);
+            Assert.IsNotNull(returnData.Response);
+            Assert.IsTrue(returnData.IsSuccess);
+            Assert.IsTrue(returnData.Response.ClassicRaids.Length > 0);
+            Assert.IsTrue(returnData.Response.BurningCrusadeRaids.Length > 0);
+            Assert.IsTrue(returnData.Response.WrathOfTheLichKingRaids.Length > 0);
+            Assert.IsTrue(returnData.Response.CataclysmRaids.Length > 0);
+            Assert.IsTrue(returnData.Response.MistsOfPandariaRaids.Length > 0);
         }
 
         [TestMethod]
         public void GetLatestRaidsInfo()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
+                ApiResponse<RaidLogsResponse> returnData = RaidClient.GetLatestRaids(client, limit: 5);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);
@@ -43,15 +40,15 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetLatestRaidLogInfo()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidLogsResponse> returnData = client.GetLatestRaids(limit: 5);
+                ApiResponse<RaidLogsResponse> returnData = RaidClient.GetLatestRaids(client, limit: 5);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response.Logs);
                 Assert.IsTrue(returnData.Response.Logs.Length > 0);
 
-                ApiResponse<RaidLog> raidlog = client.GetRaidLogFromId(returnData.Response.Logs[0].LogId);
+                ApiResponse<RaidLog> raidlog = RaidClient.GetRaidLogFromID(client, returnData.Response.Logs[0].LogID);
                 Assert.IsTrue(raidlog.IsSuccess);
                 Assert.IsNotNull(raidlog.Response);
                 Assert.IsNotNull(raidlog.Response.Encounter);
@@ -61,9 +58,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetLatestRaidLogByPlayerName()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromPlayerName("Cat", realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<RaidLogsResponse> returnData = RaidClient.GetRaidLogFromPlayerName(client, "Cat", realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);
@@ -74,9 +71,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetRaidLogFromGuildName()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidLogsResponse> returnData = client.GetRaidLogFromGuildName("Muzykanci z Gruzji", realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<RaidLogsResponse> returnData = RaidClient.GetRaidLogFromGuildName(client, "Muzykanci z Gruzji", realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);
@@ -87,9 +84,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetRaidEncounterRanking()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<RaidEncounterRankingResponse> returnData = RaidClient.GetRaidEncounterRanking(client, 1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);
@@ -100,9 +97,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetRaidGuildEncounterRanking()
         {
-            RaidClient client = new RaidClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<RaidEncounterRankingResponse> returnData = client.GetRaidGuildEncounterRanking(1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<RaidEncounterRankingResponse> returnData = RaidClient.GetRaidGuildEncounterRanking(client, 1623, 5, realm: TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsNotNull(returnData.Response.Logs);

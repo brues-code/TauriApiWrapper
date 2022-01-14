@@ -13,9 +13,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetChallengeIndex()
         {
-            ChallengeModeClient client = new ChallengeModeClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<ChallengeIndex> returnData = client.GetChallengeIndex(TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ChallengeIndex> returnData = ChallengeModeClient.GetChallengeIndex(client, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);
@@ -25,9 +25,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetChallengeLeaderboard()
         {
-            ChallengeModeClient client = new ChallengeModeClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                ApiResponse<ChallengeLeaderboard> returnData = client.GetChallengeLeaderboard((int)TauriApiWrapper.Enums.ChallengeMap.TempleOfTheJadeSerpent, TauriApiWrapper.Enums.Realm.Evermoon);
+                ApiResponse<ChallengeLeaderboard> returnData = ChallengeModeClient.GetChallengeLeaderboard(client, (int)TauriApiWrapper.Enums.ChallengeMap.TempleOfTheJadeSerpent, TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsTrue(returnData.IsSuccess);
                 Assert.IsNotNull(returnData.Response);
                 Assert.IsTrue(returnData.Response.Expansion == TauriApiWrapper.Enums.Expansion.MistsOfPandaria);

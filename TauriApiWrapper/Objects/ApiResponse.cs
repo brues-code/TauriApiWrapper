@@ -19,7 +19,7 @@ namespace TauriApiWrapper.Objects
 
         public CustomError? CustomError { get; internal set; }
 
-        public string ToJSON()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this);
         }

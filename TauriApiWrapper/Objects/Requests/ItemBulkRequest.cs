@@ -6,9 +6,9 @@ namespace TauriApiWrapper.Objects.Requests
 {
     internal sealed class ItemBulkRequest : BaseRequestObject
     {
-        public ItemBulkRequest(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon) : base(realm)
+        public ItemBulkRequest(IEnumerable<int> itemIDs, Realm realm = Realm.Evermoon) : base(realm)
         {
-            ItemIDs = itemIds;
+            ItemIDs = itemIDs;
         }
 
         [JsonProperty("e")]

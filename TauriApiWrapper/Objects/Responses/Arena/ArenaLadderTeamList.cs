@@ -1,13 +1,9 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaLadderTeamList
+    public sealed class ArenaLadderTeamList
     {
         [JsonProperty("name")]
         public string Name { get; set; }

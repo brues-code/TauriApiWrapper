@@ -5,20 +5,17 @@ using System.Threading.Tasks;
 using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Requests;
-using TauriApiWrapper.Objects.Responses;
+using TauriApiWrapper.Objects.Responses.Item;
 
 namespace TauriApiWrapper
 {
-    public sealed class TooltipClient : TauriClient
+    public static class TooltipClient
     {
         private class Endpoints
         {
             public const string ItemTooltip = "item-tooltip";
         }
 
-        public TooltipClient(string apiKey, string secret) : base(apiKey, secret)
-        {
-        }
 
         #region Sync
 
@@ -27,23 +24,23 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="id">ID of the Item</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public ApiResponse<ItemResponse> GetItemById(int id, Realm realm = Realm.Evermoon)
+        public static ApiResponse<ItemResponse> GetItemByID(TauriClient client, int id, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(id, realm));
-            return Communicate<ItemResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemRequest(id, realm));
+            return client.Communicate<ItemResponse>(param);
         }
 
         /// <summary>
         /// Returns a list of items, without enchants/gems
         /// </summary>
-        /// <param name="itemIds">Ids of the items you want to search for</param>
+        /// <param name="itemIDs">IDs of the items you want to search for</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public ApiResponse<List<ItemResponse>> GetItemsByIds(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon)
+        public static ApiResponse<List<ItemResponse>> GetItemsByIDs(TauriClient client, IEnumerable<int> itemIDs, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemBulkRequest(itemIds, realm));
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemBulkRequest(itemIDs, realm));
 
-            ApiResponse<JObject> apiItems = Communicate<JObject>(param);
-            ApiResponse<List<ItemResponse>> sanitizedResponse = GenerateApiResponseFromJson(itemIds, apiItems);
+            ApiResponse<JObject> apiItems = client.Communicate<JObject>(param);
+            ApiResponse<List<ItemResponse>> sanitizedResponse = GenerateApiResponseFromJson(itemIDs, apiItems);
             return sanitizedResponse;
         }
 
@@ -52,10 +49,10 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="guid">Guid of the player's item</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public ApiResponse<ItemResponse> GetItemByGuid(string guid, Realm realm = Realm.Evermoon)
+        public static ApiResponse<ItemResponse> GetItemByGuid(TauriClient client, string guid, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(guid, realm));
-            return Communicate<ItemResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemRequest(guid, realm));
+            return client.Communicate<ItemResponse>(param);
         }
 
         #endregion Sync
@@ -67,23 +64,23 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="id">ID of the Item</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public async Task<ApiResponse<ItemResponse>> GetItemByIdAsync(int id, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<ItemResponse>> GetItemByIDAsync(TauriClient client, int id, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(id, realm));
-            return await CommunicateAsync<ItemResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemRequest(id, realm));
+            return await client.CommunicateAsync<ItemResponse>(param);
         }
 
         /// <summary>
         /// Returns a list of items, without enchants/gems
         /// </summary>
-        /// <param name="itemIds">Ids of the items you want to search for</param>
+        /// <param name="itemIDs">IDs of the items you want to search for</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public async Task<ApiResponse<List<ItemResponse>>> GetItemsByIdsAsync(IEnumerable<int> itemIds, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<List<ItemResponse>>> GetItemsByIDsAsync(TauriClient client, IEnumerable<int> itemIDs, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemBulkRequest(itemIds, realm));
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemBulkRequest(itemIDs, realm));
 
-            ApiResponse<JObject> apiItems = await CommunicateAsync<JObject>(param);
-            ApiResponse<List<ItemResponse>> sanitizedResponse = GenerateApiResponseFromJson(itemIds, apiItems);
+            ApiResponse<JObject> apiItems = await client.CommunicateAsync<JObject>(param);
+            ApiResponse<List<ItemResponse>> sanitizedResponse = GenerateApiResponseFromJson(itemIDs, apiItems);
             return sanitizedResponse;
         }
 
@@ -92,20 +89,20 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="guid">Guid of the player's item</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public async Task<ApiResponse<ItemResponse>> GetItemByGuidAsync(string guid, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<ItemResponse>> GetItemByGuidAsync(TauriClient client, string guid, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.ItemTooltip, Secret, new ItemRequest(guid, realm));
-            return await CommunicateAsync<ItemResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemRequest(guid, realm));
+            return await client.CommunicateAsync<ItemResponse>(param);
         }
 
         #endregion Async
 
         #region Private
 
-        private static ApiResponse<List<ItemResponse>> GenerateApiResponseFromJson(IEnumerable<int> itemIds, ApiResponse<JObject> apiItems)
+        private static ApiResponse<List<ItemResponse>> GenerateApiResponseFromJson(IEnumerable<int> itemIDs, ApiResponse<JObject> apiItems)
         {
             List<ItemResponse> items = new List<ItemResponse>();
-            List<string> comparerKeys = itemIds.Select(x => x.ToString()).ToList();
+            List<string> comparerKeys = itemIDs.Select(x => x.ToString()).ToList();
             foreach (KeyValuePair<string, JToken> item in apiItems.Response)
             {
                 if (!comparerKeys.Contains(item.Key))

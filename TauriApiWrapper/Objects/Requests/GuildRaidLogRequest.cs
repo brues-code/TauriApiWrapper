@@ -5,7 +5,7 @@ namespace TauriApiWrapper.Objects.Requests
 {
     internal sealed class GuildRaidLogRequest : RaidListRequest
     {
-        public GuildRaidLogRequest(string name, Realm realm, int fromID = 0, int limit = 0) : base(realm, fromID: fromID, limit: limit)
+        public GuildRaidLogRequest(string name, Realm realm, long? fromID = null, int limit = 0) : base(realm, 0, fromID: fromID, limit: limit)
         {
             GuildName = name;
         }

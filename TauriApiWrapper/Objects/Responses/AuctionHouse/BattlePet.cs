@@ -2,7 +2,7 @@
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
-    public partial class BattlePet
+    public sealed class BattlePet
     {
         [JsonProperty("battlepetdata")]
         public BattlePetData BattlePetData { get; set; }

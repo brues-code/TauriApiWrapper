@@ -6,7 +6,7 @@ namespace TauriApiWrapper.Objects.Responses.Raid
     public sealed class Encounter
     {
         [JsonProperty("encounter_id")]
-        public int EncounterId { get; set; }
+        public int EncounterID { get; set; }
 
         [JsonProperty("encounter_map")]
         public int EncounterMap { get; set; }

@@ -35,20 +35,17 @@ namespace TauriApiWrapper.Objects.Responses.Character
         [JsonProperty("faction_string_class"), JsonConverter(typeof(FactionConverter))]
         public new Faction Faction { get; set; }
 
-        [JsonProperty("guildName")]
-        public string GuildName { get; set; }
-
         [JsonProperty("guildLinkName")]
         public string GuildLinkName { get; set; }
 
         [JsonProperty("arenaTeam2v2id")]
-        public int ArenaTeam2V2Id { get; set; }
+        public int ArenaTeam2V2ID { get; set; }
 
         [JsonProperty("arenaTeam3v3id")]
-        public int ArenaTeam3V3Id { get; set; }
+        public int ArenaTeam3V3ID { get; set; }
 
         [JsonProperty("arenaTeam5v5id")]
-        public int ArenaTeam5V5Id { get; set; }
+        public int ArenaTeam5V5ID { get; set; }
 
         [JsonProperty("dualSpec")]
         public bool DualSpec { get; set; }

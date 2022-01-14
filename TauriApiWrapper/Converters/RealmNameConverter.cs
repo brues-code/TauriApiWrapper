@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
-using TauriApiWrapper.Extensions;
 using TauriApiWrapper.Enums;
+using TauriApiWrapper.Extensions;
 
 namespace TauriApiWrapper.Converters
 {

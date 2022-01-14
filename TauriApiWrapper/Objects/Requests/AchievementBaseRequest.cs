@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using TauriApiWrapper.Extensions;
 using TauriApiWrapper.Enums;
+using TauriApiWrapper.Extensions;
 
 namespace TauriApiWrapper.Objects.Requests
 {

@@ -15,10 +15,10 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         public int Pos { get; set; }
 
         [JsonProperty("log_id")]
-        public int LogId { get; set; }
+        public int LogID { get; set; }
 
         [JsonProperty("map_id")]
-        public int MapId { get; set; }
+        public int MapID { get; set; }
 
         [JsonProperty("mapentry")]
         public Encounter Encounter { get; set; }

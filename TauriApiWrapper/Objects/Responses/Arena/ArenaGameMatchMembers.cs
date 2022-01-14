@@ -1,16 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.Arena
 {
-    public partial class ArenaGameMatchMembers
+    public sealed class ArenaGameMatchMembers
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [JsonProperty("guid")]
         public int Guid { get; set; }

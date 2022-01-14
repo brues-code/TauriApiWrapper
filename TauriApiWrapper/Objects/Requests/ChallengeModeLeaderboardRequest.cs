@@ -5,12 +5,12 @@ namespace TauriApiWrapper.Objects.Requests
 {
     internal class ChallengeModeLeaderboardRequest : ChallengeModeBaseRequest
     {
-        public ChallengeModeLeaderboardRequest(int mapId, Realm realm) : base(realm)
+        public ChallengeModeLeaderboardRequest(int mapID, Realm realm) : base(realm)
         {
-            MapId = mapId;
+            MapID = mapID;
         }
 
         [JsonProperty("map")]
-        public int MapId { get; set; }
+        public int MapID { get; set; }
     }
 }

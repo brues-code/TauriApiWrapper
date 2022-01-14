@@ -6,7 +6,7 @@ using TauriApiWrapper.Objects.Responses.Raid;
 
 namespace TauriApiWrapper
 {
-    public sealed class RaidClient : TauriClient
+    public static class RaidClient
     {
         private class Endpoints
         {
@@ -19,98 +19,95 @@ namespace TauriApiWrapper
             public const string RaidGuildRankEncounter = "raid-guildrank-encounter";
         }
 
-        public RaidClient(string apiKey, string secretKey) : base(apiKey, secretKey)
-        {
-        }
 
         #region Sync
 
-        public ApiResponse<RaidMaps> GetRaidMaps(Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidMaps> GetRaidMaps(TauriClient client, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidMaps, Secret, new RaidMapRequest(realm));
-            return Communicate<RaidMaps>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidMaps, client.ApiSecret, new RaidMapRequest(realm));
+            return client.Communicate<RaidMaps>(param);
         }
 
-        public ApiResponse<RaidLogsResponse> GetLatestRaids(int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidLogsResponse> GetLatestRaids(TauriClient client, int? mapID = null, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.LatestRaids, Secret, new RaidListRequest(realm, fromID: fromID, limit: limit));
-            return Communicate<RaidLogsResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.LatestRaids, client.ApiSecret, new RaidListRequest(realm, mapID, fromID: fromID, limit: limit));
+            return client.Communicate<RaidLogsResponse>(param);
         }
 
-        public ApiResponse<RaidLog> GetRaidLogFromId(int fromID, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidLog> GetRaidLogFromID(TauriClient client, int fromID, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidLog, Secret, new RaidLogRequest(fromID, realm));
-            return Communicate<RaidLog>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidLog, client.ApiSecret, new RaidLogRequest(fromID, realm));
+            return client.Communicate<RaidLog>(param);
         }
 
-        public ApiResponse<RaidLogsResponse> GetRaidLogFromPlayerName(string name, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidLogsResponse> GetRaidLogFromPlayerName(TauriClient client, string name, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidPlayer, Secret, new PlayerRaidLogRequest(name, realm, fromID: fromID, limit: limit));
-            return Communicate<RaidLogsResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidPlayer, client.ApiSecret, new PlayerRaidLogRequest(name, realm, fromID: fromID, limit: limit));
+            return client.Communicate<RaidLogsResponse>(param);
         }
 
-        public ApiResponse<RaidLogsResponse> GetRaidLogFromGuildName(string name, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidLogsResponse> GetRaidLogFromGuildName(TauriClient client, string name, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidGuild, Secret, new GuildRaidLogRequest(name, realm, fromID: fromID, limit: limit));
-            return Communicate<RaidLogsResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidGuild, client.ApiSecret, new GuildRaidLogRequest(name, realm, fromID: fromID, limit: limit));
+            return client.Communicate<RaidLogsResponse>(param);
         }
 
-        public ApiResponse<RaidEncounterRankingResponse> GetRaidEncounterRanking(int encounter, int difficulty, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidEncounterRankingResponse> GetRaidEncounterRanking(TauriClient client, int encounter, int difficulty, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, Secret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
-            return Communicate<RaidEncounterRankingResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
+            return client.Communicate<RaidEncounterRankingResponse>(param);
         }
 
-        public ApiResponse<RaidEncounterRankingResponse> GetRaidGuildEncounterRanking(int encounter, int difficulty, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static ApiResponse<RaidEncounterRankingResponse> GetRaidGuildEncounterRanking(TauriClient client, int encounter, int difficulty, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, Secret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
-            return Communicate<RaidEncounterRankingResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
+            return client.Communicate<RaidEncounterRankingResponse>(param);
         }
 
         #endregion Sync
 
         #region Async
 
-        public async Task<ApiResponse<RaidMaps>> GetRaidMapsAsync(Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidMaps>> GetRaidMapsAsync(TauriClient client, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidMaps, Secret, new RaidMapRequest(realm));
-            return await CommunicateAsync<RaidMaps>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidMaps, client.ApiSecret, new RaidMapRequest(realm));
+            return await client.CommunicateAsync<RaidMaps>(param);
         }
 
-        public async Task<ApiResponse<RaidLogsResponse>> GetLatestRaidsAsync(int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidLogsResponse>> GetLatestRaidsAsync(TauriClient client, int mapID, long? fromID = null, int limit = 50, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.LatestRaids, Secret, new RaidListRequest(realm, fromID: fromID, limit: limit));
-            return await CommunicateAsync<RaidLogsResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.LatestRaids, client.ApiSecret, new RaidListRequest(realm, mapID, fromID: fromID, limit: limit));
+            return await client.CommunicateAsync<RaidLogsResponse>(param);
         }
 
-        public async Task<ApiResponse<RaidLog>> GetRaidLogFromIdAsync(int fromID, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidLog>> GetRaidLogFromIDAsync(TauriClient client, int fromID, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidLog, Secret, new RaidLogRequest(fromID, realm));
-            return await CommunicateAsync<RaidLog>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidLog, client.ApiSecret, new RaidLogRequest(fromID, realm));
+            return await client.CommunicateAsync<RaidLog>(param);
         }
 
-        public async Task<ApiResponse<RaidLog>> GetRaidLogFromPlayerNameAsync(string name, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidLog>> GetRaidLogFromPlayerNameAsync(TauriClient client, string name, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidPlayer, Secret, new PlayerRaidLogRequest(name, realm, fromID: fromID, limit: limit));
-            return await CommunicateAsync<RaidLog>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidPlayer, client.ApiSecret, new PlayerRaidLogRequest(name, realm, fromID: fromID, limit: limit));
+            return await client.CommunicateAsync<RaidLog>(param);
         }
 
-        public async Task<ApiResponse<RaidLogsResponse>> GetRaidLogFromGuildNameAsync(string name, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidLogsResponse>> GetRaidLogFromGuildNameAsync(TauriClient client, string name, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidGuild, Secret, new GuildRaidLogRequest(name, realm, fromID: fromID, limit: limit));
-            return await CommunicateAsync<RaidLogsResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidGuild, client.ApiSecret, new GuildRaidLogRequest(name, realm, fromID: fromID, limit: limit));
+            return await client.CommunicateAsync<RaidLogsResponse>(param);
         }
 
-        public async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidEncounterRankingAsync(int encounter, int difficulty, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidEncounterRankingAsync(TauriClient client, int encounter, int difficulty, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, Secret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
-            return await CommunicateAsync<RaidEncounterRankingResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
+            return await client.CommunicateAsync<RaidEncounterRankingResponse>(param);
         }
 
-        public async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidGuildEncounterRankingAsync(int encounter, int difficulty, int fromID = 0, int limit = 0, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidGuildEncounterRankingAsync(TauriClient client, int encounter, int difficulty, long? fromID = null, int limit = 0, Realm realm = Realm.Evermoon)
         {
-            ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, Secret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
-            return await CommunicateAsync<RaidEncounterRankingResponse>(param);
+            ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
+            return await client.CommunicateAsync<RaidEncounterRankingResponse>(param);
         }
         #endregion Async
     }

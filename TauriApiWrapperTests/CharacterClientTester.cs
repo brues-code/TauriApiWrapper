@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TauriApiWrapper;
 using TauriApiWrapper.Objects.Responses.Character;
@@ -14,9 +13,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterTooltipByName()
         {
-            CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient c = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterData> data = c.GetCharacterTooltipByName("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterData> data = CharacterClient.GetCharacterTooltipByName(c, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
@@ -26,9 +25,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterSheetByName()
         {
-            CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient c = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> data = c.GetCharacterSheet("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> data = CharacterClient.GetCharacterSheet(c, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
@@ -39,9 +38,9 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public void GetCharacterTalentsByName()
         {
-            CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient c = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterTalents> data = c.GetCharacterTalents("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterTalents> data = CharacterClient.GetCharacterTalents(c, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
                 Assert.IsTrue(!string.IsNullOrEmpty(data.Response.Name));
@@ -51,20 +50,20 @@ namespace TauriApiWrapperTests
         [TestMethod]
         public async Task GetCharacterMountsByName()
         {
-            CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient c = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterMounts> data = await c.GetCharacterMountsByNameAsync("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterMounts> data = await CharacterClient.GetCharacterMountsByNameAsync(c, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
             }
-        } 
-        
+        }
+
         [TestMethod]
         public async Task GetCharacterFeedByName()
         {
-            CharacterClient c = new CharacterClient(_credentials.ApiKey, _credentials.ApiSecret);
+            TauriClient c = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterFeedList> data = await c.GetCharacterFeedByNameAsync("Querý", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterFeedList> data = await CharacterClient.GetCharacterFeedByNameAsync(c, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 Assert.IsNotNull(data.Response);
                 Assert.IsTrue(data.IsSuccess);
             }

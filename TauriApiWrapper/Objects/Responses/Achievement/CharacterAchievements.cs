@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using TauriApiWrapper.Converters;
 using TauriApiWrapper.Enums;
-using TauriApiWrapper.Objects.Responses.Character;
 using TauriApiWrapper.Objects.Responses.Challenge;
+using TauriApiWrapper.Objects.Responses.Character;
 
 namespace TauriApiWrapper.Objects.Responses.Achievement
 {
@@ -53,13 +53,13 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         public string GuildName { get; set; }
 
         [JsonProperty("arenaTeam2v2id")]
-        public int ArenaTeam2v2Id { get; set; }
+        public int ArenaTeam2v2ID { get; set; }
 
         [JsonProperty("arenaTeam3v3id")]
-        public int ArenaTeam3v3Id { get; set; }
+        public int ArenaTeam3v3ID { get; set; }
 
         [JsonProperty("arenaTeam5v5id")]
-        public int ArenaTeam5v5Id { get; set; }
+        public int ArenaTeam5v5ID { get; set; }
 
         [JsonProperty("dualSpec")]
         public bool DualSpec { get; set; }

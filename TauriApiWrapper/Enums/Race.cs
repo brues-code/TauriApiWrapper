@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Race
+    public enum Race : byte
     {
         Undefined = 0,
         Human = 1,

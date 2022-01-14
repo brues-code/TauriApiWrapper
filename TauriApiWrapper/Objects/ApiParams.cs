@@ -4,13 +4,13 @@ namespace TauriApiWrapper.Objects
 {
     public class ApiParams
     {
-        [JsonProperty(PropertyName = "secret")]
+        [JsonProperty(PropertyName = "secret", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Secret { get; private set; }
 
-        [JsonProperty(PropertyName = "params")]
+        [JsonProperty(PropertyName = "params", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public IApiParam Params { get; private set; }
 
-        [JsonProperty(PropertyName = "url")]
+        [JsonProperty(PropertyName = "url", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Url { get; }
 
         #region Ctor
@@ -30,9 +30,12 @@ namespace TauriApiWrapper.Objects
 
         #region Public Methods
 
-        public string ToJSON()
+        public string ToJson()
         {
-            return JsonConvert.SerializeObject(this);
+            return JsonConvert.SerializeObject(this, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
         }
 
         #endregion Public Methods

@@ -5,7 +5,7 @@ namespace TauriApiWrapper.Objects.Requests
 {
     internal sealed class EncounterRankingRequest : RaidListRequest
     {
-        public EncounterRankingRequest(int encounter, int difficulty, Realm realm, int fromID = 0, int limit = 0) : base(realm, fromID: fromID, limit: limit)
+        public EncounterRankingRequest(int encounter, int difficulty, Realm realm, long? fromID = null, int limit = 0) : base(realm, 0, fromID: fromID, limit: limit)
         {
             Encounter = encounter;
             Difficulty = difficulty;

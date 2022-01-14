@@ -4,7 +4,7 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Objects.Responses.AuctionHouse
 {
-    public partial class Auctioneer
+    public sealed class Auctioneer
     {
         [JsonProperty("auc")]
         public int Auc { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace TauriApiWrapper.Enums
 {
-    public enum Gender
+    public enum Gender : short
     {
         Undefined = -1,
         Male = 0,
