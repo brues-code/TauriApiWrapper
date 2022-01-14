@@ -74,7 +74,7 @@ namespace TauriApiWrapper
             return await client.CommunicateAsync<RaidMaps>(param);
         }
 
-        public static async Task<ApiResponse<RaidLogsResponse>> GetLatestRaidsAsync(TauriClient client, int mapID, long? fromID = null, int limit = 50, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<RaidLogsResponse>> GetLatestRaidsAsync(TauriClient client, int? mapID = null, long? fromID = null, int limit = 50, Realm realm = Realm.Evermoon)
         {
             ApiParams param = new ApiParams(Endpoints.LatestRaids, client.ApiSecret, new RaidListRequest(realm, mapID, fromID: fromID, limit: limit));
             return await client.CommunicateAsync<RaidLogsResponse>(param);

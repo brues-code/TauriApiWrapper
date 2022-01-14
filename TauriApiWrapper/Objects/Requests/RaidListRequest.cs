@@ -15,7 +15,7 @@ namespace TauriApiWrapper.Objects.Requests
         [JsonProperty("from")]
         public long? From { get; set; }
 
-        [JsonProperty("mapid")]
+        [JsonProperty("map")]
         public int? MapID { get; set; }
 
         [JsonProperty("limit")]
