@@ -39,7 +39,7 @@ namespace TauriApiWrapperTests
         {
             TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
             {
-                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> itemData = CharacterClient.GetCharacterSheet(client, "Cat", TauriApiWrapper.Enums.Realm.Evermoon);
+                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> itemData = CharacterClient.GetCharacterSheet(client, "Querý", TauriApiWrapper.Enums.Realm.Evermoon);
                 foreach (var item in itemData.Response.CharacterItems)
                 {
                     ApiResponse<ItemResponse> returnData = TooltipClient.GetItemByGuid(client, item.Guid.ToString());
