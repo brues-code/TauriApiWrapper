@@ -25,6 +25,7 @@
         NorthrendSkeleton = 20,
         IceTroll = 21,
         Worgen = 22,
-        Gilnean = 23
+        Gilnean = 23,
+        Pandaren = 26
     }
 }
