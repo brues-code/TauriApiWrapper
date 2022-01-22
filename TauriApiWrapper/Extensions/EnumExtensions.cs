@@ -4,9 +4,9 @@ using TauriApiWrapper.Enums;
 
 namespace TauriApiWrapper.Extensions
 {
-    internal static class EnumExtensions
+    public static class EnumExtensions
     {
-        internal static string ToName(this Enum val)
+        public static string ToName(this Enum val)
         {
             NameAttribute[] attributes = (NameAttribute[])val
                .GetType()

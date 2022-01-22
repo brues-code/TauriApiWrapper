@@ -33,23 +33,5 @@ namespace TauriApiWrapperTests
                 Assert.IsTrue(returnData.IsSuccess);
             }
         }
-
-        [TestMethod]
-        public void GetItemByGuid()
-        {
-            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
-            {
-                TauriApiWrapper.Objects.ApiResponse<CharacterSheet> itemData = CharacterClient.GetCharacterSheet(client, "Cat", TauriApiWrapper.Enums.Realm.Evermoon);
-                foreach (var item in itemData.Response.CharacterItems)
-                {
-                    ApiResponse<ItemResponse> returnData = TooltipClient.GetItemByGuid(client, item.Guid.ToString());
-
-                    Assert.IsNotNull(returnData.Response);
-                    Assert.IsTrue(returnData.IsSuccess);
-
-                }
-
-            }
-        }
     }
 }

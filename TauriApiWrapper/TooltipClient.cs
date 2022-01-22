@@ -75,7 +75,7 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="itemIDs">IDs of the items you want to search for</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public static async Task<ApiResponse<List<ItemResponse>>> GetItemsByIDsAsync(TauriClient client, IEnumerable<int> itemIDs, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<List<ItemResponse>>> GetItemsByIDsAsync(TauriClient client, IEnumerable<int> itemIDs, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemBulkRequest(itemIDs, realm));
 
@@ -89,7 +89,7 @@ namespace TauriApiWrapper
         /// </summary>
         /// <param name="guid">Guid of the player's item</param>
         /// <param name="realm">Realm to search on. Default is <see cref="Realm.Evermoon"/></param>
-        public static async Task<ApiResponse<ItemResponse>> GetItemByGuidAsync(TauriClient client, string guid, Realm realm = Realm.Evermoon)
+        public static async Task<ApiResponse<ItemResponse>> GetItemByGuidAsync(TauriClient client, string guid, Realm realm)
         {
             ApiParams param = new ApiParams(Endpoints.ItemTooltip, client.ApiSecret, new ItemRequest(guid, realm));
             return await client.CommunicateAsync<ItemResponse>(param);
