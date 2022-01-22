@@ -1,5 +1,6 @@
-﻿using RestSharp;
-using System;
+﻿using System;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using TauriApiWrapper.Objects;
 
@@ -7,6 +8,7 @@ namespace TauriApiWrapper
 {
     public class TauriClient
     {
+        private static HttpClient _client = new HttpClient();
         public TauriClient(string apiKey, string apiSecret, bool useStormforgeApi)
         {
             ApiKey = apiKey;
@@ -77,36 +79,23 @@ namespace TauriApiWrapper
 
         private string CallAPI(ApiParams data)
         {
-            SetRequestData(data, out RestClient client, out RestRequest request);
-            IRestResponse response = client.Execute(request);
-
-            if (response.IsSuccessful)
-            {
-                return response.Content;
-            }
-            return default;
+           return CallAPIAsync(data).GetAwaiter().GetResult();
         }
 
         private async Task<string> CallAPIAsync(ApiParams data)
         {
-            SetRequestData(data, out RestClient client, out RestRequest request);
-            IRestResponse response = await client.ExecuteAsync(request).ConfigureAwait(false);
+            using HttpResponseMessage response = await _client.PostAsync(Endpoint, SetRequestData(data)).ConfigureAwait(false);
 
-            if (response.IsSuccessful)
+            if (response.IsSuccessStatusCode)
             {
-                return response.Content;
+                return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             }
             return default;
         }
 
-        private void SetRequestData(ApiParams data, out RestClient client, out RestRequest request)
+        private StringContent SetRequestData(ApiParams data)
         {
-            client = new RestClient(Endpoint);
-            client.Timeout = -1;
-            request = new RestRequest(Method.POST);
-            request.AddHeader("Content-Type", "application/json");
-            string requestData = data.ToJson();
-            request.AddParameter("application/json", requestData, ParameterType.RequestBody);
+            return new StringContent(data.ToJson(), Encoding.UTF8, "application/json");
         }
 
         #endregion Privates
