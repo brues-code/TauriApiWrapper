@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 using TauriApiWrapper;
+using TauriApiWrapper.Enums;
 using TauriApiWrapper.Objects;
 using TauriApiWrapper.Objects.Responses.Raid;
 
@@ -52,6 +54,19 @@ namespace TauriApiWrapperTests
                 Assert.IsTrue(raidlog.IsSuccess);
                 Assert.IsNotNull(raidlog.Response);
                 Assert.IsNotNull(raidlog.Response.Encounter);
+            }
+        } 
+        
+        [TestMethod]
+        public async Task GetRaidEncounterRankings()
+        {
+            TauriClient client = new TauriClient(_credentials.ApiKey, _credentials.ApiSecret, false);
+            {
+                var returnData = await RaidClient.GetRaidEncounterRankingAsync(client, 1623, RaidDifficulty.TwentyFivePlayerHeroic, TauriApiWrapper.Enums.Realm.Evermoon);
+                Assert.IsNotNull(returnData.Response);
+                Assert.IsTrue(returnData.IsSuccess);
+                Assert.IsNotNull(returnData.Response.Logs);
+                Assert.IsTrue(returnData.Response.Logs.Length > 0);
             }
         }
 

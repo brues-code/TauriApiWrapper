@@ -52,13 +52,13 @@ namespace TauriApiWrapper
             return client.Communicate<RaidLogsResponse>(param);
         }
 
-        public static ApiResponse<RaidEncounterRankingResponse> GetRaidEncounterRanking(TauriClient client, int encounter, int difficulty, Realm realm, long? fromID = null, int limit = 0)
+        public static ApiResponse<RaidEncounterRankingResponse> GetRaidEncounterRanking(TauriClient client, int encounter, RaidDifficulty difficulty, Realm realm, long? fromID = null, int limit = 0)
         {
             ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
             return client.Communicate<RaidEncounterRankingResponse>(param);
         }
 
-        public static ApiResponse<RaidEncounterRankingResponse> GetRaidGuildEncounterRanking(TauriClient client, int encounter, int difficulty, Realm realm, long? fromID = null, int limit = 0)
+        public static ApiResponse<RaidEncounterRankingResponse> GetRaidGuildEncounterRanking(TauriClient client, int encounter, RaidDifficulty difficulty, Realm realm, long? fromID = null, int limit = 0)
         {
             ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
             return client.Communicate<RaidEncounterRankingResponse>(param);
@@ -98,13 +98,13 @@ namespace TauriApiWrapper
             return await client.CommunicateAsync<RaidLogsResponse>(param);
         }
 
-        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidEncounterRankingAsync(TauriClient client, int encounter, int difficulty, Realm realm, long? fromID = null, int limit = 0)
+        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidEncounterRankingAsync(TauriClient client, int encounter, RaidDifficulty difficulty, Realm realm, long? fromID = null, int limit = 0)
         {
             ApiParams param = new ApiParams(Endpoints.RaidRankEcounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
             return await client.CommunicateAsync<RaidEncounterRankingResponse>(param);
         }
 
-        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidGuildEncounterRankingAsync(TauriClient client, int encounter, int difficulty, Realm realm, long? fromID = null, int limit = 0)
+        public static async Task<ApiResponse<RaidEncounterRankingResponse>> GetRaidGuildEncounterRankingAsync(TauriClient client, int encounter, RaidDifficulty difficulty, Realm realm, long? fromID = null, int limit = 0)
         {
             ApiParams param = new ApiParams(Endpoints.RaidGuildRankEncounter, client.ApiSecret, new EncounterRankingRequest(encounter, difficulty, realm, fromID: fromID, limit: limit));
             return await client.CommunicateAsync<RaidEncounterRankingResponse>(param);
