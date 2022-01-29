@@ -27,19 +27,19 @@ namespace TauriApiWrapper.Objects.Responses.Raid
         public RaidDifficulty Difficulty { get; set; }
 
         [JsonProperty("rid")]
-        public int RaidID { get; set; }
+        public int RealmID { get; set; }
 
         [JsonProperty("guildid")]
         public int GuildID { get; set; }
 
         [JsonProperty("guildrid")]
-        public int GuildRaidID { get; set; }
+        public int GuildRealmID { get; set; }
 
         [JsonProperty("guilddata")]
         public GuildData GuildData { get; set; }
 
         [JsonProperty("killtime"), JsonConverter(typeof(UnixDateConverter))]
-        public DateTime KillTime { get; set; }
+        public DateTime KillDate { get; set; }
 
         [JsonProperty("wipes")]
         public int Wipes { get; set; }
