@@ -9,11 +9,15 @@ namespace TauriApiWrapper
     public class TauriClient
     {
         private static HttpClient _client = new HttpClient();
-        public TauriClient(string apiKey, string apiSecret, bool useStormforgeApi)
+        public TauriClient(string apiKey, string apiSecret, bool useStormforgeApi, TimeSpan timeout = default)
         {
             ApiKey = apiKey;
             IsStormforge = useStormforgeApi;
             ApiSecret = apiSecret;
+            if (timeout != default)
+            {
+                _client.Timeout = timeout;
+            }
         }
 
         #region Fields 
@@ -79,7 +83,7 @@ namespace TauriApiWrapper
 
         private string CallAPI(ApiParams data)
         {
-           return CallAPIAsync(data).GetAwaiter().GetResult();
+            return CallAPIAsync(data).GetAwaiter().GetResult();
         }
 
         private async Task<string> CallAPIAsync(ApiParams data)
