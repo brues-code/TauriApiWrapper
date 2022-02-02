@@ -26,6 +26,8 @@
         IceTroll = 21,
         Worgen = 22,
         Gilnean = 23,
-        Pandaren = 26
+        Pandaren_Neutral = 24,
+        Pandaren_Alliance = 25,
+        Pandaren_Horde  = 26
     }
 }
