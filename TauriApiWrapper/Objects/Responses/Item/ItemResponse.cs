@@ -183,7 +183,7 @@ namespace TauriApiWrapper.Objects.Responses.Item
         public int Armory { get; set; }
 
         [JsonProperty("SpellTrigger")]
-        public int[] SpellTrigger { get; set; }
+        public long[] SpellTrigger { get; set; }
 
         [JsonProperty("SpellID")]
         public object[] SpellID { get; set; }
