@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TauriApiWrapper.Objects;
@@ -18,6 +19,12 @@ namespace TauriApiWrapper
             {
                 _client.Timeout = timeout;
             }
+
+            ProductInfoHeaderValue productValue = new ProductInfoHeaderValue("TauriApiWrapper", GetType().Assembly.GetName().Version.ToString());
+            ProductInfoHeaderValue commentValue = new ProductInfoHeaderValue("(+https://github.com/Tauri-WoW-Community-Devs/TauriApiWrapper)");
+
+            _client.DefaultRequestHeaders.UserAgent.Add(productValue);
+            _client.DefaultRequestHeaders.UserAgent.Add(commentValue);
         }
 
         #region Fields 
