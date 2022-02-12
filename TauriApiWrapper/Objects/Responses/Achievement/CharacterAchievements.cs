@@ -37,6 +37,9 @@ namespace TauriApiWrapper.Objects.Responses.Achievement
         [JsonProperty("race")]
         public Race Race { get; set; }
 
+        [JsonProperty("gender")]
+        public Gender Gender { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
